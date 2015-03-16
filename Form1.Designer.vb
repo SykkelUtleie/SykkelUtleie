@@ -53,12 +53,14 @@ Partial Class Form1
         Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdministreringAvDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
@@ -305,6 +307,15 @@ Partial Class Form1
         Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.AVSLUTTToolStripMenuItem.Text = "AVSLUTT"
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(445, 233)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 58)
+        Me.Button1.TabIndex = 10
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -354,5 +365,6 @@ Partial Class Form1
     Friend WithEvents BestillingAvSyklerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AdministreringAvDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class
