@@ -24,6 +24,8 @@ Partial Class Administrering_av_database
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -46,12 +48,34 @@ Partial Class Administrering_av_database
         Me.Button7.Text = "LUKK"
         Me.Button7.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Button2.Location = New System.Drawing.Point(179, 22)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(131, 89)
+        Me.Button2.TabIndex = 7
+        Me.Button2.Text = "Opprette en database"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Button3.Location = New System.Drawing.Point(346, 22)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(131, 89)
+        Me.Button3.TabIndex = 8
+        Me.Button3.Text = "Opprette en database"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Administrering_av_database
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(519, 244)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Administrering_av_database"
@@ -62,4 +86,6 @@ Partial Class Administrering_av_database
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class
