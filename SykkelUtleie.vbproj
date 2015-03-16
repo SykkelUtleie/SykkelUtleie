@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DDE802A2-BFFE-4657-A5A5-CFB455D39E28}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>SykkelUtleie.My.MyApplication</StartupObject>
+    <RootNamespace>SykkelUtleie</RootNamespace>
+    <AssemblyName>SykkelUtleie</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>SykkelUtleie.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>SykkelUtleie.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administrering av database.Designer.vb">
+      <DependentUpon>Administrering av database.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Administrering av database.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bestilling og tilbakelevering av sykler.Designer.vb">
+      <DependentUpon>Bestilling og tilbakelevering av sykler.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bestilling og tilbakelevering av sykler.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bestilling og tilbakelevering av utstyr.Designer.vb">
+      <DependentUpon>Bestilling og tilbakelevering av utstyr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bestilling og tilbakelevering av utstyr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI.vb" />
+    <Compile Include="Kunde.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Registrering av gruppe.Designer.vb">
+      <DependentUpon>Registrering av gruppe.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrering av gruppe.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrering av ny enkelt kunde.Designer.vb">
+      <DependentUpon>Registrering av ny enkelt kunde.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrering av ny enkelt kunde.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrering av ny sykkel.Designer.vb">
+      <DependentUpon>Registrering av ny sykkel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrering av ny sykkel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrering av nytt utstyr.Designer.vb">
+      <DependentUpon>Registrering av nytt utstyr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Registrering av nytt utstyr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reparasjon.Designer.vb">
+      <DependentUpon>Reparasjon.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reparasjon.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Slett kunde.Designer.vb">
+      <DependentUpon>Slett kunde.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Slett kunde.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Slett sykkel.Designer.vb">
+      <DependentUpon>Slett sykkel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Slett sykkel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Slett utstyr.Designer.vb">
+      <DependentUpon>Slett utstyr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Slett utstyr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sok i kundebase.Designer.vb">
+      <DependentUpon>Sok i kundebase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sok i kundebase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sok i sykkelbase.Designer.vb">
+      <DependentUpon>Sok i sykkelbase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sok i sykkelbase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sok i utstyrbase.Designer.vb">
+      <DependentUpon>Sok i utstyrbase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sok i utstyrbase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sporring.vb" />
+    <Compile Include="Sykkel.vb" />
+    <Compile Include="Utskrift.Designer.vb">
+      <DependentUpon>Utskrift.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utskrift.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utstyr.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Administrering av database.resx">
+      <DependentUpon>Administrering av database.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bestilling og tilbakelevering av sykler.resx">
+      <DependentUpon>Bestilling og tilbakelevering av sykler.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bestilling og tilbakelevering av utstyr.resx">
+      <DependentUpon>Bestilling og tilbakelevering av utstyr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrering av gruppe.resx">
+      <DependentUpon>Registrering av gruppe.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrering av ny enkelt kunde.resx">
+      <DependentUpon>Registrering av ny enkelt kunde.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrering av ny sykkel.resx">
+      <DependentUpon>Registrering av ny sykkel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registrering av nytt utstyr.resx">
+      <DependentUpon>Registrering av nytt utstyr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reparasjon.resx">
+      <DependentUpon>Reparasjon.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slett kunde.resx">
+      <DependentUpon>Slett kunde.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slett sykkel.resx">
+      <DependentUpon>Slett sykkel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Slett utstyr.resx">
+      <DependentUpon>Slett utstyr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sok i kundebase.resx">
+      <DependentUpon>Sok i kundebase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sok i sykkelbase.resx">
+      <DependentUpon>Sok i sykkelbase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sok i utstyrbase.resx">
+      <DependentUpon>Sok i utstyrbase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utskrift.resx">
+      <DependentUpon>Utskrift.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
