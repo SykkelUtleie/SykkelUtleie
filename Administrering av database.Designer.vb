@@ -56,7 +56,7 @@ Partial Class Administrering_av_database
         Me.Controls.Add(Me.Button1)
         Me.Name = "Administrering_av_database"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Administrering_av_database"
+        Me.Text = "Administrering"
         Me.ResumeLayout(False)
 
     End Sub
