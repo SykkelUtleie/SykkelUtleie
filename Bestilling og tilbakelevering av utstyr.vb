@@ -69,7 +69,7 @@ Public Class Bestilling_og_tilbakelevering_av_utstyr
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.cBox4 = ComboBox4 : a.lab1 = Label14 : a.but1 = Button2
-        a.lagrePosisjon()
+
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Button2.Enabled = True

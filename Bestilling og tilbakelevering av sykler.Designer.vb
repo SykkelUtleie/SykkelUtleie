@@ -42,6 +42,8 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -56,6 +58,8 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.ComboBox5 = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -66,7 +70,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -75,14 +78,14 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -213,6 +216,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DataGridView3)
         Me.GroupBox1.Controls.Add(Me.DataGridView2)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
@@ -224,6 +228,28 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.GroupBox1.Size = New System.Drawing.Size(568, 410)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(7, 289)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.ReadOnly = True
+        Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView3.Size = New System.Drawing.Size(555, 115)
+        Me.DataGridView3.TabIndex = 38
+        Me.DataGridView3.Visible = False
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(7, 289)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView2.Size = New System.Drawing.Size(555, 115)
+        Me.DataGridView2.TabIndex = 37
+        Me.DataGridView2.Visible = False
         '
         'Button2
         '
@@ -351,13 +377,14 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button4)
+        Me.GroupBox3.Controls.Add(Me.Label5)
         Me.GroupBox3.Controls.Add(Me.Button3)
         Me.GroupBox3.Controls.Add(Me.ComboBox5)
         Me.GroupBox3.Controls.Add(Me.Label15)
         Me.GroupBox3.Controls.Add(Me.GroupBox4)
         Me.GroupBox3.Controls.Add(Me.Label14)
         Me.GroupBox3.Controls.Add(Me.Label8)
-        Me.GroupBox3.Controls.Add(Me.ComboBox4)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.ComboBox3)
         Me.GroupBox3.Controls.Add(Me.Label11)
@@ -372,10 +399,32 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Sykkel som skal leies eller tilbakeleveres:"
         '
+        'Button4
+        '
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Button4.Location = New System.Drawing.Point(162, 238)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(104, 27)
+        Me.Button4.TabIndex = 38
+        Me.Button4.Text = "Legg til sykkel"
+        Me.Button4.UseVisualStyleBackColor = True
+        Me.Button4.Visible = False
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(228, 28)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(45, 13)
+        Me.Label5.TabIndex = 37
+        Me.Label5.Text = "Label5"
+        '
         'Button3
         '
+        Me.Button3.Enabled = False
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Button3.Location = New System.Drawing.Point(81, 238)
+        Me.Button3.Location = New System.Drawing.Point(37, 238)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(104, 27)
         Me.Button3.TabIndex = 36
@@ -385,6 +434,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'ComboBox5
         '
         Me.ComboBox5.FormattingEnabled = True
+        Me.ComboBox5.Items.AddRange(New Object() {"finse"})
         Me.ComboBox5.Location = New System.Drawing.Point(124, 149)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(143, 21)
@@ -463,15 +513,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label8.TabIndex = 28
         Me.Label8.Text = "Sykkeltype"
         '
-        'ComboBox4
-        '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
-        Me.ComboBox4.Location = New System.Drawing.Point(232, 22)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(40, 21)
-        Me.ComboBox4.TabIndex = 27
-        '
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
@@ -485,6 +526,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Items.AddRange(New Object() {"finse"})
         Me.ComboBox3.Location = New System.Drawing.Point(124, 122)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(143, 21)
@@ -544,16 +586,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Button1.Text = "Vis kunde"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(7, 289)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(555, 115)
-        Me.DataGridView2.TabIndex = 37
-        Me.DataGridView2.Visible = False
-        '
         'Bestilling_og_tilbakelevering_av_sykler
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -568,6 +600,8 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -575,7 +609,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.GroupBox3.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -606,7 +639,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ComboBox4 As System.Windows.Forms.ComboBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
@@ -634,4 +666,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Button4 As System.Windows.Forms.Button
 End Class
