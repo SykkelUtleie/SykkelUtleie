@@ -52,6 +52,8 @@ Partial Class Bestilling_og_tilbakelevering_av_utstyr
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
@@ -78,8 +80,6 @@ Partial Class Bestilling_og_tilbakelevering_av_utstyr
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
@@ -94,7 +94,7 @@ Partial Class Bestilling_og_tilbakelevering_av_utstyr
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(592, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(899, 24)
         Me.MenuStrip1.TabIndex = 7
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -339,6 +339,24 @@ Partial Class Bestilling_og_tilbakelevering_av_utstyr
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Utstyr som skal leies eller tilbakeleveres:"
         '
+        'ComboBox5
+        '
+        Me.ComboBox5.FormattingEnabled = True
+        Me.ComboBox5.Items.AddRange(New Object() {"a", "b", "c"})
+        Me.ComboBox5.Location = New System.Drawing.Point(125, 143)
+        Me.ComboBox5.Name = "ComboBox5"
+        Me.ComboBox5.Size = New System.Drawing.Size(143, 21)
+        Me.ComboBox5.TabIndex = 35
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(12, 146)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(104, 13)
+        Me.Label15.TabIndex = 34
+        Me.Label15.Text = "Tilbakeleveringssted"
+        '
         'Button3
         '
         Me.Button3.Location = New System.Drawing.Point(166, 175)
@@ -582,29 +600,11 @@ Partial Class Bestilling_og_tilbakelevering_av_utstyr
         Me.Button1.Text = "Bestilling"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'ComboBox5
-        '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Items.AddRange(New Object() {"a", "b", "c"})
-        Me.ComboBox5.Location = New System.Drawing.Point(125, 143)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(143, 21)
-        Me.ComboBox5.TabIndex = 35
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(12, 146)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(104, 13)
-        Me.Label15.TabIndex = 34
-        Me.Label15.Text = "Tilbakeleveringssted"
-        '
         'Bestilling_og_tilbakelevering_av_utstyr
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(592, 373)
+        Me.ClientSize = New System.Drawing.Size(899, 406)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
