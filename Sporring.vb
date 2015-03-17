@@ -1,5 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
+Imports System.Net.Mail
+Imports System.Text
 Public Class Sporring
     Private sporring As String
     Protected Friend registr, soke, soke1, kundeSok, sykkelSok, slette, spor, sykID, kundID As String
@@ -55,28 +57,35 @@ Public Class Sporring
             "PRIMARY KEY (`SykkelID`)) ENGINE=MyISAM;" &
             "ALTER TABLE `Reparasjon` " &
             "ADD FOREIGN KEY(SykkelID) REFERENCES Sykkel(SykkelID);"
-        sporring += "CREATE TABLE `Sykkel_bestilling_tilbakelevering` (`SykkelID` int UNSIGNED NOT NULL, " &
-            "`Utleied_av` int UNSIGNED NOT NULL, " &
-            "`Dato_fra` date default NULL, " &
-            "`Dato_til` date default NULL, " &
-            "`Utleiested` varchar(30) default NULL, " &
-            "`Tilbakeleveringssted` varchar(30) default NULL, " &
-            "PRIMARY KEY (`SykkelID`)) ENGINE=MyISAM; " &
-            "ALTER TABLE `Sykkel_bestilling_tilbakelevering` " &
-            "ADD FOREIGN KEY(SykkelID) REFERENCES Sykkel(SykkelID); " &
-            "ALTER TABLE `Sykkel_bestilling_tilbakelevering` " &
+        sporring += "CREATE TABLE `Bestilling_tilbakelevering` (`BestillingID` int(10) NOT NULL AUTO_INCREMENT, " &
+            "`Utleied_av` int(10) unsigned NOT NULL, " &
+            "`Dato_fra` date DEFAULT NULL, " &
+            "`Dato_til` date DEFAULT NULL, " &
+            "`Utleiested` varchar(30) DEFAULT NULL, " &
+            "`Tilbakeleveringssted` varchar(30) DEFAULT NULL, " &
+            "`Dato_b` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, " &
+            "PRIMARY KEY (`BestillingID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1; " &
+            "ALTER TABLE `Bestilling_tilbakelevering` " &
             "ADD FOREIGN KEY(Utleied_av) REFERENCES Kunde(KundeID);"
-        sporring += "CREATE TABLE `Utstyr_bestilling_tilbakelevering` (`UtstyrID` int UNSIGNED NOT NULL, " &
-            "`Utleied_av` int UNSIGNED NOT NULL, " &
-            "`Dato_fra` date default NULL, " &
-            "`Dato_til` date default NULL, " &
-            "`Utleiested` varchar(30) default NULL, " &
-            "`Tilbakeleveringssted` varchar(30) default NULL, " &
-            "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM;" &
-            "ALTER TABLE `Utstyr_bestilling_tilbakelevering` " &
-            "ADD FOREIGN KEY(UtstyrID) REFERENCES Utstyr(UtstyrID); " &
-            "ALTER TABLE `Utstyr_bestilling_tilbakelevering` " &
-            "ADD FOREIGN KEY(Utleied_av) REFERENCES Kunde(KundeID);"
+        sporring += "CREATE TABLE`Sykkel_bestilling` (`BestillingID` int(10) unsigned NOT NULL, " &
+            "`SykkelID` int(10) unsigned NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1;" &
+            "ALTER TABLE `Sykkel_bestilling` " &
+            "ADD FOREIGN KEY(SykkelID) REFERENCES Sykkel(SykkelID);" &
+            "ALTER TABLE `Sykkel_bestilling` " &
+            "ADD FOREIGN KEY(BestillingID) REFERENCES Bestilling_tilbakelevering(BestillingID);"
+        sporring += "CREATE TABLE `Utstyr_bestilling` (`BestillingID` int(10) unsigned NOT NULL, " &
+            "`UtstyrID` int(10) unsigned NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1; " &
+            "ALTER TABLE `Utstyr_bestilling` " &
+            "ADD FOREIGN KEY(UtstyrID) REFERENCES Utstyr(UtstyrID);" &
+            "ALTER TABLE `Sykkel_bestilling` " &
+            "ADD FOREIGN KEY(BestillingID) REFERENCES Bestilling_tilbakelevering(BestillingID);"
+        sporring += "CREATE TABLE `auth` (`id` int(11) NOT NULL AUTO_INCREMENT, " &
+            "`klasse` int(11) NOT NULL, " &
+            "`navn` varchar(50) DEFAULT NULL, " &
+            "`login` varchar(50) DEFAULT NULL, " &
+            "`password` varchar(50) DEFAULT NULL, " &
+            "`epost` varchar(50) DEFAULT NULL, " &
+            "PRIMARY KEY (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;"
         data = query(sporring)
         MsgBox("Databasen er opprettet!", MsgBoxStyle.Information)
     End Sub
@@ -117,7 +126,7 @@ Public Class Sporring
             Next rad
         ElseIf soke = "tSoke" Then
             Dim data1 As New DataTable
-            Dim sporring1 As String = "SELECT Sykkeltype, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL) GROUP BY Sykkeltype"
+            Dim sporring1 As String = "SELECT Sykkeltype, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL) GROUP BY Sykkeltype"
             data1 = query(sporring1)
             Dim rad As DataRow
             Dim sykkeltype, antallType As String
@@ -130,7 +139,7 @@ Public Class Sporring
             tilbSykkel()
         Else
             Dim data As New DataTable
-            sporring = "SELECT Sykkeltype, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Sykkeltype"
+            sporring = "SELECT Sykkeltype, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Sykkeltype"
             data = query(sporring)
             Dim rad As DataRow
             Dim sykkeltype, antallType As String
@@ -160,7 +169,7 @@ Public Class Sporring
             Dim hjelp As String = sporBox1.Text
             Dim a() As String = hjelp.Split(" ")
             Dim data As New DataTable
-            sporring = "SELECT Sykkelmerke, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND SykkelID IN (SELECT s.SykkelID FROM Sykkel_bestilling s, Sykkel_bestilling_tilbakelevering sb WHERE sb.Utleied_av = " & kundID & ") GROUP BY Sykkelmerke"
+            sporring = "SELECT Sykkelmerke, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND SykkelID IN (SELECT s.SykkelID FROM Sykkel_bestilling s,Bestilling_tilbakelevering sb WHERE sb.Utleied_av = " & kundID & ") GROUP BY Sykkelmerke"
             data = query(sporring)
             Dim rad As DataRow
             Dim sykkelmerke, antallMerke As String
@@ -175,7 +184,7 @@ Public Class Sporring
             Dim hjelp As String = sporBox1.Text
             Dim a() As String = hjelp.Split(" ")
             Dim data As New DataTable
-            sporring = "SELECT Sykkelmerke, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) GROUP BY Sykkelmerke"
+            sporring = "SELECT Sykkelmerke, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) GROUP BY Sykkelmerke"
             data = query(sporring)
             Dim rad As DataRow
             Dim sykkelmerke, antallMerke As String
@@ -196,7 +205,7 @@ Public Class Sporring
             KundeID = rad1("KundeID")
         Next rad1
         Dim data2 As New DataTable
-        Dim sporring3 As String = "INSERT INTO Sykkel_bestilling_tilbakelevering(Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted) VALUES('" & KundeID &
+        Dim sporring3 As String = "INSERT INTO Bestilling_tilbakelevering(Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted) VALUES('" & KundeID &
         "', '" & sporDatoFra & "', '" & sporDatoTil & "', '" & sporBox3.Text & "',NULL)"
         data2 = query(sporring3)
         Dim rad6 As Integer = 0
@@ -205,7 +214,7 @@ Public Class Sporring
             Dim merke As String = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(2).Value.ToString
             rad6 += 1
             Dim data As New DataTable
-            Dim sporring1 As String = "SELECT MIN(SykkelID) FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
+            Dim sporring1 As String = "SELECT MIN(SykkelID) FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
             data = query(sporring1)
             Dim rad As DataRow = data.Rows(0)
             Dim sykkelId As Integer
@@ -285,7 +294,7 @@ Public Class Sporring
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                     Case "stjaletsykler"
                         Dim dt As Date = Date.Now
-                        sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Dato_til >= '" & dt.ToString("yyyy-MM-dd") & "')"
+                        sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Dato_til >= '" & dt.ToString("yyyy-MM-dd") & "')"
                         data = query(sporring)
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                 End Select
@@ -350,21 +359,21 @@ Public Class Sporring
         Select Case soke1
             Case "tTypeSoke"
                 Dim data As New DataTable
-                sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND Sykkeltype ='" & sporType & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
+                sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND Sykkeltype ='" & sporType & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
                 data = query(sporring)
                 Bestilling_og_tilbakelevering_av_sykler.DataGridView2.DataSource = data
             Case "tMerkeSoke"
                 Dim hjelp As String = sporBox1.Text
                 Dim a() As String = hjelp.Split(" ")
                 Dim data As New DataTable
-                sporring = "SELECT * FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
+                sporring = "SELECT * FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
                 data = query(sporring)
                 Bestilling_og_tilbakelevering_av_sykler.DataGridView2.DataSource = data
         End Select
     End Sub
     Public Sub tilbSykkelUpdate()
         Dim data As New DataTable
-        sporring = "UPDATE Sykkel_bestilling_tilbakelevering SET Tilbakeleveringssted ='" & sporBox1.Text & "' WHERE SykkelID = " & sykID
+        sporring = "UPDATE Bestilling_tilbakelevering SET Tilbakeleveringssted ='" & sporBox1.Text & "' WHERE SykkelID = " & sykID
         data = query(sporring)
         MsgBox("Tilbakelevering av sykkel er registrert!")
         oversikt()
@@ -386,17 +395,71 @@ Public Class Sporring
             antallSykler = rad("AntallSykler")
             Form1.Label8.Text = antallSykler
         Next
-        Dim sporring3 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)"
+        Dim sporring3 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)"
         data = query(sporring3)
         For Each rad In data.Rows
             antallTilUtleie = rad("AntallSykler")
             Form1.Label9.Text = antallTilUtleie
         Next rad
-        Dim sporring4 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
+        Dim sporring4 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
         data = query(sporring4)
         For Each rad In data.Rows
             antallUtleied = rad("AntallSykler")
             Form1.Label10.Text = antallUtleied
         Next rad
+    End Sub
+    Shared forsok As Integer = 3
+    Public Shared klasse As String
+    Public Sub bruker()
+        Dim data As New DataTable
+        Dim sql As String = "Select login From auth Where login = '" & Tilgang.TextBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
+        data = query(sql)
+        If forsok = 1 Then
+            MsgBox("Du har brukt for mange innloggingsforsøk!")
+            Form1.Close()
+        Else
+            If data.Rows.Count = 1 Then
+                Form1.Show()
+
+            Else
+                forsok -= 1
+                If forsok > 1 Then
+                    MsgBox("Login eller Passord er feil, du har " & forsok & " forsøk igjen!")
+                Else
+                    MsgBox("Login eller Passord er feil, du har ETT forsøk igjen!")
+                End If
+
+            End If
+        End If
+    End Sub
+    
+    Public Sub glemt()
+        Dim epostmelding As New MailMessage()
+        Dim epost As String = InputBox("Skriv inn din registerte epost")
+        Dim bruker As String
+        Dim po As String
+        Dim data As New DataTable
+        Dim rad As DataRow
+        Dim sql As String = "Select login, password From auth Where epost = '" & epost & "' "
+        data = query(sql)
+        For Each rad In data.Rows
+            bruker = rad("login")
+            po = rad("password")
+        Next
+        Try
+            epostmelding.From = New MailAddress("babed.epost.test@gmail.com")
+            epostmelding.To.Add(epost)
+            epostmelding.Subject = "Brukernavn og passord"
+            epostmelding.Body = "Ditt brukernavn er: " & bruker & " og passordet er: " & po
+            Dim smtp As New SmtpClient("smtp.gmail.com")
+            smtp.Port = 587
+            smtp.EnableSsl = True
+            smtp.Credentials = New System.Net.NetworkCredential("babed.epost.test@gmail.com", "trondheim")
+            smtp.Send(epostmelding)
+            MsgBox("E-post er sendt!")
+
+        Catch ex As Exception
+            MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
+        End Try
     End Sub
 End Class
