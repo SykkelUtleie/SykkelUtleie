@@ -151,13 +151,12 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Select Case hjelp
             Case "Bestilling"
                 rowNum1 = DataGridView1.CurrentCell.RowIndex
-                If ComboBox1.Text <> "" Then
-                    sykkel.bestillSykkel(DataGridView1.Rows(rowNum1).Cells(1).Value, DataGridView1.Rows(rowNum1).Cells(3).Value, DataGridView1.Rows(rowNum1).Cells(4).Value, DataGridView1.Rows(rowNum1).Cells(5).Value, ComboBox1.Text, ComboBox2.Text, DateTimePicker1, DateTimePicker2, ComboBox3)
-                End If
-                a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.lab1 = Label14 : a.but1 = Button2
 
+                sykkel.bestillSykkel(DataGridView1.Rows(rowNum1).Cells(1).Value, DataGridView1.Rows(rowNum1).Cells(3).Value, DataGridView1.Rows(rowNum1).Cells(4).Value, DataGridView1.Rows(rowNum1).Cells(5).Value, ComboBox1.Text, ComboBox2.Text, DateTimePicker1, DateTimePicker2, ComboBox3)
+
+                a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.lab1 = Label14 : a.but1 = Button2
+                ' a.lagrePosisjon()
                 b.oversikt()
-               
                 ComboBox1.Text = "" : ComboBox2.Text = "" : ComboBox3.Text = ""
                 DataGridView3.Rows.Clear()
             Case "Tilbakelevering"
@@ -169,9 +168,9 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                     b.tilbSykkelUpdate()
                 End If
                 a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.lab1 = Label14 : a.but1 = Button2
-
+                'a.lagrePosisjon()
                 b.oversikt()
-                
+
                 ComboBox1.Text = "" : ComboBox2.Text = "" : ComboBox3.Text = ""
         End Select
     End Sub
@@ -194,7 +193,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         tall = DataGridView3.Rows.Count()
         Label5.Text = tall - 1
         Label14.Text = tall
-        ComboBox1.Text = "" : ComboBox2.Text = "" : ComboBox3.Text = ""
+        ComboBox1.Text = "" : ComboBox2.Text = ""
 
     End Sub
 

@@ -187,7 +187,6 @@ Public Class Sporring
         End If
     End Sub
     Public Sub bestillingSykkel()
-        
         Dim data1 As New DataTable
         Dim sporring2 As String = "SELECT KundeID FROM Kunde WHERE Etternavn_org_navn = '" & sporEtternavn & "' AND Adresse = '" & sporAdresse & "' AND Telefon = " & sporTel & " AND Epost = '" & sporEpost & "'"
         data1 = query(sporring2)
@@ -196,37 +195,35 @@ Public Class Sporring
         For Each rad1 In data1.Rows
             KundeID = rad1("KundeID")
         Next rad1
-        
-            Dim data2 As New DataTable
-            Dim sporring3 As String = "INSERT INTO Sykkel_bestilling_tilbakelevering(Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted) VALUES('" & KundeID &
-                "', '" & sporDatoFra & "', '" & sporDatoTil & "', '" & sporBox3.Text & "',NULL)"
+        Dim data2 As New DataTable
+        Dim sporring3 As String = "INSERT INTO Sykkel_bestilling_tilbakelevering(Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted) VALUES('" & KundeID &
+        "', '" & sporDatoFra & "', '" & sporDatoTil & "', '" & sporBox3.Text & "',NULL)"
         data2 = query(sporring3)
         Dim rad6 As Integer = 0
         For Each row As DataGridViewRow In Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows
-            If Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(1).Value IsNot "" And Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(2).Value.ToString IsNot "" Then
-                Dim type As String = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(1).Value.ToString
-                Dim merke As String = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(2).Value.ToString
-                rad6 += 1
 
-                Dim data As New DataTable
-                Dim sporring1 As String = "SELECT MIN(SykkelID) FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
-                data = query(sporring1)
-                Dim rad As DataRow = data.Rows(0)
-                Dim sykkelId As Integer
+            Dim type As String = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(1).Value.ToString
+            Dim merke As String = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(2).Value.ToString
+            rad6 += 1
+            Dim data As New DataTable
+            Dim sporring1 As String = "SELECT MIN(SykkelID) FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Sykkel_bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
+            data = query(sporring1)
+            Dim rad As DataRow = data.Rows(0)
+            Dim sykkelId As Integer
+            For Each rad In data.Rows
                 sykkelId = rad("MIN(SykkelID)")
-                Dim data3 As New DataTable
-                Dim sporring4 As String = "SELECT LAST_INSERT_ID() AS last"
-                data3 = query(sporring4)
-                Dim B_id As String
-                Dim rad2 As DataRow
-                For Each rad2 In data3.Rows
-                    B_id = rad2("last")
-                Next
-                Dim data4 As New DataTable
-                Dim sporring5 As String = "INSERT INTO Sykkel_bestilling VALUES ('" & B_id & "', '" & sykkelId & "')"
-                data4 = query(sporring5)
-            End If
-
+            Next
+            Dim data3 As New DataTable
+            Dim sporring4 As String = "SELECT LAST_INSERT_ID() AS last"
+            data3 = query(sporring4)
+            Dim B_id As String
+            Dim rad2 As DataRow
+            For Each rad2 In data3.Rows
+                B_id = rad2("last")
+            Next
+            Dim data4 As New DataTable
+            Dim sporring5 As String = "INSERT INTO Sykkel_bestilling VALUES ('" & B_id & "', '" & sykkelId & "')"
+            data4 = query(sporring5)
         Next
         MsgBox("Sykkel er bestilt!", MsgBoxStyle.Information)
 

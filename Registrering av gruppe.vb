@@ -90,7 +90,7 @@ Public Class Registrering_av_gruppe
             sykkel.bestillSykkel(TextBox2.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, ComboBox1.Text, ComboBox2.Text, DateTimePicker1, DateTimePicker2, ComboBox3)
         End If
         a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.cBox4 = ComboBox4 : a.lab1 = Label14 : a.but1 = Button2
-
+        'a.lagrePosisjon()
         b.oversikt()
         If a.num = Val(ComboBox4.Text) + 1 Then
             a.num = 1
