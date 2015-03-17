@@ -22,25 +22,6 @@ Partial Class Slett_kunde
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.KundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NyKundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnkeltKundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SøkIKundebaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SlettKundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RegistreringAvNySykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SøkISykkelbaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BestillingAvSyklerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ReparasjonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SlettSykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.RegistreringAvNyUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SøkIUrtstyrbaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
@@ -56,136 +37,28 @@ Partial Class Slett_kunde
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.MenuStrip1.SuspendLayout()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.KundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NyKundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnkeltKundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SøkIKundebaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SlettKundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistreringAvNySykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SøkISykkelbaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReparasjonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SlettSykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RegistreringAvNyUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SøkIUrtstyrbaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BestillingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'MenuStrip1
-        '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KundeToolStripMenuItem, Me.SykkelToolStripMenuItem, Me.UtstyrToolStripMenuItem, Me.AVSLUTTToolStripMenuItem})
-        Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(592, 24)
-        Me.MenuStrip1.TabIndex = 6
-        Me.MenuStrip1.Text = "MenuStrip1"
-        '
-        'KundeToolStripMenuItem
-        '
-        Me.KundeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NyKundeToolStripMenuItem, Me.SøkIKundebaseToolStripMenuItem, Me.SlettKundeToolStripMenuItem})
-        Me.KundeToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.KundeToolStripMenuItem.Name = "KundeToolStripMenuItem"
-        Me.KundeToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
-        Me.KundeToolStripMenuItem.Text = "Kunde"
-        '
-        'NyKundeToolStripMenuItem
-        '
-        Me.NyKundeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnkeltKundeToolStripMenuItem, Me.GruppefamilieBedrifterOsvToolStripMenuItem})
-        Me.NyKundeToolStripMenuItem.Name = "NyKundeToolStripMenuItem"
-        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
-        Me.NyKundeToolStripMenuItem.Text = "Registrering av ny kunde"
-        '
-        'EnkeltKundeToolStripMenuItem
-        '
-        Me.EnkeltKundeToolStripMenuItem.Name = "EnkeltKundeToolStripMenuItem"
-        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.EnkeltKundeToolStripMenuItem.Text = "Enkelt kunde"
-        '
-        'GruppefamilieBedrifterOsvToolStripMenuItem
-        '
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Name = "GruppefamilieBedrifterOsvToolStripMenuItem"
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Gruppe (familie, bedrifter osv.)"
-        '
-        'SøkIKundebaseToolStripMenuItem
-        '
-        Me.SøkIKundebaseToolStripMenuItem.Name = "SøkIKundebaseToolStripMenuItem"
-        Me.SøkIKundebaseToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
-        Me.SøkIKundebaseToolStripMenuItem.Text = "Søk i kundebase"
-        '
-        'SlettKundeToolStripMenuItem
-        '
-        Me.SlettKundeToolStripMenuItem.Name = "SlettKundeToolStripMenuItem"
-        Me.SlettKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
-        Me.SlettKundeToolStripMenuItem.Text = "Slett kunde"
-        '
-        'SykkelToolStripMenuItem
-        '
-        Me.SykkelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNySykkelToolStripMenuItem, Me.SøkISykkelbaseToolStripMenuItem, Me.BestillingAvSyklerToolStripMenuItem, Me.ReparasjonToolStripMenuItem, Me.SlettSykkelToolStripMenuItem})
-        Me.SykkelToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.SykkelToolStripMenuItem.Name = "SykkelToolStripMenuItem"
-        Me.SykkelToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.SykkelToolStripMenuItem.Text = "Sykkel"
-        '
-        'RegistreringAvNySykkelToolStripMenuItem
-        '
-        Me.RegistreringAvNySykkelToolStripMenuItem.Name = "RegistreringAvNySykkelToolStripMenuItem"
-        Me.RegistreringAvNySykkelToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
-        Me.RegistreringAvNySykkelToolStripMenuItem.Text = "Registrering av ny sykkel"
-        '
-        'SøkISykkelbaseToolStripMenuItem
-        '
-        Me.SøkISykkelbaseToolStripMenuItem.Name = "SøkISykkelbaseToolStripMenuItem"
-        Me.SøkISykkelbaseToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
-        Me.SøkISykkelbaseToolStripMenuItem.Text = "Søk i sykkelbase"
-        '
-        'BestillingAvSyklerToolStripMenuItem
-        '
-        Me.BestillingAvSyklerToolStripMenuItem.Name = "BestillingAvSyklerToolStripMenuItem"
-        Me.BestillingAvSyklerToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
-        Me.BestillingAvSyklerToolStripMenuItem.Text = "Bestilling og tilbakelevering av sykler"
-        '
-        'ReparasjonToolStripMenuItem
-        '
-        Me.ReparasjonToolStripMenuItem.Name = "ReparasjonToolStripMenuItem"
-        Me.ReparasjonToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
-        Me.ReparasjonToolStripMenuItem.Text = "Reparasjon"
-        '
-        'SlettSykkelToolStripMenuItem
-        '
-        Me.SlettSykkelToolStripMenuItem.Name = "SlettSykkelToolStripMenuItem"
-        Me.SlettSykkelToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
-        Me.SlettSykkelToolStripMenuItem.Text = "Slett sykkel"
-        '
-        'UtstyrToolStripMenuItem
-        '
-        Me.UtstyrToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNyUtstyrToolStripMenuItem, Me.SøkIUrtstyrbaseToolStripMenuItem, Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem, Me.SlettUtstyrToolStripMenuItem})
-        Me.UtstyrToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.UtstyrToolStripMenuItem.Name = "UtstyrToolStripMenuItem"
-        Me.UtstyrToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.UtstyrToolStripMenuItem.Text = "Utstyr"
-        '
-        'RegistreringAvNyUtstyrToolStripMenuItem
-        '
-        Me.RegistreringAvNyUtstyrToolStripMenuItem.Name = "RegistreringAvNyUtstyrToolStripMenuItem"
-        Me.RegistreringAvNyUtstyrToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
-        Me.RegistreringAvNyUtstyrToolStripMenuItem.Text = "Registrering av nytt utstyr"
-        '
-        'SøkIUrtstyrbaseToolStripMenuItem
-        '
-        Me.SøkIUrtstyrbaseToolStripMenuItem.Name = "SøkIUrtstyrbaseToolStripMenuItem"
-        Me.SøkIUrtstyrbaseToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
-        Me.SøkIUrtstyrbaseToolStripMenuItem.Text = "Søk i urtstyrbase"
-        '
-        'BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem
-        '
-        Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Name = "BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem"
-        Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
-        Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Text = "Bestilling og tilbakelevering av utstyr"
-        '
-        'SlettUtstyrToolStripMenuItem
-        '
-        Me.SlettUtstyrToolStripMenuItem.Name = "SlettUtstyrToolStripMenuItem"
-        Me.SlettUtstyrToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
-        Me.SlettUtstyrToolStripMenuItem.Text = "Slett utstyr"
-        '
-        'AVSLUTTToolStripMenuItem
-        '
-        Me.AVSLUTTToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.AVSLUTTToolStripMenuItem.Name = "AVSLUTTToolStripMenuItem"
-        Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
-        Me.AVSLUTTToolStripMenuItem.Text = "TILBAKE til oversikt"
         '
         'Button1
         '
@@ -329,50 +202,152 @@ Partial Class Slett_kunde
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Fornavn"
         '
+        'MenuStrip1
+        '
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KundeToolStripMenuItem, Me.SykkelToolStripMenuItem, Me.UtstyrToolStripMenuItem, Me.BestillingToolStripMenuItem, Me.AVSLUTTToolStripMenuItem})
+        Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
+        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Name = "MenuStrip1"
+        Me.MenuStrip1.Size = New System.Drawing.Size(592, 24)
+        Me.MenuStrip1.TabIndex = 42
+        Me.MenuStrip1.Text = "MenuStrip1"
+        '
+        'KundeToolStripMenuItem
+        '
+        Me.KundeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NyKundeToolStripMenuItem, Me.SøkIKundebaseToolStripMenuItem, Me.SlettKundeToolStripMenuItem})
+        Me.KundeToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.KundeToolStripMenuItem.Name = "KundeToolStripMenuItem"
+        Me.KundeToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.KundeToolStripMenuItem.Text = "Kunde"
+        '
+        'NyKundeToolStripMenuItem
+        '
+        Me.NyKundeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnkeltKundeToolStripMenuItem, Me.GruppefamilieBedrifterOsvToolStripMenuItem})
+        Me.NyKundeToolStripMenuItem.Name = "NyKundeToolStripMenuItem"
+        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.NyKundeToolStripMenuItem.Text = "Registrering av ny kunde"
+        '
+        'EnkeltKundeToolStripMenuItem
+        '
+        Me.EnkeltKundeToolStripMenuItem.Name = "EnkeltKundeToolStripMenuItem"
+        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
+        Me.EnkeltKundeToolStripMenuItem.Text = "Enkelt kunde"
+        '
+        'GruppefamilieBedrifterOsvToolStripMenuItem
+        '
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Name = "GruppefamilieBedrifterOsvToolStripMenuItem"
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Gruppe (familie, bedrifter osv.)"
+        '
+        'SøkIKundebaseToolStripMenuItem
+        '
+        Me.SøkIKundebaseToolStripMenuItem.Name = "SøkIKundebaseToolStripMenuItem"
+        Me.SøkIKundebaseToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.SøkIKundebaseToolStripMenuItem.Text = "Søk i kundebase"
+        '
+        'SlettKundeToolStripMenuItem
+        '
+        Me.SlettKundeToolStripMenuItem.Name = "SlettKundeToolStripMenuItem"
+        Me.SlettKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.SlettKundeToolStripMenuItem.Text = "Slett kunde"
+        '
+        'SykkelToolStripMenuItem
+        '
+        Me.SykkelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNySykkelToolStripMenuItem, Me.SøkISykkelbaseToolStripMenuItem, Me.ReparasjonToolStripMenuItem, Me.SlettSykkelToolStripMenuItem})
+        Me.SykkelToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.SykkelToolStripMenuItem.Name = "SykkelToolStripMenuItem"
+        Me.SykkelToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.SykkelToolStripMenuItem.Text = "Sykkel"
+        '
+        'RegistreringAvNySykkelToolStripMenuItem
+        '
+        Me.RegistreringAvNySykkelToolStripMenuItem.Name = "RegistreringAvNySykkelToolStripMenuItem"
+        Me.RegistreringAvNySykkelToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.RegistreringAvNySykkelToolStripMenuItem.Text = "Registrering av ny sykkel"
+        '
+        'SøkISykkelbaseToolStripMenuItem
+        '
+        Me.SøkISykkelbaseToolStripMenuItem.Name = "SøkISykkelbaseToolStripMenuItem"
+        Me.SøkISykkelbaseToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.SøkISykkelbaseToolStripMenuItem.Text = "Søk i sykkelbase"
+        '
+        'ReparasjonToolStripMenuItem
+        '
+        Me.ReparasjonToolStripMenuItem.Name = "ReparasjonToolStripMenuItem"
+        Me.ReparasjonToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.ReparasjonToolStripMenuItem.Text = "Reparasjon"
+        '
+        'SlettSykkelToolStripMenuItem
+        '
+        Me.SlettSykkelToolStripMenuItem.Name = "SlettSykkelToolStripMenuItem"
+        Me.SlettSykkelToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.SlettSykkelToolStripMenuItem.Text = "Slett sykkel"
+        '
+        'UtstyrToolStripMenuItem
+        '
+        Me.UtstyrToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNyUtstyrToolStripMenuItem, Me.SøkIUrtstyrbaseToolStripMenuItem, Me.SlettUtstyrToolStripMenuItem})
+        Me.UtstyrToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.UtstyrToolStripMenuItem.Name = "UtstyrToolStripMenuItem"
+        Me.UtstyrToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.UtstyrToolStripMenuItem.Text = "Utstyr"
+        '
+        'RegistreringAvNyUtstyrToolStripMenuItem
+        '
+        Me.RegistreringAvNyUtstyrToolStripMenuItem.Name = "RegistreringAvNyUtstyrToolStripMenuItem"
+        Me.RegistreringAvNyUtstyrToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.RegistreringAvNyUtstyrToolStripMenuItem.Text = "Registrering av nytt utstyr"
+        '
+        'SøkIUrtstyrbaseToolStripMenuItem
+        '
+        Me.SøkIUrtstyrbaseToolStripMenuItem.Name = "SøkIUrtstyrbaseToolStripMenuItem"
+        Me.SøkIUrtstyrbaseToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.SøkIUrtstyrbaseToolStripMenuItem.Text = "Søk i urtstyrbase"
+        '
+        'SlettUtstyrToolStripMenuItem
+        '
+        Me.SlettUtstyrToolStripMenuItem.Name = "SlettUtstyrToolStripMenuItem"
+        Me.SlettUtstyrToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.SlettUtstyrToolStripMenuItem.Text = "Slett utstyr"
+        '
+        'BestillingToolStripMenuItem
+        '
+        Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling"
+        '
+        'AVSLUTTToolStripMenuItem
+        '
+        Me.AVSLUTTToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.AVSLUTTToolStripMenuItem.Name = "AVSLUTTToolStripMenuItem"
+        Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
+        Me.AVSLUTTToolStripMenuItem.Text = "TILBAKE til oversikt"
+        '
         'Slett_kunde
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(592, 373)
         Me.ControlBox = False
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "Slett_kunde"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Slett kunde"
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.MenuStrip1.ResumeLayout(False)
+        Me.MenuStrip1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents KundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NyKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EnkeltKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GruppefamilieBedrifterOsvToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SøkIKundebaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RegistreringAvNySykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SøkISykkelbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RegistreringAvNyUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SøkIUrtstyrbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AVSLUTTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SlettKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ReparasjonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SlettSykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BestillingAvSyklerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SlettUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
@@ -386,4 +361,22 @@ Partial Class Slett_kunde
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents KundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NyKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EnkeltKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GruppefamilieBedrifterOsvToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SøkIKundebaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SlettKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegistreringAvNySykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SøkISykkelbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ReparasjonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SlettSykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegistreringAvNyUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SøkIUrtstyrbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SlettUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BestillingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AVSLUTTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

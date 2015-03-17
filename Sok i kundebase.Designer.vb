@@ -36,6 +36,7 @@ Partial Class Sok_i_kundebase
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.KundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NyKundeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,19 +47,17 @@ Partial Class Sok_i_kundebase
         Me.SykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistreringAvNySykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SøkISykkelbaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BestillingAvSyklerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReparasjonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SlettSykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistreringAvNyUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SøkIUrtstyrbaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BestillingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
-        Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label4
@@ -194,14 +193,22 @@ Partial Class Sok_i_kundebase
         Me.Button2.Text = "Vis alle kunder i basen"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(12, 229)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(783, 132)
+        Me.DataGridView1.TabIndex = 25
+        '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KundeToolStripMenuItem, Me.SykkelToolStripMenuItem, Me.UtstyrToolStripMenuItem, Me.AVSLUTTToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.KundeToolStripMenuItem, Me.SykkelToolStripMenuItem, Me.UtstyrToolStripMenuItem, Me.BestillingToolStripMenuItem, Me.AVSLUTTToolStripMenuItem})
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(807, 24)
-        Me.MenuStrip1.TabIndex = 24
+        Me.MenuStrip1.TabIndex = 26
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'KundeToolStripMenuItem
@@ -245,7 +252,7 @@ Partial Class Sok_i_kundebase
         '
         'SykkelToolStripMenuItem
         '
-        Me.SykkelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNySykkelToolStripMenuItem, Me.SøkISykkelbaseToolStripMenuItem, Me.BestillingAvSyklerToolStripMenuItem, Me.ReparasjonToolStripMenuItem, Me.SlettSykkelToolStripMenuItem})
+        Me.SykkelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNySykkelToolStripMenuItem, Me.SøkISykkelbaseToolStripMenuItem, Me.ReparasjonToolStripMenuItem, Me.SlettSykkelToolStripMenuItem})
         Me.SykkelToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.SykkelToolStripMenuItem.Name = "SykkelToolStripMenuItem"
         Me.SykkelToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
@@ -254,36 +261,30 @@ Partial Class Sok_i_kundebase
         'RegistreringAvNySykkelToolStripMenuItem
         '
         Me.RegistreringAvNySykkelToolStripMenuItem.Name = "RegistreringAvNySykkelToolStripMenuItem"
-        Me.RegistreringAvNySykkelToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.RegistreringAvNySykkelToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.RegistreringAvNySykkelToolStripMenuItem.Text = "Registrering av ny sykkel"
         '
         'SøkISykkelbaseToolStripMenuItem
         '
         Me.SøkISykkelbaseToolStripMenuItem.Name = "SøkISykkelbaseToolStripMenuItem"
-        Me.SøkISykkelbaseToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.SøkISykkelbaseToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.SøkISykkelbaseToolStripMenuItem.Text = "Søk i sykkelbase"
-        '
-        'BestillingAvSyklerToolStripMenuItem
-        '
-        Me.BestillingAvSyklerToolStripMenuItem.Name = "BestillingAvSyklerToolStripMenuItem"
-        Me.BestillingAvSyklerToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
-        Me.BestillingAvSyklerToolStripMenuItem.Text = "Bestilling og tilbakelevering av sykler"
         '
         'ReparasjonToolStripMenuItem
         '
         Me.ReparasjonToolStripMenuItem.Name = "ReparasjonToolStripMenuItem"
-        Me.ReparasjonToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.ReparasjonToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.ReparasjonToolStripMenuItem.Text = "Reparasjon"
         '
         'SlettSykkelToolStripMenuItem
         '
         Me.SlettSykkelToolStripMenuItem.Name = "SlettSykkelToolStripMenuItem"
-        Me.SlettSykkelToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.SlettSykkelToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.SlettSykkelToolStripMenuItem.Text = "Slett sykkel"
         '
         'UtstyrToolStripMenuItem
         '
-        Me.UtstyrToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNyUtstyrToolStripMenuItem, Me.SøkIUrtstyrbaseToolStripMenuItem, Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem, Me.SlettUtstyrToolStripMenuItem})
+        Me.UtstyrToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNyUtstyrToolStripMenuItem, Me.SøkIUrtstyrbaseToolStripMenuItem, Me.SlettUtstyrToolStripMenuItem})
         Me.UtstyrToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.UtstyrToolStripMenuItem.Name = "UtstyrToolStripMenuItem"
         Me.UtstyrToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
@@ -292,26 +293,27 @@ Partial Class Sok_i_kundebase
         'RegistreringAvNyUtstyrToolStripMenuItem
         '
         Me.RegistreringAvNyUtstyrToolStripMenuItem.Name = "RegistreringAvNyUtstyrToolStripMenuItem"
-        Me.RegistreringAvNyUtstyrToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
+        Me.RegistreringAvNyUtstyrToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.RegistreringAvNyUtstyrToolStripMenuItem.Text = "Registrering av nytt utstyr"
         '
         'SøkIUrtstyrbaseToolStripMenuItem
         '
         Me.SøkIUrtstyrbaseToolStripMenuItem.Name = "SøkIUrtstyrbaseToolStripMenuItem"
-        Me.SøkIUrtstyrbaseToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
+        Me.SøkIUrtstyrbaseToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.SøkIUrtstyrbaseToolStripMenuItem.Text = "Søk i urtstyrbase"
-        '
-        'BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem
-        '
-        Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Name = "BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem"
-        Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
-        Me.BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Text = "Bestilling og tilbakelevering av utstyr"
         '
         'SlettUtstyrToolStripMenuItem
         '
         Me.SlettUtstyrToolStripMenuItem.Name = "SlettUtstyrToolStripMenuItem"
-        Me.SlettUtstyrToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
+        Me.SlettUtstyrToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.SlettUtstyrToolStripMenuItem.Text = "Slett utstyr"
+        '
+        'BestillingToolStripMenuItem
+        '
+        Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling"
         '
         'AVSLUTTToolStripMenuItem
         '
@@ -320,22 +322,14 @@ Partial Class Sok_i_kundebase
         Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
         Me.AVSLUTTToolStripMenuItem.Text = "TILBAKE til oversikt"
         '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 229)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(783, 132)
-        Me.DataGridView1.TabIndex = 25
-        '
         'Sok_i_kundebase
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(807, 373)
         Me.ControlBox = False
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.GroupBox1)
@@ -344,9 +338,9 @@ Partial Class Sok_i_kundebase
         Me.Text = "Søk i kundebase"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -358,31 +352,30 @@ Partial Class Sok_i_kundebase
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents KundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents NyKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents EnkeltKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents GruppefamilieBedrifterOsvToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SøkIKundebaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RegistreringAvNySykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SøkISykkelbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents RegistreringAvNyUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SøkIUrtstyrbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AVSLUTTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-    Friend WithEvents SlettKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ReparasjonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SlettSykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BestillingAvSyklerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SlettUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
+    Friend WithEvents KundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents NyKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EnkeltKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GruppefamilieBedrifterOsvToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SøkIKundebaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SlettKundeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegistreringAvNySykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SøkISykkelbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ReparasjonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SlettSykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RegistreringAvNyUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SøkIUrtstyrbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SlettUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BestillingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AVSLUTTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

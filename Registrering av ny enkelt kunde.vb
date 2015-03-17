@@ -1,10 +1,13 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
 Public Class Registrering_av_ny_enkelt_kunde
+    Private a As New GUI
+    Private kunde As New Kunde
+    Private sykkel As New Sykkel
+    Private b As New Sporring
+    Private hjelp As String
 #Region "GUI"
-    Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
-        Show()
-    End Sub
+
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
         Registrering_av_gruppe.Show()
         Close()
@@ -17,15 +20,15 @@ Public Class Registrering_av_ny_enkelt_kunde
         Slett_kunde.Show()
         Close()
     End Sub
-    Private Sub RegistreringAvNySykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistreringAvNySykkelToolStripMenuItem.Click
+    Private Sub RegistreringAvNysykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistreringAvNySykkelToolStripMenuItem.Click
         Registrering_av_ny_sykkel.Show()
         Close()
     End Sub
-    Private Sub SøkISykkelbaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkISykkelbaseToolStripMenuItem.Click
+    Private Sub SøkIsykkelbaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkISykkelbaseToolStripMenuItem.Click
         Sok_i_sykkelbase.Show()
         Close()
     End Sub
-    Private Sub BestillingAvSyklerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingAvSyklerToolStripMenuItem.Click
+    Private Sub BestillingToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Bestilling_og_tilbakelevering_av_sykler.Show()
         Close()
     End Sub
@@ -33,7 +36,7 @@ Public Class Registrering_av_ny_enkelt_kunde
         Reparasjon.Show()
         Close()
     End Sub
-    Private Sub SlettSykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettSykkelToolStripMenuItem.Click
+    Private Sub SlettsykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettSykkelToolStripMenuItem.Click
         Slett_sykkel.Show()
         Close()
     End Sub
@@ -45,22 +48,18 @@ Public Class Registrering_av_ny_enkelt_kunde
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-    Private Sub BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Click
-        Bestilling_og_tilbakelevering_av_utstyr.Show()
-        Close()
-    End Sub
+
     Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettUtstyrToolStripMenuItem.Click
         Slett_utstyr.Show()
         Close()
     End Sub
     Private Sub AVSLUTTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AVSLUTTToolStripMenuItem.Click
+        b.oversikt()
         Close()
         Form1.Show()
     End Sub
 #End Region
-    Private kunde As New Kunde
-    Private sykkel As New Sykkel
-    Private b As New Sporring
+   
     Private Sub Registrering_av_ny_enkelt_kunde_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.Enabled = False : ComboBox2.Enabled = False : ComboBox3.Enabled = False : DateTimePicker1.Enabled = False : DateTimePicker2.Enabled = False
     End Sub
@@ -72,7 +71,7 @@ Public Class Registrering_av_ny_enkelt_kunde
             ComboBox1.Enabled = True : ComboBox2.Enabled = True : ComboBox3.Enabled = True : DateTimePicker1.Enabled = True : DateTimePicker2.Enabled = True
         Else
             Dim hjelpForm As New Registrering_av_ny_enkelt_kunde
-                Close()
+            Close()
             hjelpForm.Show()
         End If
     End Sub

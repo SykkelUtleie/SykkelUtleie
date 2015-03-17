@@ -7,58 +7,55 @@ Public Class Registrering_av_gruppe
     Private b As New Sporring
     Private hjelp As String
 #Region "GUI"
-    Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
+    Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrering_av_ny_enkelt_kunde.Show()
         Close()
     End Sub
-    Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
+    Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Show()
     End Sub
-    Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
+    Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Sok_i_kundebase.Show()
         Close()
     End Sub
-    Private Sub SlettKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettKundeToolStripMenuItem.Click
+    Private Sub SlettKundeToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Slett_kunde.Show()
         Close()
     End Sub
-    Private Sub RegistreringAvNysykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistreringAvNySykkelToolStripMenuItem.Click
+    Private Sub RegistreringAvNysykkelToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrering_av_ny_sykkel.Show()
         Close()
     End Sub
-    Private Sub SøkIsykkelbaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkISykkelbaseToolStripMenuItem.Click
+    Private Sub SøkIsykkelbaseToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Sok_i_sykkelbase.Show()
         Close()
     End Sub
-    Private Sub BestillingAvSyklerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingAvSyklerToolStripMenuItem.Click
+    Private Sub BestillingToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Bestilling_og_tilbakelevering_av_sykler.Show()
         Close()
     End Sub
-    Private Sub ReparasjonToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReparasjonToolStripMenuItem.Click
+    Private Sub ReparasjonToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Reparasjon.Show()
         Close()
     End Sub
-    Private Sub SlettsykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettSykkelToolStripMenuItem.Click
+    Private Sub SlettsykkelToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Slett_sykkel.Show()
         Close()
     End Sub
-    Private Sub RegistreringAvNyUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistreringAvNyUtstyrToolStripMenuItem.Click
+    Private Sub RegistreringAvNyUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Registrering_av_nytt_utstyr.Show()
         Close()
     End Sub
-    Private Sub SøkIUrtstyrbaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIUrtstyrbaseToolStripMenuItem.Click
+    Private Sub SøkIUrtstyrbaseToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-    Private Sub BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Click
-        Bestilling_og_tilbakelevering_av_utstyr.Show()
-        Close()
-    End Sub
-    Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettUtstyrToolStripMenuItem.Click
+    
+    Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Slett_utstyr.Show()
         Close()
     End Sub
-    Private Sub AVSLUTTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AVSLUTTToolStripMenuItem.Click
+    Private Sub AVSLUTTToolStripMenuItem_Click(sender As Object, e As EventArgs)
         b.oversikt()
         Close()
         Form1.Show()
@@ -90,7 +87,6 @@ Public Class Registrering_av_gruppe
             sykkel.bestillSykkel(TextBox2.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, ComboBox1.Text, ComboBox2.Text, DateTimePicker1, DateTimePicker2, ComboBox3)
         End If
         a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.cBox4 = ComboBox4 : a.lab1 = Label14 : a.but1 = Button2
-        'a.lagrePosisjon()
         b.oversikt()
         If a.num = Val(ComboBox4.Text) + 1 Then
             a.num = 1

@@ -201,7 +201,6 @@ Public Class Sporring
         data2 = query(sporring3)
         Dim rad6 As Integer = 0
         For Each row As DataGridViewRow In Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows
-
             Dim type As String = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(1).Value.ToString
             Dim merke As String = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(2).Value.ToString
             rad6 += 1

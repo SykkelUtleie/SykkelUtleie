@@ -1,16 +1,18 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
 Public Class Sok_i_sykkelbase
-    Private b As New Sporring
+    Private a As New GUI
+    Private kunde As New Kunde
     Private sykkel As New Sykkel
+    Private b As New Sporring
+    Private hjelp As String
 #Region "GUI"
     Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
         Registrering_av_ny_enkelt_kunde.Show()
         Close()
     End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
-        Registrering_av_gruppe.Show()
-        Close()
+        Show()
     End Sub
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
@@ -20,14 +22,12 @@ Public Class Sok_i_sykkelbase
         Slett_kunde.Show()
         Close()
     End Sub
-    Private Sub RegistreringAvNySykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistreringAvNySykkelToolStripMenuItem.Click
+    Private Sub RegistreringAvNysykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RegistreringAvNySykkelToolStripMenuItem.Click
         Registrering_av_ny_sykkel.Show()
         Close()
     End Sub
-    Private Sub SøkISykkelbaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkISykkelbaseToolStripMenuItem.Click
-        Show()
-    End Sub
-    Private Sub BestillingAvSyklerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingAvSyklerToolStripMenuItem.Click
+    
+    Private Sub BestillingToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Bestilling_og_tilbakelevering_av_sykler.Show()
         Close()
     End Sub
@@ -35,7 +35,7 @@ Public Class Sok_i_sykkelbase
         Reparasjon.Show()
         Close()
     End Sub
-    Private Sub SlettSykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettSykkelToolStripMenuItem.Click
+    Private Sub SlettsykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettSykkelToolStripMenuItem.Click
         Slett_sykkel.Show()
         Close()
     End Sub
@@ -47,15 +47,13 @@ Public Class Sok_i_sykkelbase
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-    Private Sub BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Click
-        Bestilling_og_tilbakelevering_av_utstyr.Show()
-        Close()
-    End Sub
+
     Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettUtstyrToolStripMenuItem.Click
         Slett_utstyr.Show()
         Close()
     End Sub
     Private Sub AVSLUTTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AVSLUTTToolStripMenuItem.Click
+        b.oversikt()
         Close()
         Form1.Show()
     End Sub

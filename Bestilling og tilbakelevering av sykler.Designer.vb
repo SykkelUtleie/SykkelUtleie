@@ -596,7 +596,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "Bestilling_og_tilbakelevering_av_sykler"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Bestilling_og_tilbakelevering_av_sykler"
+        Me.Text = "Bestilling"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)

@@ -125,6 +125,10 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         DataGridView2.DataSource = Nothing
         DataGridView3.DataSource = Nothing
         Label5.Text = tall
+        DataGridView3.ColumnCount = 3
+        DataGridView3.Columns(0).Name = "ID"
+        DataGridView3.Columns(1).Name = "Type"
+        DataGridView3.Columns(2).Name = "Merke"
     End Sub
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
         Dim resp = MsgBox("Vil du registrere BESTILLING av sykler?", MsgBoxStyle.YesNo)
@@ -155,10 +159,10 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 sykkel.bestillSykkel(DataGridView1.Rows(rowNum1).Cells(1).Value, DataGridView1.Rows(rowNum1).Cells(3).Value, DataGridView1.Rows(rowNum1).Cells(4).Value, DataGridView1.Rows(rowNum1).Cells(5).Value, ComboBox1.Text, ComboBox2.Text, DateTimePicker1, DateTimePicker2, ComboBox3)
 
                 a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.lab1 = Label14 : a.but1 = Button2
-                ' a.lagrePosisjon()
                 b.oversikt()
                 ComboBox1.Text = "" : ComboBox2.Text = "" : ComboBox3.Text = ""
                 DataGridView3.Rows.Clear()
+                DataGridView3.Columns.Clear()
             Case "Tilbakelevering"
                 If ComboBox1.Text <> "" Then
                     rowNum2 = DataGridView2.CurrentCell.RowIndex
@@ -168,7 +172,6 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                     b.tilbSykkelUpdate()
                 End If
                 a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.lab1 = Label14 : a.but1 = Button2
-                'a.lagrePosisjon()
                 b.oversikt()
 
                 ComboBox1.Text = "" : ComboBox2.Text = "" : ComboBox3.Text = ""
@@ -182,10 +185,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         DataGridView3.Visible = True
         Button3.Enabled = True
 
-        DataGridView3.ColumnCount = 3
-        DataGridView3.Columns(0).Name = "ID"
-        DataGridView3.Columns(1).Name = "Type"
-        DataGridView3.Columns(2).Name = "Merke"
+        
 
         DataGridView3.Rows.Insert(teller, New String() {teller, ComboBox1.Text, ComboBox2.Text})
         teller += 1
