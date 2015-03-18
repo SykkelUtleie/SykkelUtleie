@@ -91,6 +91,18 @@
     <Compile Include="Bestilling og tilbakelevering av utstyr.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Brukere.Designer.vb">
+      <DependentUpon>Brukere.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Brukere.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Database.Designer.vb">
+      <DependentUpon>Database.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Database.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +194,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sporring.vb" />
+    <Compile Include="Statistikk.Designer.vb">
+      <DependentUpon>Statistikk.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Statistikk.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Sykkel.vb" />
     <Compile Include="Tilgang.Designer.vb">
       <DependentUpon>Tilgang.vb</DependentUpon>
@@ -206,6 +224,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bestilling og tilbakelevering av utstyr.resx">
       <DependentUpon>Bestilling og tilbakelevering av utstyr.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Brukere.resx">
+      <DependentUpon>Brukere.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Database.resx">
+      <DependentUpon>Database.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

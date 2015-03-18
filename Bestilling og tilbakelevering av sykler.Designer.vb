@@ -89,6 +89,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -258,6 +259,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.RichTextBox1)
         Me.GroupBox5.Controls.Add(Me.Label22)
         Me.GroupBox5.Controls.Add(Me.Label16)
         Me.GroupBox5.Controls.Add(Me.Button6)
@@ -716,6 +718,16 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Button1.Text = "Vis kunde"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(125, 134)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
+        Me.RichTextBox1.Size = New System.Drawing.Size(142, 72)
+        Me.RichTextBox1.TabIndex = 40
+        Me.RichTextBox1.Text = "Dobbel klikk til venste for id for  sykkelen eller utstyret som skal fjernes fra " & _
+    "ny bestillingen."
+        '
         'Bestilling_og_tilbakelevering_av_sykler
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -813,4 +825,5 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents Label20 As System.Windows.Forms.Label
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
 End Class
