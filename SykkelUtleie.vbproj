@@ -47,7 +47,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
@@ -201,6 +201,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Sykkel.vb" />
+    <Compile Include="Sykkel_Utstyr.Designer.vb">
+      <DependentUpon>Sykkel_Utstyr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sykkel_Utstyr.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tilgang.Designer.vb">
       <DependentUpon>Tilgang.vb</DependentUpon>
     </Compile>
@@ -272,6 +278,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sok i utstyrbase.resx">
       <DependentUpon>Sok i utstyrbase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistikk.resx">
+      <DependentUpon>Statistikk.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sykkel_Utstyr.resx">
+      <DependentUpon>Sykkel_Utstyr.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tilgang.resx">
       <DependentUpon>Tilgang.vb</DependentUpon>

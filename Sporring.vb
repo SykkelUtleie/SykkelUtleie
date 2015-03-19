@@ -242,12 +242,12 @@ Public Class Sporring
             Dim merke As String = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(rad6).Cells(2).Value.ToString
             rad6 += 1
             Dim data As New DataTable
-            Dim sporring1 As String = "SELECT MIN(SykkelID) FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
+            Dim sporring1 As String = "SELECT SykkelID FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
             data = query(sporring1)
             Dim rad As DataRow = data.Rows(0)
             Dim sykkelId As Integer
             For Each rad In data.Rows
-                sykkelId = rad("MIN(SykkelID)")
+                sykkelId = rad("SykkelID")
             Next
             Dim data3 As New DataTable
             Dim sporring4 As String = "SELECT LAST_INSERT_ID() AS last"
