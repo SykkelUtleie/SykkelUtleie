@@ -29,7 +29,7 @@ Partial Class Statistikk
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(214, 204)
+        Me.Button1.Location = New System.Drawing.Point(447, 329)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(127, 41)
         Me.Button1.TabIndex = 0
@@ -49,7 +49,7 @@ Partial Class Statistikk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(562, 284)
+        Me.ClientSize = New System.Drawing.Size(638, 382)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Statistikk"

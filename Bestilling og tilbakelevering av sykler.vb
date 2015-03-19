@@ -86,17 +86,17 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Select Case hjelp
             Case "Bestilling"
                 b.hentSykkelType()
-                ' Dim rad As Integer = 0
-                ' For Each row As DataGridViewRow In DataGridView3.Rows
+                'Dim rad As Integer = 0
+                'For Each row As DataGridViewRow In DataGridView3.Rows
                 'Dim type As String = DataGridView3.Rows(rad).Cells(1).Value.ToString
-                '  Dim tall As Integer = ComboBox1.Items.Count
-                ' For i = 0 To tall
+                'Dim tall As Integer = ComboBox1.Items.Count
+                'For i = 0 To tall
                 'If Type = ComboBox1.Items.Item(i) Then
                 'ComboBox1.Items.RemoveAt(i)
-                ' End If
+                'End If
                 ' Next
-                ' rad += 1
-                ' Next
+                'rad += 1
+                'Next
             Case "Tilbakelevering"
                 rowNum1 = DataGridView1.CurrentCell.RowIndex
                 b.kundID = DataGridView1.Rows(rowNum1).Cells(0).Value
@@ -232,8 +232,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         teller += 1
 
         tall = DataGridView3.Rows.Count()
-        Label5.Text = tall - 1
-        Label14.Text = tall
+        Label5.Text = tall
+        Label14.Text = tall + 1
         ComboBox1.Text = "" : ComboBox2.Text = ""
 
     End Sub
