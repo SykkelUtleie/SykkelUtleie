@@ -8,6 +8,7 @@ Public Class Sporring
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
+    Private B_id, bruker1, po As String
 
     Private Function query(sql As String) As DataTable
         Dim data As New DataTable
@@ -252,7 +253,7 @@ Public Class Sporring
             Dim data3 As New DataTable
             Dim sporring4 As String = "SELECT LAST_INSERT_ID() AS last"
             data3 = query(sporring4)
-            Dim B_id As String
+
             Dim rad2 As DataRow
             For Each rad2 In data3.Rows
                 B_id = rad2("last")
@@ -277,7 +278,7 @@ Public Class Sporring
             Dim data11 As New DataTable
             Dim sporring11 As String = "SELECT LAST_INSERT_ID() AS last"
             data11 = query(sporring11)
-            Dim B_id As String
+            'Dim B_id As String
             Dim rad11 As DataRow
             For Each rad11 In data11.Rows
                 B_id = rad11("last")
@@ -489,21 +490,21 @@ Public Class Sporring
     Public Sub glemt()
         Dim epostmelding As New MailMessage()
         Dim epost As String = InputBox("Skriv inn din registerte epost")
-        Dim bruker As String
-        Dim po As String
+        'Dim bruker As String
+        'Dim po As String
         Dim data As New DataTable
         Dim rad As DataRow
         Dim sql As String = "Select login, password From auth Where epost = '" & epost & "' "
         data = query(sql)
         For Each rad In data.Rows
-            bruker = rad("login")
+            bruker1 = rad("login")
             po = rad("password")
         Next
         Try
             epostmelding.From = New MailAddress("babed.epost.test@gmail.com")
             epostmelding.To.Add(epost)
             epostmelding.Subject = "Brukernavn og passord"
-            epostmelding.Body = "Ditt brukernavn er: " & bruker & " og passordet er: " & po
+            epostmelding.Body = "Ditt brukernavn er: " & bruker1 & " og passordet er: " & po
             Dim smtp As New SmtpClient("smtp.gmail.com")
             smtp.Port = 587
             smtp.EnableSsl = True
