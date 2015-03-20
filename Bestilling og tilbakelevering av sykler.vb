@@ -248,8 +248,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         teller2 += 1
 
         tall2 = DataGridView4.Rows.Count()
-        Label5.Text = tall2 - 1
-        Label14.Text = tall2
+        Label22.Text = tall2
+        Label16.Text = tall2 + 1
         ComboBox9.Text = "" : ComboBox8.Text = ""
     End Sub
 

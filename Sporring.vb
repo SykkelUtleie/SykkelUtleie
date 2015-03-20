@@ -399,7 +399,7 @@ Public Class Sporring
                         Dim resp As String = MsgBox("Vil du slette denne sykkel?", MsgBoxStyle.YesNo)
                         If resp = vbYes Then
                             Dim data As New DataTable
-                            sporring = "DELETE FROM Sykkel WHERE SykkelID = " & sykID
+                            sporring = "DELETE FROM Sykkel WHERE SykkelID = '" & sykID & "'"
                             data = query(sporring)
                         End If
                 End Select
@@ -486,7 +486,22 @@ Public Class Sporring
             End If
         End If
     End Sub
-    
+
+    Public Sub sokBruker()
+        Dim data As New DataTable
+        Dim sql As String = "SELECT * FROM auth"
+        data = query(sql)
+        Brukere.DataGridView1.DataSource = data
+    End Sub
+    Public Sub slettBruker()
+
+    End Sub
+    Public Sub endreBruker()
+
+    End Sub
+    Public Sub leggtilBruker()
+
+    End Sub
     Public Sub glemt()
         Dim epostmelding As New MailMessage()
         Dim epost As String = InputBox("Skriv inn din registerte epost")
