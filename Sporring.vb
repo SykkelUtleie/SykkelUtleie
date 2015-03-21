@@ -380,7 +380,7 @@ Public Class Sporring
                 Dim resp As String = MsgBox("Vil du slette denne kunden?", MsgBoxStyle.YesNo)
                 If resp = vbYes Then
                     Dim data1 As New DataTable
-                    sporring = "DELETE FROM Kunde WHERE KundeID = " & kundeID
+                    sporring = "DELETE FROM Kunde WHERE KundeID = '" & kundeID & "'"
                     data1 = query(sporring)
                 End If
             Case "sykkelSlett"
@@ -465,6 +465,7 @@ Public Class Sporring
     Shared forsok As Integer = 3
     Public Shared klasse As String
     Public Sub bruker()
+
         Dim data As New DataTable
         Dim sql As String = "Select login From auth Where login = '" & Tilgang.TextBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
         data = query(sql)
@@ -494,13 +495,41 @@ Public Class Sporring
         Brukere.DataGridView1.DataSource = data
     End Sub
     Public Sub slettBruker()
-
+        Dim brukerid As String = Brukere.DataGridView1.Rows(Brukere.DataGridView1.CurrentRow.Index).Cells(2).Value.ToString()
+        Dim data As New DataTable
+        Dim sql As String = "DELETE FROM auth WHERE login = '" & brukerid & "'"
+        data = query(sql)
     End Sub
     Public Sub endreBruker()
 
     End Sub
     Public Sub leggtilBruker()
-
+        Dim login As String
+        Dim sjekk As Integer = 0
+        Dim data2 As New DataTable
+        Dim sql2 As String = "SELECT login FROM auth"
+        data2 = query(sql2)
+        For Each rad In data2.Rows
+            login = rad("login")
+            If login = Brukere.TextBox4.Text Then
+                sjekk = 1
+            End If
+        Next
+        If sjekk = 1 Then
+            MsgBox("Brukernavnet er allerede i bruk!")
+            Brukere.TextBox4.Clear()
+            Brukere.TextBox4.Select()
+        Else
+            If Brukere.TextBox5.Text = Brukere.TextBox6.Text Then
+                Dim data As New DataTable
+                sporring = "INSERT INTO auth VALUES(NULL, '" & Brukere.TextBox1.Text & "','" & Brukere.TextBox4.Text & "','" & Brukere.TextBox3.Text & "','" & Brukere.TextBox5.Text & "','" & Brukere.TextBox2.Text & "','" & Brukere.TextBox3.Text & "');"
+                data = query(sporring)
+                MsgBox("Ny privat kunde er registrert!", MsgBoxStyle.Information)
+            Else
+                MsgBox("Kontroll passordet stemmer ikke med passordet. Prøv på nytt!")
+                Brukere.TextBox5.Clear() : Brukere.TextBox6.Clear() : Brukere.TextBox5.Select()
+            End If
+        End If
     End Sub
     Public Sub glemt()
         Dim epostmelding As New MailMessage()

@@ -40,7 +40,7 @@ Partial Class Brukere
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -52,10 +52,12 @@ Partial Class Brukere
         Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -104,6 +106,7 @@ Partial Class Brukere
         '
         Me.TextBox5.Location = New System.Drawing.Point(148, 133)
         Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox5.Size = New System.Drawing.Size(121, 20)
         Me.TextBox5.TabIndex = 5
         '
@@ -111,6 +114,7 @@ Partial Class Brukere
         '
         Me.TextBox6.Location = New System.Drawing.Point(148, 159)
         Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox6.Size = New System.Drawing.Size(121, 20)
         Me.TextBox6.TabIndex = 6
         '
@@ -211,6 +215,8 @@ Partial Class Brukere
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Label12)
+        Me.GroupBox4.Controls.Add(Me.TextBox12)
         Me.GroupBox4.Controls.Add(Me.Button7)
         Me.GroupBox4.Controls.Add(Me.Label11)
         Me.GroupBox4.Controls.Add(Me.Label10)
@@ -223,7 +229,7 @@ Partial Class Brukere
         Me.GroupBox4.Controls.Add(Me.TextBox8)
         Me.GroupBox4.Controls.Add(Me.TextBox7)
         Me.GroupBox4.Controls.Add(Me.ComboBox1)
-        Me.GroupBox4.Location = New System.Drawing.Point(550, 304)
+        Me.GroupBox4.Location = New System.Drawing.Point(503, 296)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(411, 263)
         Me.GroupBox4.TabIndex = 18
@@ -231,33 +237,20 @@ Partial Class Brukere
         Me.GroupBox4.Text = "Endre bruker"
         Me.GroupBox4.Visible = False
         '
-        'GroupBox5
+        'Button7
         '
-        Me.GroupBox5.Controls.Add(Me.TextBox1)
-        Me.GroupBox5.Controls.Add(Me.Label1)
-        Me.GroupBox5.Controls.Add(Me.Label2)
-        Me.GroupBox5.Controls.Add(Me.Button3)
-        Me.GroupBox5.Controls.Add(Me.TextBox6)
-        Me.GroupBox5.Controls.Add(Me.TextBox2)
-        Me.GroupBox5.Controls.Add(Me.Label3)
-        Me.GroupBox5.Controls.Add(Me.Label6)
-        Me.GroupBox5.Controls.Add(Me.TextBox5)
-        Me.GroupBox5.Controls.Add(Me.TextBox3)
-        Me.GroupBox5.Controls.Add(Me.Label4)
-        Me.GroupBox5.Controls.Add(Me.Label5)
-        Me.GroupBox5.Controls.Add(Me.TextBox4)
-        Me.GroupBox5.Location = New System.Drawing.Point(550, 35)
-        Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(411, 263)
-        Me.GroupBox5.TabIndex = 19
-        Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Legg til bruker"
-        Me.GroupBox5.Visible = False
+        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button7.Location = New System.Drawing.Point(145, 205)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(124, 40)
+        Me.Button7.TabIndex = 15
+        Me.Button7.Text = "Endre bruker"
+        Me.Button7.UseVisualStyleBackColor = True
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(54, 153)
+        Me.Label11.Location = New System.Drawing.Point(54, 179)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(41, 13)
         Me.Label11.TabIndex = 11
@@ -310,6 +303,7 @@ Partial Class Brukere
         '
         Me.TextBox10.Location = New System.Drawing.Point(148, 124)
         Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.ReadOnly = True
         Me.TextBox10.Size = New System.Drawing.Size(121, 20)
         Me.TextBox10.TabIndex = 4
         '
@@ -342,6 +336,29 @@ Partial Class Brukere
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 0
         '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.TextBox1)
+        Me.GroupBox5.Controls.Add(Me.Label1)
+        Me.GroupBox5.Controls.Add(Me.Label2)
+        Me.GroupBox5.Controls.Add(Me.Button3)
+        Me.GroupBox5.Controls.Add(Me.TextBox6)
+        Me.GroupBox5.Controls.Add(Me.TextBox2)
+        Me.GroupBox5.Controls.Add(Me.Label3)
+        Me.GroupBox5.Controls.Add(Me.Label6)
+        Me.GroupBox5.Controls.Add(Me.TextBox5)
+        Me.GroupBox5.Controls.Add(Me.TextBox3)
+        Me.GroupBox5.Controls.Add(Me.Label4)
+        Me.GroupBox5.Controls.Add(Me.Label5)
+        Me.GroupBox5.Controls.Add(Me.TextBox4)
+        Me.GroupBox5.Location = New System.Drawing.Point(503, 22)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(411, 263)
+        Me.GroupBox5.TabIndex = 19
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Legg til bruker"
+        Me.GroupBox5.Visible = False
+        '
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -372,15 +389,21 @@ Partial Class Brukere
         Me.Button6.Text = "Endre bruker"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Button7
+        'TextBox12
         '
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(145, 205)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(124, 40)
-        Me.Button7.TabIndex = 15
-        Me.Button7.Text = "Endre bruker"
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.TextBox12.Location = New System.Drawing.Point(148, 176)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(121, 20)
+        Me.TextBox12.TabIndex = 16
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(54, 153)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(69, 13)
+        Me.Label12.TabIndex = 17
+        Me.Label12.Text = "Nytt passord:"
         '
         'Brukere
         '
@@ -439,4 +462,6 @@ Partial Class Brukere
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents Button7 As System.Windows.Forms.Button
+    Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
 End Class
