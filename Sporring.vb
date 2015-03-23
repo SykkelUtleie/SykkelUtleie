@@ -8,7 +8,8 @@ Public Class Sporring
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
-    Private B_id, bruker1, po As String
+    Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse As String
+
 
     Private Function query(sql As String) As DataTable
         Dim data As New DataTable
@@ -489,16 +490,44 @@ Public Class Sporring
     End Sub
 
     Public Sub sokBruker()
+        Brukere.ComboBox1.Items.Clear()
         Dim data As New DataTable
-        Dim sql As String = "SELECT * FROM auth"
+        Dim rad As DataRow
+        Dim login As String
+        Dim sql As String = "SELECT id, navn, login, epost FROM auth"
         data = query(sql)
         Brukere.DataGridView1.DataSource = data
+        For Each rad In data.Rows
+            login = rad("login")
+            Brukere.ComboBox1.Items.Add(login)
+        Next
     End Sub
     Public Sub slettBruker()
         Dim brukerid As String = Brukere.DataGridView1.Rows(Brukere.DataGridView1.CurrentRow.Index).Cells(2).Value.ToString()
         Dim data As New DataTable
         Dim sql As String = "DELETE FROM auth WHERE login = '" & brukerid & "'"
         data = query(sql)
+    End Sub
+    Public Sub hentBruker()
+        Dim hjelp As String = Brukere.ComboBox1.Text
+        Dim a() As String = hjelp.Split(" ")
+        Dim data As New DataTable
+        sporring = "SELECT navn, login, password, epost, klasse FROM auth WHERE login LIKE '" & a(0) & "'"
+        data = query(sporring)
+        Dim rad As DataRow
+
+        For Each rad In data.Rows
+            hbnavn = rad("navn")
+            hblogin = rad("login")
+            hbpassord = rad("password")
+            hbepost = rad("epost")
+            hbklasse = rad("klasse")
+        Next rad
+        Brukere.TextBox7.Text = hbnavn
+        Brukere.TextBox8.Text = hbepost
+        Brukere.TextBox9.Text = hblogin
+        Brukere.TextBox10.Text = hbpassord
+        Brukere.TextBox12.Text = hbklasse
     End Sub
     Public Sub endreBruker()
 

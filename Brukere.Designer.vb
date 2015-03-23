@@ -40,6 +40,8 @@ Partial Class Brukere
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -56,8 +58,7 @@ Partial Class Brukere
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.TextBox12 = New System.Windows.Forms.TextBox()
-        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -206,7 +207,7 @@ Partial Class Brukere
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(159, 28)
+        Me.Button4.Location = New System.Drawing.Point(157, 28)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(92, 39)
         Me.Button4.TabIndex = 16
@@ -215,6 +216,7 @@ Partial Class Brukere
         '
         'GroupBox4
         '
+        Me.GroupBox4.Controls.Add(Me.Label13)
         Me.GroupBox4.Controls.Add(Me.Label12)
         Me.GroupBox4.Controls.Add(Me.TextBox12)
         Me.GroupBox4.Controls.Add(Me.Button7)
@@ -236,6 +238,22 @@ Partial Class Brukere
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Endre bruker"
         Me.GroupBox4.Visible = False
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(54, 153)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(69, 13)
+        Me.Label12.TabIndex = 17
+        Me.Label12.Text = "Nytt passord:"
+        '
+        'TextBox12
+        '
+        Me.TextBox12.Location = New System.Drawing.Point(148, 176)
+        Me.TextBox12.Name = "TextBox12"
+        Me.TextBox12.Size = New System.Drawing.Size(121, 20)
+        Me.TextBox12.TabIndex = 16
         '
         'Button7
         '
@@ -296,6 +314,7 @@ Partial Class Brukere
         '
         Me.TextBox11.Location = New System.Drawing.Point(148, 150)
         Me.TextBox11.Name = "TextBox11"
+        Me.TextBox11.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox11.Size = New System.Drawing.Size(121, 20)
         Me.TextBox11.TabIndex = 5
         '
@@ -303,6 +322,7 @@ Partial Class Brukere
         '
         Me.TextBox10.Location = New System.Drawing.Point(148, 124)
         Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox10.ReadOnly = True
         Me.TextBox10.Size = New System.Drawing.Size(121, 20)
         Me.TextBox10.TabIndex = 4
@@ -389,21 +409,14 @@ Partial Class Brukere
         Me.Button6.Text = "Endre bruker"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'TextBox12
+        'Label13
         '
-        Me.TextBox12.Location = New System.Drawing.Point(148, 176)
-        Me.TextBox12.Name = "TextBox12"
-        Me.TextBox12.Size = New System.Drawing.Size(121, 20)
-        Me.TextBox12.TabIndex = 16
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(54, 153)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(69, 13)
-        Me.Label12.TabIndex = 17
-        Me.Label12.Text = "Nytt passord:"
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(54, 22)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(64, 13)
+        Me.Label13.TabIndex = 18
+        Me.Label13.Text = "Velg bruker:"
         '
         'Brukere
         '
@@ -464,4 +477,5 @@ Partial Class Brukere
     Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
+    Friend WithEvents Label13 As System.Windows.Forms.Label
 End Class
