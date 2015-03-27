@@ -530,7 +530,25 @@ Public Class Sporring
         Brukere.TextBox12.Text = hbklasse
     End Sub
     Public Sub endreBruker()
-
+        Dim data As New DataTable
+        If Brukere.TextBox7.Text = "" Or Brukere.TextBox8.Text = "" Or Brukere.TextBox12.Text = "" Then
+            MsgBox("Fyll ut Navn, Epost og Klasse!")
+        Else
+            If Brukere.TextBox10.Text = Brukere.TextBox11.Text Then
+                MsgBox("Du kan ikke bruke det samme passordet som brukeren har nå!")
+                Brukere.TextBox11.Clear()
+            Else
+                If Brukere.TextBox11.Text = "" Then
+                    Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
+                    data = query(sql)
+                    MsgBox("Endringene har gjennomført")
+                Else
+                    Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', password = '" & Brukere.TextBox11.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
+                    data = query(sql)
+                    MsgBox("Endringene har blitt gjennomført")
+                End If
+            End If
+        End If
     End Sub
     Public Sub leggtilBruker()
         Dim login As String
@@ -551,9 +569,9 @@ Public Class Sporring
         Else
             If Brukere.TextBox5.Text = Brukere.TextBox6.Text Then
                 Dim data As New DataTable
-                sporring = "INSERT INTO auth VALUES(NULL, '" & Brukere.TextBox1.Text & "','" & Brukere.TextBox4.Text & "','" & Brukere.TextBox3.Text & "','" & Brukere.TextBox5.Text & "','" & Brukere.TextBox2.Text & "','" & Brukere.TextBox3.Text & "');"
+                sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.TextBox3.Text & "')"
                 data = query(sporring)
-                MsgBox("Ny privat kunde er registrert!", MsgBoxStyle.Information)
+                MsgBox("Ny bruker er registrert!", MsgBoxStyle.Information)
             Else
                 MsgBox("Kontroll passordet stemmer ikke med passordet. Prøv på nytt!")
                 Brukere.TextBox5.Clear() : Brukere.TextBox6.Clear() : Brukere.TextBox5.Select()

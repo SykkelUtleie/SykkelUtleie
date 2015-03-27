@@ -40,6 +40,7 @@ Partial Class Brukere
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.TextBox12 = New System.Windows.Forms.TextBox()
         Me.Button7 = New System.Windows.Forms.Button()
@@ -58,7 +59,7 @@ Partial Class Brukere
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Label13 = New System.Windows.Forms.Label()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -185,6 +186,7 @@ Partial Class Brukere
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.RichTextBox1)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Location = New System.Drawing.Point(21, 82)
@@ -231,13 +233,22 @@ Partial Class Brukere
         Me.GroupBox4.Controls.Add(Me.TextBox8)
         Me.GroupBox4.Controls.Add(Me.TextBox7)
         Me.GroupBox4.Controls.Add(Me.ComboBox1)
-        Me.GroupBox4.Location = New System.Drawing.Point(503, 296)
+        Me.GroupBox4.Location = New System.Drawing.Point(21, 82)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(411, 263)
         Me.GroupBox4.TabIndex = 18
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Endre bruker"
         Me.GroupBox4.Visible = False
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Location = New System.Drawing.Point(54, 22)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(64, 13)
+        Me.Label13.TabIndex = 18
+        Me.Label13.Text = "Velg bruker:"
         '
         'Label12
         '
@@ -331,6 +342,7 @@ Partial Class Brukere
         '
         Me.TextBox9.Location = New System.Drawing.Point(148, 98)
         Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.ReadOnly = True
         Me.TextBox9.Size = New System.Drawing.Size(121, 20)
         Me.TextBox9.TabIndex = 3
         '
@@ -371,7 +383,7 @@ Partial Class Brukere
         Me.GroupBox5.Controls.Add(Me.Label4)
         Me.GroupBox5.Controls.Add(Me.Label5)
         Me.GroupBox5.Controls.Add(Me.TextBox4)
-        Me.GroupBox5.Location = New System.Drawing.Point(503, 22)
+        Me.GroupBox5.Location = New System.Drawing.Point(21, 82)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(411, 263)
         Me.GroupBox5.TabIndex = 19
@@ -409,20 +421,20 @@ Partial Class Brukere
         Me.Button6.Text = "Endre bruker"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Label13
+        'RichTextBox1
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(54, 22)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(64, 13)
-        Me.Label13.TabIndex = 18
-        Me.Label13.Text = "Velg bruker:"
+        Me.RichTextBox1.Location = New System.Drawing.Point(7, 20)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
+        Me.RichTextBox1.Size = New System.Drawing.Size(144, 75)
+        Me.RichTextBox1.TabIndex = 18
+        Me.RichTextBox1.Text = "Dobbeltklikk til venstre for brukeren du ønsker å slette!"
         '
         'Brukere
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1027, 571)
+        Me.ClientSize = New System.Drawing.Size(459, 422)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button2)
@@ -478,4 +490,5 @@ Partial Class Brukere
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
+    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
 End Class
