@@ -12,7 +12,8 @@ Public Class Sok_i_sykkelbase
         Close()
     End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
-        Show()
+        Registrering_av_gruppe.Show()
+        Close()
     End Sub
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
@@ -26,7 +27,6 @@ Public Class Sok_i_sykkelbase
         Registrering_av_ny_sykkel.Show()
         Close()
     End Sub
-    
     Private Sub BestillingToolStripMenuItem_Click(sender As Object, e As EventArgs)
         Bestilling_og_tilbakelevering_av_sykler.Show()
         Close()
@@ -47,7 +47,6 @@ Public Class Sok_i_sykkelbase
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-
     Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettUtstyrToolStripMenuItem.Click
         Slett_utstyr.Show()
         Close()

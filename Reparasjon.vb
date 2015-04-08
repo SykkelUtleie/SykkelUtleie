@@ -12,7 +12,8 @@ Public Class Reparasjon
         Close()
     End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
-        Show()
+        Registrering_av_gruppe.Show()
+        Close()
     End Sub
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
@@ -34,7 +35,6 @@ Public Class Reparasjon
         Bestilling_og_tilbakelevering_av_sykler.Show()
         Close()
     End Sub
-
     Private Sub SlettsykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettSykkelToolStripMenuItem.Click
         Slett_sykkel.Show()
         Close()
@@ -47,7 +47,6 @@ Public Class Reparasjon
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-
     Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettUtstyrToolStripMenuItem.Click
         Slett_utstyr.Show()
         Close()

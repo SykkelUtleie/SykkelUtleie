@@ -7,8 +7,8 @@ Public Class Administrering_av_database
         Close()
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Close()
         Form1.Show()
+        Close()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

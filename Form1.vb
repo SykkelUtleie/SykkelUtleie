@@ -7,6 +7,10 @@ Public Class Form1
         Dim d As Date = Date.Now
         Label6.Text = d.ToString("dd.MM.yyyy")
         b.oversikt()
+        Label7.Text = b.overK
+        Label8.Text = b.overS
+        Label9.Text = b.overTU
+        Label10.Text = b.overU
     End Sub
 #Region "GUI"
     Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
@@ -17,7 +21,6 @@ Public Class Form1
         Registrering_av_gruppe.Show()
         Hide()
     End Sub
-
     Private Sub BestillingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingToolStripMenuItem.Click
         Bestilling_og_tilbakelevering_av_sykler.Show()
         Hide()
@@ -42,6 +45,4 @@ Public Class Form1
         End
     End Sub
 #End Region
-
-
 End Class

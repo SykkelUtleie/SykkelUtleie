@@ -7,7 +7,6 @@ Public Class Registrering_av_ny_enkelt_kunde
     Private b As New Sporring
     Private hjelp As String
 #Region "GUI"
-
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
         Registrering_av_gruppe.Show()
         Close()
@@ -59,7 +58,6 @@ Public Class Registrering_av_ny_enkelt_kunde
         Form1.Show()
     End Sub
 #End Region
-   
     Private Sub Registrering_av_ny_enkelt_kunde_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.Enabled = False : ComboBox2.Enabled = False : ComboBox3.Enabled = False : DateTimePicker1.Enabled = False : DateTimePicker2.Enabled = False
     End Sub
@@ -67,8 +65,10 @@ Public Class Registrering_av_ny_enkelt_kunde
         kunde.regPrivat(TextBox2.Text, TextBox1.Text, TextBox5.Text, TextBox6.Text, TextBox4.Text, DateTimePicker3.Text)
         Dim resp = MsgBox("Vil du bestille sykkel til bruker?", MsgBoxStyle.YesNo)
         If resp = vbYes Then
-            TextBox1.Enabled = False : TextBox2.Enabled = False : TextBox4.Enabled = False : TextBox5.Enabled = False : TextBox6.Enabled = False : DateTimePicker3.Enabled = False : Button1.Enabled = False
-            ComboBox1.Enabled = True : ComboBox2.Enabled = True : ComboBox3.Enabled = True : DateTimePicker1.Enabled = True : DateTimePicker2.Enabled = True
+            'TextBox1.Enabled = False : TextBox2.Enabled = False : TextBox4.Enabled = False : TextBox5.Enabled = False : TextBox6.Enabled = False : DateTimePicker3.Enabled = False : Button1.Enabled = False
+            'ComboBox1.Enabled = True : ComboBox2.Enabled = True : ComboBox3.Enabled = True : DateTimePicker1.Enabled = True : DateTimePicker2.Enabled = True
+            a.FyllUtKunde(TextBox1.Text, TextBox2.Text, TextBox6.Text, TextBox4.Text)
+            Bestilling_og_tilbakelevering_av_sykler.Show()
         Else
             Dim hjelpForm As New Registrering_av_ny_enkelt_kunde
             Close()

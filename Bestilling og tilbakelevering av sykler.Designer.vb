@@ -32,7 +32,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.SykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistreringAvNySykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SøkISykkelbaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.BestillingAvSyklerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReparasjonToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SlettSykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,8 +41,10 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Button6 = New System.Windows.Forms.Button()
@@ -53,10 +54,9 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.ComboBox9 = New System.Windows.Forms.ComboBox()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
-        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
@@ -89,14 +89,13 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -108,7 +107,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(884, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(885, 24)
         Me.MenuStrip1.TabIndex = 6
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -153,7 +152,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         'SykkelToolStripMenuItem
         '
-        Me.SykkelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNySykkelToolStripMenuItem, Me.SøkISykkelbaseToolStripMenuItem, Me.BestillingAvSyklerToolStripMenuItem, Me.ReparasjonToolStripMenuItem, Me.SlettSykkelToolStripMenuItem})
+        Me.SykkelToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistreringAvNySykkelToolStripMenuItem, Me.SøkISykkelbaseToolStripMenuItem, Me.ReparasjonToolStripMenuItem, Me.SlettSykkelToolStripMenuItem})
         Me.SykkelToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.SykkelToolStripMenuItem.Name = "SykkelToolStripMenuItem"
         Me.SykkelToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
@@ -162,31 +161,25 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'RegistreringAvNySykkelToolStripMenuItem
         '
         Me.RegistreringAvNySykkelToolStripMenuItem.Name = "RegistreringAvNySykkelToolStripMenuItem"
-        Me.RegistreringAvNySykkelToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.RegistreringAvNySykkelToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.RegistreringAvNySykkelToolStripMenuItem.Text = "Registrering av ny sykkel"
         '
         'SøkISykkelbaseToolStripMenuItem
         '
         Me.SøkISykkelbaseToolStripMenuItem.Name = "SøkISykkelbaseToolStripMenuItem"
-        Me.SøkISykkelbaseToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.SøkISykkelbaseToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.SøkISykkelbaseToolStripMenuItem.Text = "Søk i sykkelbase"
-        '
-        'BestillingAvSyklerToolStripMenuItem
-        '
-        Me.BestillingAvSyklerToolStripMenuItem.Name = "BestillingAvSyklerToolStripMenuItem"
-        Me.BestillingAvSyklerToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
-        Me.BestillingAvSyklerToolStripMenuItem.Text = "Bestilling og tilbakelevering av sykler"
         '
         'ReparasjonToolStripMenuItem
         '
         Me.ReparasjonToolStripMenuItem.Name = "ReparasjonToolStripMenuItem"
-        Me.ReparasjonToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.ReparasjonToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.ReparasjonToolStripMenuItem.Text = "Reparasjon"
         '
         'SlettSykkelToolStripMenuItem
         '
         Me.SlettSykkelToolStripMenuItem.Name = "SlettSykkelToolStripMenuItem"
-        Me.SlettSykkelToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.SlettSykkelToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.SlettSykkelToolStripMenuItem.Text = "Slett sykkel"
         '
         'UtstyrToolStripMenuItem
@@ -230,20 +223,32 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DataGridView3)
         Me.GroupBox1.Controls.Add(Me.DataGridView4)
         Me.GroupBox1.Controls.Add(Me.GroupBox5)
-        Me.GroupBox1.Controls.Add(Me.DataGridView3)
+        Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.DataGridView2)
         Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.DataGridView1)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 30)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 30)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(854, 410)
+        Me.GroupBox1.Size = New System.Drawing.Size(867, 410)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.AllowUserToAddRows = False
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(275, 289)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.ReadOnly = True
+        Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView3.Size = New System.Drawing.Size(287, 115)
+        Me.DataGridView3.TabIndex = 38
+        Me.DataGridView3.Visible = False
         '
         'DataGridView4
         '
@@ -275,6 +280,16 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.GroupBox5.TabIndex = 39
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Utstyr som skal leies"
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(125, 134)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
+        Me.RichTextBox1.Size = New System.Drawing.Size(142, 72)
+        Me.RichTextBox1.TabIndex = 40
+        Me.RichTextBox1.Text = "Dobbel klikk til venste for id for  sykkelen eller utstyret som skal fjernes fra " & _
+    "ny bestillingen."
         '
         'Label22
         '
@@ -329,7 +344,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'ComboBox8
         '
         Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Location = New System.Drawing.Point(125, 88)
+        Me.ComboBox8.Location = New System.Drawing.Point(125, 58)
         Me.ComboBox8.Name = "ComboBox8"
         Me.ComboBox8.Size = New System.Drawing.Size(143, 21)
         Me.ComboBox8.TabIndex = 23
@@ -337,7 +352,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'ComboBox9
         '
         Me.ComboBox9.FormattingEnabled = True
-        Me.ComboBox9.Location = New System.Drawing.Point(125, 58)
+        Me.ComboBox9.Location = New System.Drawing.Point(125, 88)
         Me.ComboBox9.Name = "ComboBox9"
         Me.ComboBox9.Size = New System.Drawing.Size(143, 21)
         Me.ComboBox9.TabIndex = 22
@@ -361,22 +376,19 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label21.TabIndex = 19
         Me.Label21.Text = "Utstyr №"
         '
-        'DataGridView3
+        'DataGridView1
         '
-        Me.DataGridView3.AllowUserToAddRows = False
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(275, 289)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.ReadOnly = True
-        Me.DataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView3.Size = New System.Drawing.Size(287, 115)
-        Me.DataGridView3.TabIndex = 38
-        Me.DataGridView3.Visible = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(6, 289)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(555, 115)
+        Me.DataGridView1.TabIndex = 36
         '
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(7, 289)
+        Me.DataGridView2.Location = New System.Drawing.Point(6, 289)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView2.Size = New System.Drawing.Size(555, 115)
@@ -392,15 +404,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Button2.TabIndex = 35
         Me.Button2.Text = "Vis alle kunder"
         Me.Button2.UseVisualStyleBackColor = True
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(7, 289)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(555, 115)
-        Me.DataGridView1.TabIndex = 36
         '
         'GroupBox2
         '
@@ -718,21 +721,11 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Button1.Text = "Vis kunde"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(125, 134)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(142, 72)
-        Me.RichTextBox1.TabIndex = 40
-        Me.RichTextBox1.Text = "Dobbel klikk til venste for id for  sykkelen eller utstyret som skal fjernes fra " & _
-    "ny bestillingen."
-        '
         'Bestilling_og_tilbakelevering_av_sykler
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(884, 476)
+        Me.ClientSize = New System.Drawing.Size(885, 448)
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -742,12 +735,12 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -768,7 +761,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents SykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RegistreringAvNySykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SøkISykkelbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents BestillingAvSyklerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReparasjonToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SlettSykkelToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents UtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -792,7 +784,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SlettUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents ComboBox5 As System.Windows.Forms.ComboBox
@@ -826,4 +817,5 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents Label21 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

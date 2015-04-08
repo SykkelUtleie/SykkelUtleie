@@ -42,7 +42,9 @@ Public Class Kunde
         b.sporEpost = nyEpost
         b.sok()
     End Sub
+    Protected Friend hjelpKundeDataGrid As DataGridView
     Public Sub alleKunderSok()
+        b.hjelpDataGrid = hjelpKundeDataGrid
         b.soke = "kSoke"
         b.kundeSok = "alleKunder"
         b.sok()

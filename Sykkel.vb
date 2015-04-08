@@ -14,6 +14,7 @@ Public Class Sykkel
         b.sporBremser = nyBremser
         b.registrering()
     End Sub
+    Protected Friend hjelpSykkelDataGrid As DataGridView
     Public Sub bestillSykkel(nyEtternavn As String, nyAdresse As String, nyTel As String, nyEpost As String, nySykkelType As String, nySykkelMerke As String, nyDatoFra As DateTimePicker, nyDatoTil As DateTimePicker, nyUtleiested As ComboBox)
         Dim df As Date = nyDatoFra.Text
         Dim s1 As String
@@ -30,6 +31,7 @@ Public Class Sykkel
         b.sporDatoFra = s1
         b.sporDatoTil = s2
         b.sporBox3 = nyUtleiested
+        b.hjelpDataGrid = hjelpSykkelDataGrid
         b.bestillingSykkel()
     End Sub
     Public Sub sykkelSok(nyType As String, nyMerke As String)
