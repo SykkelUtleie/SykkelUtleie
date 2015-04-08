@@ -279,7 +279,6 @@ Public Class Sporring
             Dim data11 As New DataTable
             Dim sporring11 As String = "SELECT LAST_INSERT_ID() AS last"
             data11 = query(sporring11)
-            'Dim B_id As String
             Dim rad11 As DataRow
             For Each rad11 In data11.Rows
                 B_id = rad11("last")
@@ -466,19 +465,21 @@ Public Class Sporring
     Shared forsok As Integer = 3
     Public Shared klasse As String
     Public Sub bruker()
-
+        'login for brukeren
         Dim data As New DataTable
         Dim sql As String = "Select login From auth Where login = '" & Tilgang.TextBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
         data = query(sql)
         If forsok = 1 Then
+            'Stenger formen etter for mange forsøk
             MsgBox("Du har brukt for mange innloggingsforsøk!")
             Form1.Close()
         Else
             If data.Rows.Count = 1 Then
+                'godkjent login
                 Form1.Show()
-
             Else
                 forsok -= 1
+                'innloggingsforsøk
                 If forsok > 1 Then
                     MsgBox("Login eller Passord er feil, du har " & forsok & " forsøk igjen!")
                 Else
@@ -490,6 +491,7 @@ Public Class Sporring
     End Sub
 
     Public Sub sokBruker()
+        'søker opp brukere og legger de inn i en comboboks
         Brukere.ComboBox1.Items.Clear()
         Dim data As New DataTable
         Dim rad As DataRow
@@ -503,12 +505,14 @@ Public Class Sporring
         Next
     End Sub
     Public Sub slettBruker()
+        'Sletter valgt bruker.
         Dim brukerid As String = Brukere.DataGridView1.Rows(Brukere.DataGridView1.CurrentRow.Index).Cells(2).Value.ToString()
         Dim data As New DataTable
         Dim sql As String = "DELETE FROM auth WHERE login = '" & brukerid & "'"
         data = query(sql)
     End Sub
     Public Sub hentBruker()
+        'Henter brukere fra databasen.
         Dim hjelp As String = Brukere.ComboBox1.Text
         Dim a() As String = hjelp.Split(" ")
         Dim data As New DataTable
@@ -530,19 +534,23 @@ Public Class Sporring
         Brukere.TextBox12.Text = hbklasse
     End Sub
     Public Sub endreBruker()
+        'Mulighet for å endre eksisterende brukere 
         Dim data As New DataTable
         If Brukere.TextBox7.Text = "" Or Brukere.TextBox8.Text = "" Or Brukere.TextBox12.Text = "" Then
             MsgBox("Fyll ut Navn, Epost og Klasse!")
         Else
             If Brukere.TextBox10.Text = Brukere.TextBox11.Text Then
+                'sjekker om passordet er det samme som brukeren bruker nå
                 MsgBox("Du kan ikke bruke det samme passordet som brukeren har nå!")
                 Brukere.TextBox11.Clear()
             Else
                 If Brukere.TextBox11.Text = "" Then
+                    'Oppdaterer alt untatt passordet
                     Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
                     data = query(sql)
                     MsgBox("Endringene har gjennomført")
                 Else
+                    'Oppdaterer alt!
                     Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', password = '" & Brukere.TextBox11.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
                     data = query(sql)
                     MsgBox("Endringene har blitt gjennomført")
@@ -551,6 +559,7 @@ Public Class Sporring
         End If
     End Sub
     Public Sub leggtilBruker()
+        'Funksjon for å legge til en bruker
         Dim login As String
         Dim sjekk As Integer = 0
         Dim data2 As New DataTable
@@ -563,11 +572,13 @@ Public Class Sporring
             End If
         Next
         If sjekk = 1 Then
+            'Sjekker om brukernavnet er i bruk
             MsgBox("Brukernavnet er allerede i bruk!")
             Brukere.TextBox4.Clear()
             Brukere.TextBox4.Select()
         Else
             If Brukere.TextBox5.Text = Brukere.TextBox6.Text Then
+                'Sender dataen til databasen
                 Dim data As New DataTable
                 sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.TextBox3.Text & "')"
                 data = query(sporring)
@@ -579,10 +590,9 @@ Public Class Sporring
         End If
     End Sub
     Public Sub glemt()
+        'Sender bruker navn og passord til brukeren med den sammen eposten som er registert
         Dim epostmelding As New MailMessage()
         Dim epost As String = InputBox("Skriv inn din registerte epost")
-        'Dim bruker As String
-        'Dim po As String
         Dim data As New DataTable
         Dim rad As DataRow
         Dim sql As String = "Select login, password From auth Where epost = '" & epost & "' "
@@ -607,4 +617,12 @@ Public Class Sporring
             MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
         End Try
     End Sub
+    'Public Sub salgmaned()
+    'Dim data As New DataTable
+    ' sporring = "SELECT b_date EXTRACT(YEAR_MONTH FROM Bestilling_tilbakelevering)"
+    ' data = query(sporring)
+    'Dim rad As DataRow
+
+    ' End Sub
+
 End Class
