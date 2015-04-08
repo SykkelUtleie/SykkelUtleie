@@ -34,11 +34,10 @@ Partial Class Tilgang
         '
         Me.Button2.Location = New System.Drawing.Point(186, 195)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(111, 39)
+        Me.Button2.Size = New System.Drawing.Size(111, 44)
         Me.Button2.TabIndex = 11
         Me.Button2.Text = "Glemt brukernavn/passord"
         Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.UseWaitCursor = True
         '
         'Button1
         '
@@ -48,7 +47,6 @@ Partial Class Tilgang
         Me.Button1.TabIndex = 10
         Me.Button1.Text = "sign in"
         Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.UseWaitCursor = True
         '
         'Label2
         '
@@ -77,7 +75,6 @@ Partial Class Tilgang
         Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox2.Size = New System.Drawing.Size(111, 20)
         Me.TextBox2.TabIndex = 7
-        Me.TextBox2.UseWaitCursor = True
         '
         'TextBox1
         '
@@ -85,7 +82,6 @@ Partial Class Tilgang
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(111, 20)
         Me.TextBox1.TabIndex = 6
-        Me.TextBox1.UseWaitCursor = True
         '
         'Tilgang
         '

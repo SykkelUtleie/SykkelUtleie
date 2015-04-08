@@ -1,7 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
-Public Class Administrering_av_database
 
+Public Class Administrering_av_database
+    Private b As New Sporring
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Database.Show()
         Close()
@@ -20,4 +21,6 @@ Public Class Administrering_av_database
         Brukere.Show()
         Close()
     End Sub
+
+
 End Class

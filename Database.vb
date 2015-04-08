@@ -8,4 +8,5 @@
         Administrering_av_database.Show()
         Close()
     End Sub
+
 End Class
