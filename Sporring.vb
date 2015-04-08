@@ -566,7 +566,7 @@ Public Class Sporring
         mellomlagringsRad = 0
     End Sub
     Public Sub bruker()
-       
+
         Dim data As New DataTable
         Dim sql As String = "Select login From auth Where login = '" & Tilgang.TextBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
         data = query(sql)
