@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DDE802A2-BFFE-4657-A5A5-CFB455D39E28}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SykkelUtleie.Form1</StartupObject>
+    <StartupObject>SykkelUtleie.Tilgang</StartupObject>
     <RootNamespace>SykkelUtleie</RootNamespace>
     <AssemblyName>SykkelUtleie</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -102,6 +102,12 @@
       <DependentUpon>Database.vb</DependentUpon>
     </Compile>
     <Compile Include="Database.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Endre kunder.Designer.vb">
+      <DependentUpon>Endre kunder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Endre kunder.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.vb">
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Database.resx">
       <DependentUpon>Database.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Endre kunder.resx">
+      <DependentUpon>Endre kunder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

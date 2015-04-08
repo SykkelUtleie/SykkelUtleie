@@ -23,16 +23,16 @@ Namespace My
 
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
         Public Sub New()
-            MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
-            Me.IsSingleInstance = False
-            Me.EnableVisualStyles = True
-            Me.SaveMySettingsOnExit = True
-            Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+            ' MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
+            ' Me.IsSingleInstance = False
+            'Me.EnableVisualStyles = True
+            ' Me.SaveMySettingsOnExit = True
+            ' Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
         End Sub
 
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
-        Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.SykkelUtleie.Form1
-        End Sub
+        '<Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
+        ' Protected Overrides Sub OnCreateMainForm()
+        'Me.MainForm = Global.SykkelUtleie.Form1
+        ' Sub
     End Class
 End Namespace
