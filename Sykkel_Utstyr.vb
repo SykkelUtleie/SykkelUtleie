@@ -1,10 +1,6 @@
 ﻿Public Class Sykkel_Utstyr
     Private b As New Sporring
-    Private Sub Sykkel_Utstyr_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim d As Date = Date.Now
-        Label6.Text = d.ToString("dd.MM.yyyy")
-        b.oversikt()
-    End Sub
+    
 #Region "GUI"
     Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
         Registrering_av_ny_enkelt_kunde.Show()
@@ -59,6 +55,14 @@
         Form1.Show()
     End Sub
 #End Region
-
+    Private Sub Sykkel_Utstyr_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim d As Date = Date.Now
+        Label6.Text = d.ToString("dd.MM.yyyy")
+        b.oversikt()
+        Label7.Text = b.overK
+        Label8.Text = b.overS
+        Label9.Text = b.overTU
+        Label10.Text = b.overU
+    End Sub
   
 End Class

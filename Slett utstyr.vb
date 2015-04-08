@@ -12,7 +12,8 @@ Public Class Slett_utstyr
         Close()
     End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
-        Show()
+        Registrering_av_gruppe.Show()
+        Close()
     End Sub
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
@@ -50,8 +51,6 @@ Public Class Slett_utstyr
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-
-
     Private Sub AVSLUTTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AVSLUTTToolStripMenuItem.Click
         b.oversikt()
         Close()

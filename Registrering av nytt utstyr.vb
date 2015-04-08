@@ -7,7 +7,10 @@ Private a As New GUI
     Private b As New Sporring
     Private hjelp As String
 #Region "GUI"
-
+    Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
+        Registrering_av_ny_enkelt_kunde.Show()
+        Close()
+    End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
         Registrering_av_gruppe.Show()
         Close()
@@ -44,7 +47,6 @@ Private a As New GUI
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-
     Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettUtstyrToolStripMenuItem.Click
         Slett_utstyr.Show()
         Close()

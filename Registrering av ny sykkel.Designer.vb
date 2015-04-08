@@ -70,7 +70,7 @@ Partial Class Registrering_av_ny_sykkel
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Barnesykkel", "Terrengsykkel", "Landeveissykkel", "Hybridsykkel", "Bysykkel", "Sparkesykkel", "Trehjulssykkel"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Barnesykkel", "Terrengsykkel", "Landeveissykkel", "Hybridsykkel", "Bysykkel"})
         Me.ComboBox1.Location = New System.Drawing.Point(135, 42)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(193, 21)

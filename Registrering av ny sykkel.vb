@@ -7,7 +7,8 @@ Public Class Registrering_av_ny_sykkel
         Close()
     End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
-        Show()
+        Registrering_av_gruppe.Show()
+        Close()
     End Sub
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
