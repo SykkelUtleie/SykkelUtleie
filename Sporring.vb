@@ -571,7 +571,7 @@ Public Class Sporring
         data = query(sql)
         If forsok = 1 Then
             MsgBox("Du har brukt for mange innloggingsforsøk!")
-            Form1.Close()
+            Application.Exit()
         Else
             If data.Rows.Count = 1 Then
                 Form1.Show()
