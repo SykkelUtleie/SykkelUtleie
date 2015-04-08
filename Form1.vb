@@ -42,7 +42,7 @@ Public Class Form1
         Hide()
     End Sub
     Private Sub AVSLUTTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AVSLUTTToolStripMenuItem.Click
-        End
+        Application.Exit()
     End Sub
     Private Sub LogUtToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogUtToolStripMenuItem.Click
         Tilgang.Show()
