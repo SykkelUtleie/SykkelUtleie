@@ -19,20 +19,20 @@ Namespace My
     ' (go to Project Properties or double-click the My Project node in
     ' Solution Explorer), and make changes on the Application tab.
     '
-    Partial Friend Class MyApplication
+    'Partial Friend Class MyApplication
 
-        <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
-        Public Sub New()
-            ' MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
-            ' Me.IsSingleInstance = False
-            'Me.EnableVisualStyles = True
-            ' Me.SaveMySettingsOnExit = True
-            ' Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
-        End Sub
+    '    <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
+    '    Public Sub New()
+    '        MyBase.New(Global.Microsoft.VisualBasic.ApplicationServices.AuthenticationMode.Windows)
+    '        Me.IsSingleInstance = False
+    '        Me.EnableVisualStyles = True
+    '        Me.SaveMySettingsOnExit = True
+    '        Me.ShutDownStyle = Global.Microsoft.VisualBasic.ApplicationServices.ShutdownMode.AfterMainFormCloses
+    '    End Sub
 
-        '<Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
-        ' Protected Overrides Sub OnCreateMainForm()
-        'Me.MainForm = Global.SykkelUtleie.Form1
-        ' Sub
-    End Class
+    '    <Global.System.Diagnostics.DebuggerStepThroughAttribute()> _
+    '    Protected Overrides Sub OnCreateMainForm()
+    '        Me.MainForm = Global.SykkelUtleie.Form1
+    '    End Sub
+    'End Class
 End Namespace

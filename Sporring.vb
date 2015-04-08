@@ -575,7 +575,7 @@ Public Class Sporring
         Else
             If data.Rows.Count = 1 Then
                 b_navn = Tilgang.TextBox1.Text
-+               b_pass = Tilgang.TextBox2.Text
+                b_pass = Tilgang.TextBox2.Text
                 Form1.Show()
                 Tilgang.Hide()
                 auth()
@@ -594,17 +594,17 @@ Public Class Sporring
     End Sub
     Public Sub auth()
         Dim data As New DataTable
-+        Dim rad As DataRow
-+        Dim sql As String = "Select klasse From auth Where login= '" & b_navn & "' and password = '" & b_pass & "'"
-+        data = query(sql)
-+        For Each rad In data.Rows
-+            klasse = rad("klasse")
-+        Next
-+
-+        If klasse = 2 Then
-+            Administrering_av_database.Button3.Visible = False
-+            Database.Button1.Visible = False
-+        End If
+        Dim rad As DataRow
+        Dim sql As String = "Select klasse From auth Where login= '" & b_navn & "' and password = '" & b_pass & "'"
+        data = query(Sql)
+        For Each rad In data.Rows
+            klasse = rad("klasse")
+        Next
+
+        If klasse = 2 Then
+            Administrering_av_database.Button3.Visible = False
+            Database.Button1.Visible = False
+        End If
     End Sub
     Public Sub glemt()
         Dim epostmelding As New MailMessage()
