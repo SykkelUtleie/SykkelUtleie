@@ -575,6 +575,7 @@ Public Class Sporring
         Else
             If data.Rows.Count = 1 Then
                 Form1.Show()
+                Tilgang.Hide()
             Else
                 forsok -= 1
                 If forsok > 1 Then
