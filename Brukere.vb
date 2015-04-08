@@ -66,4 +66,5 @@
         b.sokBruker()
         b.hentBruker()
     End Sub
+
 End Class

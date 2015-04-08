@@ -8,7 +8,7 @@ Public Class Sporring
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
-    Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse, b_navn, b_pass As String
+    Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse, b_navn, b_pass, K_fnavn, K_enavn, KID, k_ad, k_epost, k_tlf As String
     Protected Friend hjelpDataGrid As DataGridView
     Private mellomlagringsRad As Integer = 0
     Shared forsok As Integer = 3
@@ -360,6 +360,7 @@ Public Class Sporring
                         Sok_i_kundebase.DataGridView1.DataSource = data1
                         Slett_kunde.DataGridView1.DataSource = data1
                         Bestilling_og_tilbakelevering_av_sykler.DataGridView1.DataSource = data1
+                        Endre_kunder.DataGridView1.DataSource = data1
                     Case "alleKunder"
                         Dim data As New DataTable
                         sporring = "SELECT * FROM Kunde"
@@ -448,6 +449,80 @@ Public Class Sporring
 
         End Select
         oversikt()
+    End Sub
+    Public Sub kSok()
+        ' Henter kundene fra databasen og legger de i en datagridview hvor brukeren kan velge kunde
+        Dim data As New DataTable
+        Dim sql As String
+        If Endre_kunder.RadioButton1.Checked = True Then
+            Endre_kunder.DataGridView1.DataSource = Nothing
+            sql = "Select KundeID, Fornavn, Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where Fornavn NOT LIKE '" & "" & "' and Etternavn_org_navn NOT LIKE '" & "" & "'"
+            data = query(sql)
+            Endre_kunder.DataGridView1.DataSource = data
+        ElseIf Endre_kunder.RadioButton2.Checked = True Then
+            Endre_kunder.DataGridView1.DataSource = Nothing
+            sql = "Select KundeID, Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where Fornavn is NULL and Fdato is NULL"
+            data = query(sql)
+            Endre_kunder.DataGridView1.DataSource = data
+        End If
+    End Sub
+    Public Sub hentKunde()
+        ' henter informasjonen til en valgt kunde i datagridview og legger dette i tekstbokser for endring
+        Dim kundeid As String = Endre_kunder.DataGridView1.Rows(Endre_kunder.DataGridView1.CurrentRow.Index).Cells(0).Value.ToString()
+        Dim data As New DataTable
+        Dim sql As String
+        Dim rad As DataRow
+
+        If Endre_kunder.RadioButton1.Checked = True Then
+            sql = "Select Fornavn, Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where KundeID like '" & kundeid & "'"
+            data = query(sql)
+            For Each rad In data.Rows
+                K_fnavn = rad("Fornavn")
+                K_enavn = rad("Etternavn_org_navn")
+                k_ad = rad("Adresse")
+                k_tlf = rad("Telefon")
+                k_epost = rad("Epost")
+            Next
+            Endre_kunder.TextBox1.Text = K_fnavn : Endre_kunder.TextBox2.Text = K_enavn : Endre_kunder.TextBox4.Text = k_ad : Endre_kunder.TextBox5.Text = k_epost : Endre_kunder.TextBox6.Text = k_tlf
+
+        ElseIf Endre_kunder.RadioButton2.Checked = True Then
+            sql = "Select Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where KundeID like '" & kundeid & "'"
+            data = query(sql)
+            For Each rad In data.Rows
+                K_enavn = rad("Etternavn_org_navn")
+                k_ad = rad("Adresse")
+                k_tlf = rad("Telefon")
+                k_epost = rad("Epost")
+            Next
+            Endre_kunder.TextBox3.Text = K_enavn : Endre_kunder.TextBox7.Text = k_ad : Endre_kunder.TextBox8.Text = k_tlf : Endre_kunder.TextBox9.Text = k_epost
+        End If
+    End Sub
+    Public Sub endreKunde()
+        ' Oppdaterer informasjonene hos kundene
+        Dim kundeid As String = Endre_kunder.DataGridView1.Rows(Endre_kunder.DataGridView1.CurrentRow.Index).Cells(0).Value.ToString()
+        Dim data As New DataTable
+        Dim sql As String
+        If Endre_kunder.RadioButton1.Checked = True Then
+            If Endre_kunder.TextBox1.Text = "" Or Endre_kunder.TextBox2.Text = "" Or Endre_kunder.TextBox4.Text = "" Or Endre_kunder.TextBox5.Text = "" Or Endre_kunder.TextBox6.Text = "" Then
+                MsgBox("Fyll ut alle tekstboksene!")
+            Else
+                sql = "UPDATE Kunde Set Fornavn = '" & Endre_kunder.TextBox1.Text & "', Etternavn_org_navn = '" & Endre_kunder.TextBox1.Text & "', Adresse = '" & Endre_kunder.TextBox4.Text & "', Telefon = '" & Endre_kunder.TextBox6.Text & "', Epost = '" & Endre_kunder.TextBox5.Text & "' Where KundeID = '" & kundeid & "'"
+                data = query(sql)
+                MsgBox("Endringene har blitt gjennomført!")
+                Endre_kunder.TextBox1.Clear() : Endre_kunder.TextBox2.Clear() : Endre_kunder.TextBox3.Clear() : Endre_kunder.TextBox4.Clear() : Endre_kunder.TextBox5.Clear() : Endre_kunder.TextBox6.Clear() : Endre_kunder.TextBox7.Clear() : Endre_kunder.TextBox8.Clear() : Endre_kunder.TextBox9.Clear()
+                Endre_kunder.DataGridView1.DataSource = Nothing
+            End If
+        ElseIf Endre_kunder.RadioButton2.Checked = True Then
+            If Endre_kunder.TextBox3.Text = "" Or Endre_kunder.TextBox7.Text = "" Or Endre_kunder.TextBox8.Text = "" Or Endre_kunder.TextBox9.Text = "" Then
+                MsgBox("Fyll ut alle tekstboksene!")
+            Else
+                sql = "UPDATE Kunde Set Etternavn_org_navn = '" & Endre_kunder.TextBox3.Text & "', Adresse = '" & Endre_kunder.TextBox7.Text & "', Telefon = '" & Endre_kunder.TextBox8.Text & "', Epost = '" & Endre_kunder.TextBox9.Text & "' Where KundeID = '" & kundeid & "'"
+                data = query(sql)
+                MsgBox("Endringene har blitt gjennomført!")
+                Endre_kunder.TextBox1.Clear() : Endre_kunder.TextBox2.Clear() : Endre_kunder.TextBox3.Clear() : Endre_kunder.TextBox4.Clear() : Endre_kunder.TextBox5.Clear() : Endre_kunder.TextBox6.Clear() : Endre_kunder.TextBox7.Clear() : Endre_kunder.TextBox8.Clear() : Endre_kunder.TextBox9.Clear()
+                Endre_kunder.DataGridView1.DataSource = Nothing
+            End If
+        End If
     End Sub
     'Public Sub tilbSykkel()
     '    Select Case soke1
@@ -690,7 +765,7 @@ Public Class Sporring
                     'Oppdaterer alt untatt passordet
                     Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
                     data = query(sql)
-                    MsgBox("Endringene har gjennomført")
+                    MsgBox("Endringene har blitt gjennomført")
                 Else
                     'Oppdaterer alt!
                     Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', password = '" & Brukere.TextBox11.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
