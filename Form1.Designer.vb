@@ -43,8 +43,8 @@ Partial Class Form1
         Me.SykkelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BestillingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AdministreringAvDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogUtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -234,18 +234,18 @@ Partial Class Form1
         Me.AdministreringAvDatabaseToolStripMenuItem.Size = New System.Drawing.Size(115, 20)
         Me.AdministreringAvDatabaseToolStripMenuItem.Text = "Administrering"
         '
+        'LogUtToolStripMenuItem
+        '
+        Me.LogUtToolStripMenuItem.Name = "LogUtToolStripMenuItem"
+        Me.LogUtToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
+        Me.LogUtToolStripMenuItem.Text = "Log ut"
+        '
         'AVSLUTTToolStripMenuItem
         '
         Me.AVSLUTTToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.AVSLUTTToolStripMenuItem.Name = "AVSLUTTToolStripMenuItem"
         Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.AVSLUTTToolStripMenuItem.Text = "AVSLUTT"
-        '
-        'LogUtToolStripMenuItem
-        '
-        Me.LogUtToolStripMenuItem.Name = "LogUtToolStripMenuItem"
-        Me.LogUtToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
-        Me.LogUtToolStripMenuItem.Text = "Log ut"
         '
         'Form1
         '
