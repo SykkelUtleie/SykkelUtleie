@@ -8,7 +8,7 @@ Public Class Sporring
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
-    Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse As String
+    Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse, b_navn, b_pass As String
     Protected Friend hjelpDataGrid As DataGridView
     Private mellomlagringsRad As Integer = 0
     Shared forsok As Integer = 3
@@ -566,6 +566,7 @@ Public Class Sporring
         mellomlagringsRad = 0
     End Sub
     Public Sub bruker()
+
         Dim data As New DataTable
         Dim sql As String = "Select login From auth Where login = '" & Tilgang.TextBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
         data = query(sql)
@@ -574,8 +575,11 @@ Public Class Sporring
             Application.Exit()
         Else
             If data.Rows.Count = 1 Then
+                b_navn = Tilgang.TextBox1.Text
+                b_pass = Tilgang.TextBox2.Text
                 Form1.Show()
                 Tilgang.Hide()
+                auth()
             Else
                 forsok -= 1
                 If forsok > 1 Then
@@ -585,6 +589,22 @@ Public Class Sporring
                 End If
 
             End If
+        End If
+        Tilgang.TextBox1.Clear()
+        Tilgang.TextBox2.Clear()
+    End Sub
+    Public Sub auth()
+        Dim data As New DataTable
+        Dim rad As DataRow
+        Dim sql As String = "Select klasse From auth Where login= '" & b_navn & "' and password = '" & b_pass & "'"
+        data = query(sql)
+        For Each rad In data.Rows
+            klasse = rad("klasse")
+        Next
+
+        If klasse = 2 Then
+            Administrering_av_database.Button3.Visible = False
+            Database.Button1.Visible = False
         End If
     End Sub
     Public Sub glemt()

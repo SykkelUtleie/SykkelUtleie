@@ -34,7 +34,7 @@ Partial Class Tilgang
         '
         Me.Button2.Location = New System.Drawing.Point(186, 195)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(111, 39)
+        Me.Button2.Size = New System.Drawing.Size(111, 44)
         Me.Button2.TabIndex = 11
         Me.Button2.Text = "Glemt brukernavn/passord"
         Me.Button2.UseVisualStyleBackColor = True
