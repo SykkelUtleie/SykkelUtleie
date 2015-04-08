@@ -8,7 +8,7 @@ Public Class Sporring
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
-    Private B_id, bruker1, po As String
+    Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse As String
     Protected Friend hjelpDataGrid As DataGridView
     Private mellomlagringsRad As Integer = 0
     Shared forsok As Integer = 3
@@ -611,5 +611,104 @@ Public Class Sporring
         Catch ex As Exception
             MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
         End Try
+    End Sub
+    Public Sub sokBruker()
+        'søker opp brukere og legger de inn i en comboboks
+        Brukere.ComboBox1.Items.Clear()
+        Dim data As New DataTable
+        Dim rad As DataRow
+        Dim login As String
+        Dim sql As String = "SELECT id, navn, login, epost FROM auth"
+        data = query(sql)
+        Brukere.DataGridView1.DataSource = data
+        For Each rad In data.Rows
+            login = rad("login")
+            Brukere.ComboBox1.Items.Add(login)
+        Next
+    End Sub
+    Public Sub slettBruker()
+        'Sletter valgt bruker.
+        Dim brukerid As String = Brukere.DataGridView1.Rows(Brukere.DataGridView1.CurrentRow.Index).Cells(2).Value.ToString()
+        Dim data As New DataTable
+        Dim sql As String = "DELETE FROM auth WHERE login = '" & brukerid & "'"
+        data = query(sql)
+    End Sub
+    Public Sub hentBruker()
+        'Henter brukere fra databasen.
+        Dim hjelp As String = Brukere.ComboBox1.Text
+        Dim a() As String = hjelp.Split(" ")
+        Dim data As New DataTable
+        sporring = "SELECT navn, login, password, epost, klasse FROM auth WHERE login LIKE '" & a(0) & "'"
+        data = query(sporring)
+        Dim rad As DataRow
+
+        For Each rad In data.Rows
+            hbnavn = rad("navn")
+            hblogin = rad("login")
+            hbpassord = rad("password")
+            hbepost = rad("epost")
+            hbklasse = rad("klasse")
+        Next rad
+        Brukere.TextBox7.Text = hbnavn
+        Brukere.TextBox8.Text = hbepost
+        Brukere.TextBox9.Text = hblogin
+        Brukere.TextBox10.Text = hbpassord
+        Brukere.TextBox12.Text = hbklasse
+    End Sub
+    Public Sub endreBruker()
+        'Mulighet for å endre eksisterende brukere 
+        Dim data As New DataTable
+        If Brukere.TextBox7.Text = "" Or Brukere.TextBox8.Text = "" Or Brukere.TextBox12.Text = "" Then
+            MsgBox("Fyll ut Navn, Epost og Klasse!")
+        Else
+            If Brukere.TextBox10.Text = Brukere.TextBox11.Text Then
+                'sjekker om passordet er det samme som brukeren bruker nå
+                MsgBox("Du kan ikke bruke det samme passordet som brukeren har nå!")
+                Brukere.TextBox11.Clear()
+            Else
+                If Brukere.TextBox11.Text = "" Then
+                    'Oppdaterer alt untatt passordet
+                    Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
+                    data = query(sql)
+                    MsgBox("Endringene har gjennomført")
+                Else
+                    'Oppdaterer alt!
+                    Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', password = '" & Brukere.TextBox11.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
+                    data = query(sql)
+                    MsgBox("Endringene har blitt gjennomført")
+                End If
+            End If
+        End If
+    End Sub
+    Public Sub leggtilBruker()
+        'Funksjon for å legge til en bruker
+        Dim login As String
+        Dim sjekk As Integer = 0
+        Dim data2 As New DataTable
+        Dim sql2 As String = "SELECT login FROM auth"
+        data2 = query(sql2)
+        For Each rad In data2.Rows
+            login = rad("login")
+            If login = Brukere.TextBox4.Text Then
+                sjekk = 1
+            End If
+        Next
+        If sjekk = 1 Then
+            'Sjekker om brukernavnet er i bruk
+            MsgBox("Brukernavnet er allerede i bruk!")
+            Brukere.TextBox4.Clear()
+            Brukere.TextBox4.Select()
+        Else
+            If Brukere.TextBox5.Text = Brukere.TextBox6.Text Then
+                'Sender dataen til databasen
+                Dim data As New DataTable
+                sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.TextBox3.Text & "')"
+                data = query(sporring)
+                MsgBox("Ny bruker er registrert!", MsgBoxStyle.Information)
+            Else
+                MsgBox("Kontroll passordet stemmer ikke med passordet. Prøv på nytt!")
+                Brukere.TextBox5.Clear() : Brukere.TextBox6.Clear() : Brukere.TextBox5.Select()
+            End If
+        End If
     End Sub
 End Class
