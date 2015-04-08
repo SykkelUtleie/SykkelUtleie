@@ -104,6 +104,12 @@
     <Compile Include="Database.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Endre kunder.Designer.vb">
+      <DependentUpon>Endre kunder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Endre kunder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Database.resx">
       <DependentUpon>Database.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Endre kunder.resx">
+      <DependentUpon>Endre kunder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
