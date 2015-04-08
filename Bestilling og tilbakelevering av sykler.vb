@@ -269,6 +269,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
 
     Private Sub DataGridView3_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView3.RowHeaderMouseDoubleClick
+        'viser sykler som er lagt til bestilligen og mulighet for å slette disse
         Dim i As Integer = DataGridView3.CurrentRow.Index
         b.slettEnFraMellomlagring()
         DataGridView3.Rows.RemoveAt(i)
@@ -283,6 +284,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         teller -= 1
     End Sub
     Private Sub DataGridView4_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView4.RowHeaderMouseDoubleClick
+        'viser utstyr som er lagt til bestillingen og mulighet for å slette disse
         Dim i As Integer = DataGridView4.CurrentRow.Index
         DataGridView4.Rows.RemoveAt(i)
         Dim rad As Integer = 0
