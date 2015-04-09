@@ -10,7 +10,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
 
 #Region "GUI"
     Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
-        Registrering_av_ny_enkelt_kunde.Show()
+        Endre_kunder.Show()
         Close()
     End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click

@@ -177,20 +177,20 @@ Partial Class Reparasjon
         '
         Me.NyKundeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnkeltKundeToolStripMenuItem, Me.GruppefamilieBedrifterOsvToolStripMenuItem})
         Me.NyKundeToolStripMenuItem.Name = "NyKundeToolStripMenuItem"
-        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
-        Me.NyKundeToolStripMenuItem.Text = "Registrering av ny kunde"
+        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
+        Me.NyKundeToolStripMenuItem.Text = "Registrering/endring av kunde"
         '
         'EnkeltKundeToolStripMenuItem
         '
         Me.EnkeltKundeToolStripMenuItem.Name = "EnkeltKundeToolStripMenuItem"
-        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.EnkeltKundeToolStripMenuItem.Text = "Enkelt kunde"
+        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.EnkeltKundeToolStripMenuItem.Text = "Endre kunde"
         '
         'GruppefamilieBedrifterOsvToolStripMenuItem
         '
         Me.GruppefamilieBedrifterOsvToolStripMenuItem.Name = "GruppefamilieBedrifterOsvToolStripMenuItem"
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Gruppe (familie, bedrifter osv.)"
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Registrere ny kunde"
         '
         'SøkIKundebaseToolStripMenuItem
         '

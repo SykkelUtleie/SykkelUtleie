@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DDE802A2-BFFE-4657-A5A5-CFB455D39E28}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SykkelUtleie.Endre_kunder</StartupObject>
+    <StartupObject>SykkelUtleie.Form1</StartupObject>
     <RootNamespace>SykkelUtleie</RootNamespace>
     <AssemblyName>SykkelUtleie</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -47,7 +47,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />

@@ -49,8 +49,8 @@ Partial Class Sykkel_Utstyr
         Me.RegistreringAvNyUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SøkIUrtstyrbaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BestillingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -177,7 +177,7 @@ Partial Class Sykkel_Utstyr
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(630, 24)
-        Me.MenuStrip1.TabIndex = 8
+        Me.MenuStrip1.TabIndex = 62
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'KundeToolStripMenuItem
@@ -192,31 +192,31 @@ Partial Class Sykkel_Utstyr
         '
         Me.NyKundeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnkeltKundeToolStripMenuItem, Me.GruppefamilieBedrifterOsvToolStripMenuItem})
         Me.NyKundeToolStripMenuItem.Name = "NyKundeToolStripMenuItem"
-        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
-        Me.NyKundeToolStripMenuItem.Text = "Registrering av ny kunde"
+        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
+        Me.NyKundeToolStripMenuItem.Text = "Registrering/endring ny kunde"
         '
         'EnkeltKundeToolStripMenuItem
         '
         Me.EnkeltKundeToolStripMenuItem.Name = "EnkeltKundeToolStripMenuItem"
-        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.EnkeltKundeToolStripMenuItem.Text = "Enkelt kunde"
+        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.EnkeltKundeToolStripMenuItem.Text = "Endre kunde"
         '
         'GruppefamilieBedrifterOsvToolStripMenuItem
         '
         Me.GruppefamilieBedrifterOsvToolStripMenuItem.Name = "GruppefamilieBedrifterOsvToolStripMenuItem"
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Gruppe (familie, bedrifter osv.)"
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Registrere ny kunde"
         '
         'SøkIKundebaseToolStripMenuItem
         '
         Me.SøkIKundebaseToolStripMenuItem.Name = "SøkIKundebaseToolStripMenuItem"
-        Me.SøkIKundebaseToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.SøkIKundebaseToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
         Me.SøkIKundebaseToolStripMenuItem.Text = "Søk i kundebase"
         '
         'SlettKundeToolStripMenuItem
         '
         Me.SlettKundeToolStripMenuItem.Name = "SlettKundeToolStripMenuItem"
-        Me.SlettKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.SlettKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
         Me.SlettKundeToolStripMenuItem.Text = "Slett kunde"
         '
         'SykkelToolStripMenuItem
@@ -230,25 +230,25 @@ Partial Class Sykkel_Utstyr
         'RegistreringAvNySykkelToolStripMenuItem
         '
         Me.RegistreringAvNySykkelToolStripMenuItem.Name = "RegistreringAvNySykkelToolStripMenuItem"
-        Me.RegistreringAvNySykkelToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.RegistreringAvNySykkelToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.RegistreringAvNySykkelToolStripMenuItem.Text = "Registrering av ny sykkel"
         '
         'SøkISykkelbaseToolStripMenuItem
         '
         Me.SøkISykkelbaseToolStripMenuItem.Name = "SøkISykkelbaseToolStripMenuItem"
-        Me.SøkISykkelbaseToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.SøkISykkelbaseToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.SøkISykkelbaseToolStripMenuItem.Text = "Søk i sykkelbase"
         '
         'ReparasjonToolStripMenuItem
         '
         Me.ReparasjonToolStripMenuItem.Name = "ReparasjonToolStripMenuItem"
-        Me.ReparasjonToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.ReparasjonToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.ReparasjonToolStripMenuItem.Text = "Reparasjon"
         '
         'SlettSykkelToolStripMenuItem
         '
         Me.SlettSykkelToolStripMenuItem.Name = "SlettSykkelToolStripMenuItem"
-        Me.SlettSykkelToolStripMenuItem.Size = New System.Drawing.Size(315, 22)
+        Me.SlettSykkelToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.SlettSykkelToolStripMenuItem.Text = "Slett sykkel"
         '
         'UtstyrToolStripMenuItem
@@ -262,20 +262,27 @@ Partial Class Sykkel_Utstyr
         'RegistreringAvNyUtstyrToolStripMenuItem
         '
         Me.RegistreringAvNyUtstyrToolStripMenuItem.Name = "RegistreringAvNyUtstyrToolStripMenuItem"
-        Me.RegistreringAvNyUtstyrToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
+        Me.RegistreringAvNyUtstyrToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.RegistreringAvNyUtstyrToolStripMenuItem.Text = "Registrering av nytt utstyr"
         '
         'SøkIUrtstyrbaseToolStripMenuItem
         '
         Me.SøkIUrtstyrbaseToolStripMenuItem.Name = "SøkIUrtstyrbaseToolStripMenuItem"
-        Me.SøkIUrtstyrbaseToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
-        Me.SøkIUrtstyrbaseToolStripMenuItem.Text = "Søk i utstyrbase"
+        Me.SøkIUrtstyrbaseToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
+        Me.SøkIUrtstyrbaseToolStripMenuItem.Text = "Søk i urtstyrbase"
         '
         'SlettUtstyrToolStripMenuItem
         '
         Me.SlettUtstyrToolStripMenuItem.Name = "SlettUtstyrToolStripMenuItem"
-        Me.SlettUtstyrToolStripMenuItem.Size = New System.Drawing.Size(317, 22)
+        Me.SlettUtstyrToolStripMenuItem.Size = New System.Drawing.Size(253, 22)
         Me.SlettUtstyrToolStripMenuItem.Text = "Slett utstyr"
+        '
+        'BestillingToolStripMenuItem
+        '
+        Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling"
         '
         'AVSLUTTToolStripMenuItem
         '
@@ -283,13 +290,6 @@ Partial Class Sykkel_Utstyr
         Me.AVSLUTTToolStripMenuItem.Name = "AVSLUTTToolStripMenuItem"
         Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
         Me.AVSLUTTToolStripMenuItem.Text = "TILBAKE til oversikt"
-        '
-        'BestillingToolStripMenuItem
-        '
-        Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
-        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
-        Me.BestillingToolStripMenuItem.Text = "Bestilling"
         '
         'Sykkel_Utstyr
         '
@@ -335,6 +335,6 @@ Partial Class Sykkel_Utstyr
     Friend WithEvents RegistreringAvNyUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SøkIUrtstyrbaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SlettUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents AVSLUTTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BestillingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AVSLUTTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

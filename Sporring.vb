@@ -506,7 +506,7 @@ Public Class Sporring
             If Endre_kunder.TextBox1.Text = "" Or Endre_kunder.TextBox2.Text = "" Or Endre_kunder.TextBox4.Text = "" Or Endre_kunder.TextBox5.Text = "" Or Endre_kunder.TextBox6.Text = "" Then
                 MsgBox("Fyll ut alle tekstboksene!")
             Else
-                sql = "UPDATE Kunde Set Fornavn = '" & Endre_kunder.TextBox1.Text & "', Etternavn_org_navn = '" & Endre_kunder.TextBox1.Text & "', Adresse = '" & Endre_kunder.TextBox4.Text & "', Telefon = '" & Endre_kunder.TextBox6.Text & "', Epost = '" & Endre_kunder.TextBox5.Text & "' Where KundeID = '" & kundeid & "'"
+                sql = "UPDATE Kunde Set Fornavn = '" & Endre_kunder.TextBox1.Text & "', Etternavn_org_navn = '" & Endre_kunder.TextBox2.Text & "', Adresse = '" & Endre_kunder.TextBox4.Text & "', Telefon = '" & Endre_kunder.TextBox6.Text & "', Epost = '" & Endre_kunder.TextBox5.Text & "' Where KundeID = '" & kundeid & "'"
                 data = query(sql)
                 MsgBox("Endringene har blitt gjennomført!")
                 Endre_kunder.TextBox1.Clear() : Endre_kunder.TextBox2.Clear() : Endre_kunder.TextBox3.Clear() : Endre_kunder.TextBox4.Clear() : Endre_kunder.TextBox5.Clear() : Endre_kunder.TextBox6.Clear() : Endre_kunder.TextBox7.Clear() : Endre_kunder.TextBox8.Clear() : Endre_kunder.TextBox9.Clear()
@@ -795,9 +795,9 @@ Public Class Sporring
             Brukere.TextBox4.Select()
         Else
             If Brukere.TextBox5.Text = Brukere.TextBox6.Text Then
-                'Sender dataen til databasen
+                'Sender dataen om nye brukere til databasen
                 Dim data As New DataTable
-                sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.TextBox3.Text & "')"
+                sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.ComboBox2.SelectedItem.value & "')"
                 data = query(sporring)
                 MsgBox("Ny bruker er registrert!", MsgBoxStyle.Information)
             Else
