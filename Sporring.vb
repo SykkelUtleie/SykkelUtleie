@@ -9,6 +9,7 @@ Public Class Sporring
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
     Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse, b_navn, b_pass, K_fnavn, K_enavn, KID, k_ad, k_epost, k_tlf As String
+    Private sykkelnavn, ustyrnavn As String
     Protected Friend hjelpDataGrid As DataGridView
     Private mellomlagringsRad As Integer = 0
     Shared forsok As Integer = 3
@@ -454,6 +455,14 @@ Public Class Sporring
         End Select
         oversikt()
     End Sub
+    Public Sub hentePris()
+        Dim data As New DataTable
+        Dim sql As String
+        Dim rad As DataRow
+        For Each row As DataGridViewRow In Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows
+            sykkelnavn = row.Cells().ToString
+        Next
+    End Sub
     Public Sub kSok()
         ' Henter kundene fra databasen og legger de i en datagridview hvor brukeren kan velge kunde
         Dim data As New DataTable
@@ -675,7 +684,7 @@ Public Class Sporring
         Dim data As New DataTable
         Dim rad As DataRow
         Dim sql As String = "Select klasse From auth Where login= '" & b_navn & "' and password = '" & b_pass & "'"
-        data = query(Sql)
+        data = query(sql)
         For Each rad In data.Rows
             klasse = rad("klasse")
         Next
