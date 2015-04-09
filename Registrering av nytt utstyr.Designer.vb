@@ -45,13 +45,15 @@ Partial Class Registrering_av_nytt_utstyr
         Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BestillingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Button1.Location = New System.Drawing.Point(202, 182)
+        Me.Button1.Location = New System.Drawing.Point(202, 224)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(193, 49)
         Me.Button1.TabIndex = 60
@@ -213,12 +215,30 @@ Partial Class Registrering_av_nytt_utstyr
         Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
         Me.AVSLUTTToolStripMenuItem.Text = "TILBAKE til oversikt"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(153, 172)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(43, 13)
+        Me.Label3.TabIndex = 62
+        Me.Label3.Text = "Leiepris"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(202, 169)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(193, 20)
+        Me.TextBox2.TabIndex = 63
+        '
         'Registrering_av_nytt_utstyr
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(592, 373)
         Me.ControlBox = False
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
@@ -257,4 +277,6 @@ Partial Class Registrering_av_nytt_utstyr
     Friend WithEvents SlettUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BestillingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AVSLUTTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
 End Class

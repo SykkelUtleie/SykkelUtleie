@@ -49,27 +49,29 @@ Public Class Sporring
             "`Dempergaffel` varchar(50) default NULL, " &
             "`Bremser` varchar(50) default NULL, " &
             "`Status` varchar(20) NOT NULL, " &
+            "`Pris` varchar(20) NOT NULL, " &
             "PRIMARY KEY (`SykkelID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; " &
-            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite ANE', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite ANE', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'SKOTT Scale jr 24', '24', 'Aluminium', 'Shimano SL-RS36-7', 'SR Suntour XCT-Jr', ' Lee Chi Mv295.C2', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'MERIDA Matts Redwood NO 15', '26', 'Matts DT-V', 'Shimano RS35-7', 'M3010-AL 63', 'V-Brake Linear', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'SCOTT Contessa Scale 720', '27,5', 'Aluminium med Solution-geometri', 'Shimano Deore SL-M610-10', 'Suntour XCR-RL med lockout, 100 mm vandring', 'Shimano BR-M396 Hydr.disc, 180 mm foran og 160 mm bak', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'DBS Intruder F7,3 NO', '26', 'DBS alu disc 26 MTB', 'Shimano', 'Zoom 26 dempegaffel 100 mm m/LO', 'Mekaniske skivebremser', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'GIANT SCR 2 road bike', '28', 'Giant AluxX-grade Aluminum', 'Shimano Claris, 8-speed', 'Giant AluxX-grade Aluminum', 'Tektro TK-R312', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'GIANT SCR 2 road bike', '28', 'Giant AluxX-grade Aluminum', 'Shimano Claris, 8-speed', 'Giant AluxX-grade Aluminum', 'Tektro TK-R312', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'MERIDA CX 100 Claris 15', '28', 'CC Lite BC-D-Single', 'Shimano Claris', 'CC BC straight disc', 'Promax MTD Mechanical 160', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Crossway Redwood Gent NO 15', '28', 'Crossway DT-V', 'Shimano RS35-7', 'RIGID HT', 'V-Brake Linear', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Crossway Redwood Gent NO 15', '28', 'Crossway DT-V', 'Shimano RS35-7', 'RIGID HT', 'V-Brake Linear', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Freesport 20 MD Acera 24 Lady 15', '28', 'Freesport 700C Alloy', 'Shimano ST-EF51R 8s', 'Freesport 700C Alloy', 'Tektro Novela MD 160mm', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'DBS Classic 563 3s Blue', '28', ' DBS alu Cone&Profile cut', 'Shimano Nexus Revo', 'DBS stål', 'Navbrems bak, V-brems foran', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'MERIDA Classic 7 Arne & Carlos 15', '28', 'Aluminum 700C', 'Shimano Nexus 7 ', 'Classic Steel Fork', 'Shimano Nexus Coaster', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'MERIDA Classic 7 Arne & Carlos 15', '28', 'Aluminum 700C', 'Shimano Nexus 7 ', 'Classic Steel Fork', 'Shimano Nexus Coaster', 'Tilgjengelig');"
+            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite ANE', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite ANE', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'SKOTT Scale jr 24', '24', 'Aluminium', 'Shimano SL-RS36-7', 'SR Suntour XCT-Jr', ' Lee Chi Mv295.C2', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'MERIDA Matts Redwood NO 15', '26', 'Matts DT-V', 'Shimano RS35-7', 'M3010-AL 63', 'V-Brake Linear', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'SCOTT Contessa Scale 720', '27,5', 'Aluminium med Solution-geometri', 'Shimano Deore SL-M610-10', 'Suntour XCR-RL med lockout, 100 mm vandring', 'Shimano BR-M396 Hydr.disc, 180 mm foran og 160 mm bak', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'DBS Intruder F7,3 NO', '26', 'DBS alu disc 26 MTB', 'Shimano', 'Zoom 26 dempegaffel 100 mm m/LO', 'Mekaniske skivebremser', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'GIANT SCR 2 road bike', '28', 'Giant AluxX-grade Aluminum', 'Shimano Claris, 8-speed', 'Giant AluxX-grade Aluminum', 'Tektro TK-R312', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'GIANT SCR 2 road bike', '28', 'Giant AluxX-grade Aluminum', 'Shimano Claris, 8-speed', 'Giant AluxX-grade Aluminum', 'Tektro TK-R312', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'MERIDA CX 100 Claris 15', '28', 'CC Lite BC-D-Single', 'Shimano Claris', 'CC BC straight disc', 'Promax MTD Mechanical 160', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Crossway Redwood Gent NO 15', '28', 'Crossway DT-V', 'Shimano RS35-7', 'RIGID HT', 'V-Brake Linear', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Crossway Redwood Gent NO 15', '28', 'Crossway DT-V', 'Shimano RS35-7', 'RIGID HT', 'V-Brake Linear', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Freesport 20 MD Acera 24 Lady 15', '28', 'Freesport 700C Alloy', 'Shimano ST-EF51R 8s', 'Freesport 700C Alloy', 'Tektro Novela MD 160mm', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'DBS Classic 563 3s Blue', '28', ' DBS alu Cone&Profile cut', 'Shimano Nexus Revo', 'DBS stål', 'Navbrems bak, V-brems foran', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'MERIDA Classic 7 Arne & Carlos 15', '28', 'Aluminum 700C', 'Shimano Nexus 7 ', 'Classic Steel Fork', 'Shimano Nexus Coaster', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'MERIDA Classic 7 Arne & Carlos 15', '28', 'Aluminum 700C', 'Shimano Nexus 7 ', 'Classic Steel Fork', 'Shimano Nexus Coaster', 'Tilgjengelig', '150');"
         sporring += "CREATE TABLE `Utstyr` (`UtstyrID` int(10) NOT NULL AUTO_INCREMENT, " &
             "`Utstyrtype` varchar(50) default NULL, " &
             "`Utstyrmerke` varchar(50) default NULL, " &
             "`Status` varchar(20) NOT NULL, " &
+            "`Pris` varchar(20) NOT NULL, " &
             "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;"
         'sporring += "CREATE TABLE `Reparasjon` (`SykkelID` int UNSIGNED NOT NULL, " &
         '    "`Trenger_reparasjon` varchar(3) default NULL, " &
@@ -83,6 +85,7 @@ Public Class Sporring
             "`Dato_til` date DEFAULT NULL, " &
             "`Utleiested` varchar(30) DEFAULT NULL, " &
             "`Tilbakeleveringssted` varchar(30) DEFAULT NULL, " &
+            "`Totalpris` varchar(20) NOT NULL, " &
             "`Dato_b` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, " &
             "PRIMARY KEY (`ID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; " &
             "ALTER TABLE `Bestilling_tilbakelevering` " &
@@ -129,11 +132,11 @@ Public Class Sporring
                 data = query(sporring)
                 MsgBox("Ny organisasjon er registrert!", MsgBoxStyle.Information)
             Case "Sykkel"
-                sporring = "INSERT INTO Sykkel VALUES(NULL, '" & sporType & "','" & sporMerke & "','" & sporHjul & "','" & sporRamme & "','" & sporGir & "','" & sporGaffel & "','" & sporBremser & "', 'Tilgjengelig');"
+                sporring = "INSERT INTO Sykkel VALUES(NULL, '" & sporType & "','" & sporMerke & "','" & sporHjul & "','" & sporRamme & "','" & sporGir & "','" & sporGaffel & "','" & sporBremser & "', 'Tilgjengelig', '" & Registrering_av_ny_sykkel.TextBox7.Text & "');"
                 data = query(sporring)
                 MsgBox("Ny sykkel er registrert!", MsgBoxStyle.Information)
             Case "Utstyr"
-                sporring = "INSERT INTO Utstyr VALUES(NULL, '" & sporType & "','" & sporMerke & "', 'Tilgjengelig');"
+                sporring = "INSERT INTO Utstyr VALUES(NULL, '" & sporType & "','" & sporMerke & "', 'Tilgjengelig', '" & Registrering_av_nytt_utstyr.TextBox2.Text & "');"
                 data = query(sporring)
                 MsgBox("Nytt utstyr er registrert!", MsgBoxStyle.Information)
         End Select
@@ -239,13 +242,14 @@ Public Class Sporring
         Dim hjelp As String = sporBox9.Text
         Dim a() As String = hjelp.Split(" ")
         Dim data As New DataTable
-        sporring = "SELECT Utstyrmerke, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE Utstyrtype LIKE '" & a(0) & "' AND (UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) GROUP BY Utstyrmerke"
+        sporring = "SELECT Utstyrmerke, Pris, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE Utstyrtype LIKE '" & a(0) & "' AND (UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) GROUP BY Utstyrmerke"
         data = query(sporring)
         Dim rad As DataRow
-        Dim utstyrmerke, antallMerke As String
+        Dim utstyrmerke, antallMerke, pris As String
         For Each rad In data.Rows
             utstyrmerke = rad("Utstyrmerke")
             antallMerke = rad("Antall")
+            pris = rad("Pris")
             sporBox8.Items.Add(utstyrmerke)
         Next rad
     End Sub
