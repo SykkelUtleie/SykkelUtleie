@@ -8,7 +8,8 @@ Public Class Sporring
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
-    Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse As String
+    Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse, b_navn, b_pass, K_fnavn, K_enavn, KID, k_ad, k_epost, k_tlf As String
+    Private sykkelnavn, ustyrnavn As String
     Protected Friend hjelpDataGrid As DataGridView
     Private mellomlagringsRad As Integer = 0
     Shared forsok As Integer = 3
@@ -49,28 +50,35 @@ Public Class Sporring
             "`Dempergaffel` varchar(50) default NULL, " &
             "`Bremser` varchar(50) default NULL, " &
             "`Status` varchar(20) NOT NULL, " &
+            "`Pris` varchar(20) NOT NULL, " &
             "PRIMARY KEY (`SykkelID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; " &
-            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite ANE', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite ANE', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'SKOTT Scale jr 24', '24', 'Aluminium', 'Shimano SL-RS36-7', 'SR Suntour XCT-Jr', ' Lee Chi Mv295.C2', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'MERIDA Matts Redwood NO 15', '26', 'Matts DT-V', 'Shimano RS35-7', 'M3010-AL 63', 'V-Brake Linear', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'SCOTT Contessa Scale 720', '27,5', 'Aluminium med Solution-geometri', 'Shimano Deore SL-M610-10', 'Suntour XCR-RL med lockout, 100 mm vandring', 'Shimano BR-M396 Hydr.disc, 180 mm foran og 160 mm bak', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'DBS Intruder F7,3 NO', '26', 'DBS alu disc 26 MTB', 'Shimano', 'Zoom 26 dempegaffel 100 mm m/LO', 'Mekaniske skivebremser', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'GIANT SCR 2 road bike', '28', 'Giant AluxX-grade Aluminum', 'Shimano Claris, 8-speed', 'Giant AluxX-grade Aluminum', 'Tektro TK-R312', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'GIANT SCR 2 road bike', '28', 'Giant AluxX-grade Aluminum', 'Shimano Claris, 8-speed', 'Giant AluxX-grade Aluminum', 'Tektro TK-R312', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'MERIDA CX 100 Claris 15', '28', 'CC Lite BC-D-Single', 'Shimano Claris', 'CC BC straight disc', 'Promax MTD Mechanical 160', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Crossway Redwood Gent NO 15', '28', 'Crossway DT-V', 'Shimano RS35-7', 'RIGID HT', 'V-Brake Linear', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Crossway Redwood Gent NO 15', '28', 'Crossway DT-V', 'Shimano RS35-7', 'RIGID HT', 'V-Brake Linear', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Freesport 20 MD Acera 24 Lady 15', '28', 'Freesport 700C Alloy', 'Shimano ST-EF51R 8s', 'Freesport 700C Alloy', 'Tektro Novela MD 160mm', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'DBS Classic 563 3s Blue', '28', ' DBS alu Cone&Profile cut', 'Shimano Nexus Revo', 'DBS stål', 'Navbrems bak, V-brems foran', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'MERIDA Classic 7 Arne & Carlos 15', '28', 'Aluminum 700C', 'Shimano Nexus 7 ', 'Classic Steel Fork', 'Shimano Nexus Coaster', 'Tilgjengelig');" &
-            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'MERIDA Classic 7 Arne & Carlos 15', '28', 'Aluminum 700C', 'Shimano Nexus 7 ', 'Classic Steel Fork', 'Shimano Nexus Coaster', 'Tilgjengelig');"
+            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite ANE', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite ANE', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'WHITE XC 200 Jr Lite', '20', 'White XC200 Jr Alloy', 'Shimano SL RS35', 'White XC Jr Alloy', 'V-Brake w/Power modelator', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Barnesykkel', 'SKOTT Scale jr 24', '24', 'Aluminium', 'Shimano SL-RS36-7', 'SR Suntour XCT-Jr', ' Lee Chi Mv295.C2', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'MERIDA Matts Redwood NO 15', '26', 'Matts DT-V', 'Shimano RS35-7', 'M3010-AL 63', 'V-Brake Linear', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'SCOTT Contessa Scale 720', '27,5', 'Aluminium med Solution-geometri', 'Shimano Deore SL-M610-10', 'Suntour XCR-RL med lockout, 100 mm vandring', 'Shimano BR-M396 Hydr.disc, 180 mm foran og 160 mm bak', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Terrengsykkel', 'DBS Intruder F7,3 NO', '26', 'DBS alu disc 26 MTB', 'Shimano', 'Zoom 26 dempegaffel 100 mm m/LO', 'Mekaniske skivebremser', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'GIANT SCR 2 road bike', '28', 'Giant AluxX-grade Aluminum', 'Shimano Claris, 8-speed', 'Giant AluxX-grade Aluminum', 'Tektro TK-R312', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'GIANT SCR 2 road bike', '28', 'Giant AluxX-grade Aluminum', 'Shimano Claris, 8-speed', 'Giant AluxX-grade Aluminum', 'Tektro TK-R312', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Landeveissykkel', 'MERIDA CX 100 Claris 15', '28', 'CC Lite BC-D-Single', 'Shimano Claris', 'CC BC straight disc', 'Promax MTD Mechanical 160', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Crossway Redwood Gent NO 15', '28', 'Crossway DT-V', 'Shimano RS35-7', 'RIGID HT', 'V-Brake Linear', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Crossway Redwood Gent NO 15', '28', 'Crossway DT-V', 'Shimano RS35-7', 'RIGID HT', 'V-Brake Linear', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Hybridsykkel', 'MERIDA Freesport 20 MD Acera 24 Lady 15', '28', 'Freesport 700C Alloy', 'Shimano ST-EF51R 8s', 'Freesport 700C Alloy', 'Tektro Novela MD 160mm', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'DBS Classic 563 3s Blue', '28', ' DBS alu Cone&Profile cut', 'Shimano Nexus Revo', 'DBS stål', 'Navbrems bak, V-brems foran', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'MERIDA Classic 7 Arne & Carlos 15', '28', 'Aluminum 700C', 'Shimano Nexus 7 ', 'Classic Steel Fork', 'Shimano Nexus Coaster', 'Tilgjengelig', '150');" &
+            "INSERT INTO Sykkel VALUES(NULL, 'Bysykkel', 'MERIDA Classic 7 Arne & Carlos 15', '28', 'Aluminum 700C', 'Shimano Nexus 7 ', 'Classic Steel Fork', 'Shimano Nexus Coaster', 'Tilgjengelig', '150');"
         sporring += "CREATE TABLE `Utstyr` (`UtstyrID` int(10) NOT NULL AUTO_INCREMENT, " &
             "`Utstyrtype` varchar(50) default NULL, " &
             "`Utstyrmerke` varchar(50) default NULL, " &
             "`Status` varchar(20) NOT NULL, " &
+            "`Pris` varchar(20) NOT NULL, " &
             "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;"
+        'sporring += "CREATE TABLE `Reparasjon` (`SykkelID` int UNSIGNED NOT NULL, " &
+        '    "`Trenger_reparasjon` varchar(3) default NULL, " &
+        '    "PRIMARY KEY (`SykkelID`)) ENGINE=MyISAM;" &
+        '    "ALTER TABLE `Reparasjon` " &
+        '    "ADD FOREIGN KEY(SykkelID) REFERENCES Sykkel(SykkelID);"
         sporring += "CREATE TABLE `Bestilling_tilbakelevering` (`ID` int(10) NOT NULL AUTO_INCREMENT, " &
             "`BestillingID` int(10) unsigned NOT NULL, " &
             "`Utleied_av` int(10) unsigned NOT NULL, " &
@@ -78,6 +86,7 @@ Public Class Sporring
             "`Dato_til` date DEFAULT NULL, " &
             "`Utleiested` varchar(30) DEFAULT NULL, " &
             "`Tilbakeleveringssted` varchar(30) DEFAULT NULL, " &
+            "`Totalpris` varchar(20) NOT NULL, " &
             "`Dato_b` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, " &
             "PRIMARY KEY (`ID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1; " &
             "ALTER TABLE `Bestilling_tilbakelevering` " &
@@ -92,14 +101,12 @@ Public Class Sporring
             "ADD FOREIGN KEY(BestillingID) REFERENCES Bestilling_tilbakelevering(BestillingID);" &
             "ALTER TABLE `Sykkel_bestilling` " &
             "ADD FOREIGN KEY(ID) REFERENCES Bestilling_tilbakelevering(ID);"
-        sporring += "CREATE TABLE `Utstyr_bestilling` (`ID` int(10) unsigned NOT NULL, " &
-            "`BestillingID` int(10) unsigned NOT NULL, " &
-            "`SykkelID` int(10) unsigned NOT NULL, " &
+        sporring += "CREATE TABLE `Utstyr_bestilling` (`BestillingID` int(10) unsigned NOT NULL, " &
             "`UtstyrID` int(10) unsigned NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1; " &
             "ALTER TABLE `Utstyr_bestilling` " &
             "ADD FOREIGN KEY(UtstyrID) REFERENCES Utstyr(UtstyrID);" &
             "ALTER TABLE `Sykkel_bestilling` " &
-            "ADD FOREIGN KEY(ID) REFERENCES Bestilling_tilbakelevering(ID);"
+            "ADD FOREIGN KEY(BestillingID) REFERENCES Bestilling_tilbakelevering(BestillingID);"
         sporring += "CREATE TABLE `auth` (`id` int(11) NOT NULL AUTO_INCREMENT, " &
             "`klasse` int(11) NOT NULL, " &
             "`navn` varchar(50) DEFAULT NULL, " &
@@ -109,10 +116,8 @@ Public Class Sporring
             "PRIMARY KEY (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;"
         sporring += "CREATE TABLE `Mellomlagring` (`SykkelID` int(10) default NULL, " &
             "`Sykkeltype` varchar(50) default NULL, " &
-            "`Sykkelmerke` varchar(50) default NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
-        sporring += "CREATE TABLE `MellomlagringUtstyr` (`UtstyrID` int(10) default NULL, " &
-            "`Utstyrtype` varchar(50) default NULL, " &
-            "`Utstyrmerke` varchar(50) default NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
+            "`Sykkelmerke` varchar(50) default NULL) " &
+            "ENGINE=MyISAM DEFAULT CHARSET=latin1;"
         data = query(sporring)
         MsgBox("Databasen er opprettet!", MsgBoxStyle.Information)
     End Sub
@@ -128,11 +133,11 @@ Public Class Sporring
                 data = query(sporring)
                 MsgBox("Ny organisasjon er registrert!", MsgBoxStyle.Information)
             Case "Sykkel"
-                sporring = "INSERT INTO Sykkel VALUES(NULL, '" & sporType & "','" & sporMerke & "','" & sporHjul & "','" & sporRamme & "','" & sporGir & "','" & sporGaffel & "','" & sporBremser & "', 'Tilgjengelig');"
+                sporring = "INSERT INTO Sykkel VALUES(NULL, '" & sporType & "','" & sporMerke & "','" & sporHjul & "','" & sporRamme & "','" & sporGir & "','" & sporGaffel & "','" & sporBremser & "', 'Tilgjengelig', '" & Registrering_av_ny_sykkel.TextBox7.Text & "');"
                 data = query(sporring)
                 MsgBox("Ny sykkel er registrert!", MsgBoxStyle.Information)
             Case "Utstyr"
-                sporring = "INSERT INTO Utstyr VALUES(NULL, '" & sporType & "','" & sporMerke & "', 'Tilgjengelig');"
+                sporring = "INSERT INTO Utstyr VALUES(NULL, '" & sporType & "','" & sporMerke & "', 'Tilgjengelig', '" & Registrering_av_nytt_utstyr.TextBox2.Text & "');"
                 data = query(sporring)
                 MsgBox("Nytt utstyr er registrert!", MsgBoxStyle.Information)
         End Select
@@ -152,16 +157,18 @@ Public Class Sporring
                 sporBox1.Items.Add(sykkeltype)
             Next rad
         ElseIf soke = "tSoke" Then
-            Dim data As New DataTable
-            sporring = "SELECT Sykkeltype, COUNT( DISTINCT SykkelID ) AS Antall FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) GROUP BY Sykkeltype"
-            data = query(sporring)
+            Dim data1 As New DataTable
+            Dim sporring1 As String = "SELECT Sykkeltype, COUNT( DISTINCT SykkelID ) AS Antall FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) GROUP BY Sykkeltype"
+            data1 = query(sporring1)
             Dim rad As DataRow
             Dim sykkeltype, antallType As String
-            For Each rad In data.Rows
+            For Each rad In data1.Rows
                 sykkeltype = rad("Sykkeltype")
                 antallType = rad("Antall")
                 sporBox1.Items.Add(sykkeltype)
             Next rad
+            'soke1 = "tTypeSoke"
+            'tilbSykkel()
         Else
             Dim data As New DataTable
             sporring = "SELECT Sykkeltype, COUNT( DISTINCT SykkelID ) AS Antall FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Sykkeltype"
@@ -219,66 +226,31 @@ Public Class Sporring
         End If
     End Sub
     Public Sub hentUtstyrType()
-        sporBox8.Items.Clear()
-        'Dim data As New DataTable
-        'sporring = "SELECT Utstyrtype, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Utstyrtype"
-        'data = query(sporring)
-        'Dim rad As DataRow
-        'Dim utstyrtype, antallType As String
-        'For Each rad In data.Rows
-        '    utstyrtype = rad("Utstyrtype")
-        '    antallType = rad("Antall")
-        '    sporBox9.Items.Add(utstyrtype)
-        'Next rad
-        If soke = "sSoke" Then
-            Dim data As New DataTable
-            sporring = "SELECT Utstyrtype, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr GROUP BY Utstyrtype"
-            data = query(sporring)
-            Dim rad As DataRow
-            Dim utstyrtype, antallType As String
-            For Each rad In data.Rows
-                utstyrtype = rad("Utstyrtype")
-                antallType = rad("Antall")
-                sporBox9.Items.Add(utstyrtype)
-            Next rad
-        ElseIf soke = "tSoke" Then
-            Dim data As New DataTable
-            sporring = "SELECT Utstyrtype, COUNT( DISTINCT UtstyrID ) AS Antall FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) GROUP BY Utstyrtype"
-            data = query(sporring)
-            Dim rad As DataRow
-            Dim utstyrtype, antallType As String
-            For Each rad In data.Rows
-                utstyrtype = rad("Utstyrtype")
-                antallType = rad("Antall")
-                sporBox9.Items.Add(utstyrtype)
-            Next rad
-        Else
-            Dim data As New DataTable
-            sporring = "SELECT Utstyrtype, COUNT( DISTINCT UtstyrID ) AS Antall FROM Utstyr WHERE UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Utstyrtype"
-            data = query(sporring)
-            Dim rad As DataRow
-            Dim utstyrtype, antallType As String
-            For Each rad In data.Rows
-                utstyrtype = rad("Utstyrtype")
-                antallType = rad("Antall")
-                sporBox9.Items.Add(utstyrtype)
-            Next rad
-        End If
-
-
+        sporBox9.Items.Clear()
+        Dim data As New DataTable
+        sporring = "SELECT Utstyrtype, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Utstyrtype"
+        data = query(sporring)
+        Dim rad As DataRow
+        Dim utstyrtype, antallType As String
+        For Each rad In data.Rows
+            utstyrtype = rad("Utstyrtype")
+            antallType = rad("Antall")
+            sporBox9.Items.Add(utstyrtype)
+        Next rad
     End Sub
     Public Sub hentUtstyrMerke()
-        sporBox9.Items.Clear()
+        sporBox8.Items.Clear()
         Dim hjelp As String = sporBox9.Text
         Dim a() As String = hjelp.Split(" ")
         Dim data As New DataTable
-        sporring = "SELECT Utstyrmerke, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE Utstyrtype LIKE '" & a(0) & "' AND (UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) GROUP BY Utstyrmerke"
+        sporring = "SELECT Utstyrmerke, Pris, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE Utstyrtype LIKE '" & a(0) & "' AND (UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) GROUP BY Utstyrmerke"
         data = query(sporring)
         Dim rad As DataRow
-        Dim utstyrmerke, antallMerke As String
+        Dim utstyrmerke, antallMerke, pris As String
         For Each rad In data.Rows
             utstyrmerke = rad("Utstyrmerke")
             antallMerke = rad("Antall")
+            pris = rad("Pris")
             sporBox8.Items.Add(utstyrmerke)
         Next rad
     End Sub
@@ -393,6 +365,7 @@ Public Class Sporring
                         Sok_i_kundebase.DataGridView1.DataSource = data1
                         Slett_kunde.DataGridView1.DataSource = data1
                         Bestilling_og_tilbakelevering_av_sykler.DataGridView1.DataSource = data1
+                        Endre_kunder.DataGridView1.DataSource = data1
                     Case "alleKunder"
                         Dim data As New DataTable
                         sporring = "SELECT * FROM Kunde"
@@ -482,6 +455,104 @@ Public Class Sporring
         End Select
         oversikt()
     End Sub
+    Public Sub hentePris()
+        Dim data As New DataTable
+        Dim sql As String
+        Dim rad As DataRow
+        For Each row As DataGridViewRow In Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows
+            sykkelnavn = row.Cells().ToString
+        Next
+    End Sub
+    Public Sub kSok()
+        ' Henter kundene fra databasen og legger de i en datagridview hvor brukeren kan velge kunde
+        Dim data As New DataTable
+        Dim sql As String
+        If Endre_kunder.RadioButton1.Checked = True Then
+            Endre_kunder.DataGridView1.DataSource = Nothing
+            sql = "Select KundeID, Fornavn, Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where Fornavn NOT LIKE '" & "" & "' and Etternavn_org_navn NOT LIKE '" & "" & "'"
+            data = query(sql)
+            Endre_kunder.DataGridView1.DataSource = data
+        ElseIf Endre_kunder.RadioButton2.Checked = True Then
+            Endre_kunder.DataGridView1.DataSource = Nothing
+            sql = "Select KundeID, Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where Fornavn is NULL and Fdato is NULL"
+            data = query(sql)
+            Endre_kunder.DataGridView1.DataSource = data
+        End If
+    End Sub
+    Public Sub hentKunde()
+        ' henter informasjonen til en valgt kunde i datagridview og legger dette i tekstbokser for endring
+        Dim kundeid As String = Endre_kunder.DataGridView1.Rows(Endre_kunder.DataGridView1.CurrentRow.Index).Cells(0).Value.ToString()
+        Dim data As New DataTable
+        Dim sql As String
+        Dim rad As DataRow
+
+        If Endre_kunder.RadioButton1.Checked = True Then
+            sql = "Select Fornavn, Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where KundeID like '" & kundeid & "'"
+            data = query(sql)
+            For Each rad In data.Rows
+                K_fnavn = rad("Fornavn")
+                K_enavn = rad("Etternavn_org_navn")
+                k_ad = rad("Adresse")
+                k_tlf = rad("Telefon")
+                k_epost = rad("Epost")
+            Next
+            Endre_kunder.TextBox1.Text = K_fnavn : Endre_kunder.TextBox2.Text = K_enavn : Endre_kunder.TextBox4.Text = k_ad : Endre_kunder.TextBox5.Text = k_epost : Endre_kunder.TextBox6.Text = k_tlf
+
+        ElseIf Endre_kunder.RadioButton2.Checked = True Then
+            sql = "Select Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where KundeID like '" & kundeid & "'"
+            data = query(sql)
+            For Each rad In data.Rows
+                K_enavn = rad("Etternavn_org_navn")
+                k_ad = rad("Adresse")
+                k_tlf = rad("Telefon")
+                k_epost = rad("Epost")
+            Next
+            Endre_kunder.TextBox3.Text = K_enavn : Endre_kunder.TextBox7.Text = k_ad : Endre_kunder.TextBox8.Text = k_tlf : Endre_kunder.TextBox9.Text = k_epost
+        End If
+    End Sub
+    Public Sub endreKunde()
+        ' Oppdaterer informasjonene hos kundene
+        Dim kundeid As String = Endre_kunder.DataGridView1.Rows(Endre_kunder.DataGridView1.CurrentRow.Index).Cells(0).Value.ToString()
+        Dim data As New DataTable
+        Dim sql As String
+        If Endre_kunder.RadioButton1.Checked = True Then
+            If Endre_kunder.TextBox1.Text = "" Or Endre_kunder.TextBox2.Text = "" Or Endre_kunder.TextBox4.Text = "" Or Endre_kunder.TextBox5.Text = "" Or Endre_kunder.TextBox6.Text = "" Then
+                MsgBox("Fyll ut alle tekstboksene!")
+            Else
+                sql = "UPDATE Kunde Set Fornavn = '" & Endre_kunder.TextBox1.Text & "', Etternavn_org_navn = '" & Endre_kunder.TextBox2.Text & "', Adresse = '" & Endre_kunder.TextBox4.Text & "', Telefon = '" & Endre_kunder.TextBox6.Text & "', Epost = '" & Endre_kunder.TextBox5.Text & "' Where KundeID = '" & kundeid & "'"
+                data = query(sql)
+                MsgBox("Endringene har blitt gjennomført!")
+                Endre_kunder.TextBox1.Clear() : Endre_kunder.TextBox2.Clear() : Endre_kunder.TextBox3.Clear() : Endre_kunder.TextBox4.Clear() : Endre_kunder.TextBox5.Clear() : Endre_kunder.TextBox6.Clear() : Endre_kunder.TextBox7.Clear() : Endre_kunder.TextBox8.Clear() : Endre_kunder.TextBox9.Clear()
+                Endre_kunder.DataGridView1.DataSource = Nothing
+            End If
+        ElseIf Endre_kunder.RadioButton2.Checked = True Then
+            If Endre_kunder.TextBox3.Text = "" Or Endre_kunder.TextBox7.Text = "" Or Endre_kunder.TextBox8.Text = "" Or Endre_kunder.TextBox9.Text = "" Then
+                MsgBox("Fyll ut alle tekstboksene!")
+            Else
+                sql = "UPDATE Kunde Set Etternavn_org_navn = '" & Endre_kunder.TextBox3.Text & "', Adresse = '" & Endre_kunder.TextBox7.Text & "', Telefon = '" & Endre_kunder.TextBox8.Text & "', Epost = '" & Endre_kunder.TextBox9.Text & "' Where KundeID = '" & kundeid & "'"
+                data = query(sql)
+                MsgBox("Endringene har blitt gjennomført!")
+                Endre_kunder.TextBox1.Clear() : Endre_kunder.TextBox2.Clear() : Endre_kunder.TextBox3.Clear() : Endre_kunder.TextBox4.Clear() : Endre_kunder.TextBox5.Clear() : Endre_kunder.TextBox6.Clear() : Endre_kunder.TextBox7.Clear() : Endre_kunder.TextBox8.Clear() : Endre_kunder.TextBox9.Clear()
+                Endre_kunder.DataGridView1.DataSource = Nothing
+            End If
+        End If
+    End Sub
+    'Public Sub tilbSykkel()
+    '    Select Case soke1
+    '        Case "tTypeSoke"
+    '            Dim data As New DataTable
+    '            sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND Sykkeltype ='" & sporType & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
+    '            data = query(sporring)
+    '            Bestilling_og_tilbakelevering_av_sykler.DataGridView2.DataSource = data
+    '        Case "tMerkeSoke"
+    '            Dim hjelp As String = sporBox1.Text
+    '            Dim a() As String = hjelp.Split(" ")
+    '            Dim data As New DataTable
+    '            sporring = "SELECT * FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
+    '            data = query(sporring)
+    '            Bestilling_og_tilbakelevering_av_sykler.DataGridView2.DataSource = data
+    '    End Select
+    'End Sub
     Public Sub tilbSykkelUpdate()
         Dim data As New DataTable
         sporring = "SELECT SykkelID FROM Mellomlagring"
@@ -542,7 +613,7 @@ Public Class Sporring
                     sykkelId = rad1("SykkelID")
                 Next
                 Dim data3 As New DataTable
-                Dim sporring3 As String = "INSERT INTO Mellomlagring(SykkelID, Sykkeltype, Sykkelmerke) VALUES(" & sykkelId & ", '" & type & "', '" & merke & "');"
+                Dim sporring3 As String = "INSERT INTO Mellomlagring VALUES(" & sykkelId & ", '" & type & "', '" & merke & "');"
                 data3 = query(sporring3)
             Case "Tilbakelevering"
                 mellomlagringsRad += 1
@@ -555,7 +626,7 @@ Public Class Sporring
                     sykkelId = rad1("SykkelID")
                 Next
                 Dim data3 As New DataTable
-                Dim sporring3 As String = "INSERT INTO Mellomlagring(SykkelID, Sykkeltype, Sykkelmerke) VALUES(" & sykkelId & ", '" & type & "', '" & merke & "');"
+                Dim sporring3 As String = "INSERT INTO Mellomlagring VALUES(" & sykkelId & ", '" & type & "', '" & merke & "');"
                 data3 = query(sporring3)
         End Select
 
@@ -591,9 +662,11 @@ Public Class Sporring
             Form1.Close()
         Else
             If data.Rows.Count = 1 Then
+                b_navn = Tilgang.TextBox1.Text
+                b_pass = Tilgang.TextBox2.Text
                 Form1.Show()
                 Tilgang.Hide()
-
+                auth()
             Else
                 forsok -= 1
                 If forsok > 1 Then
@@ -603,6 +676,22 @@ Public Class Sporring
                 End If
 
             End If
+        End If
+        Tilgang.TextBox1.Clear()
+        Tilgang.TextBox2.Clear()
+    End Sub
+    Public Sub auth()
+        Dim data As New DataTable
+        Dim rad As DataRow
+        Dim sql As String = "Select klasse From auth Where login= '" & b_navn & "' and password = '" & b_pass & "'"
+        data = query(sql)
+        For Each rad In data.Rows
+            klasse = rad("klasse")
+        Next
+
+        If klasse = 2 Then
+            Administrering_av_database.Button3.Visible = False
+            Database.Button1.Visible = False
         End If
     End Sub
     Public Sub glemt()
@@ -689,7 +778,7 @@ Public Class Sporring
                     'Oppdaterer alt untatt passordet
                     Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
                     data = query(sql)
-                    MsgBox("Endringene har gjennomført")
+                    MsgBox("Endringene har blitt gjennomført")
                 Else
                     'Oppdaterer alt!
                     Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', password = '" & Brukere.TextBox11.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
@@ -719,9 +808,9 @@ Public Class Sporring
             Brukere.TextBox4.Select()
         Else
             If Brukere.TextBox5.Text = Brukere.TextBox6.Text Then
-                'Sender dataen til databasen
+                'Sender dataen om nye brukere til databasen
                 Dim data As New DataTable
-                sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.TextBox3.Text & "')"
+                sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.ComboBox2.SelectedItem.value & "')"
                 data = query(sporring)
                 MsgBox("Ny bruker er registrert!", MsgBoxStyle.Information)
             Else

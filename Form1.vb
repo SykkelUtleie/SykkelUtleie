@@ -14,7 +14,7 @@ Public Class Form1
     End Sub
 #Region "GUI"
     Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
-        Registrering_av_ny_enkelt_kunde.Show()
+        Endre_kunder.Show()
         Hide()
     End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click

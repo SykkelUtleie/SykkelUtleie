@@ -55,6 +55,8 @@ Partial Class Registrering_av_ny_sykkel
         Me.SlettUtstyrToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BestillingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -204,31 +206,31 @@ Partial Class Registrering_av_ny_sykkel
         '
         Me.NyKundeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnkeltKundeToolStripMenuItem, Me.GruppefamilieBedrifterOsvToolStripMenuItem})
         Me.NyKundeToolStripMenuItem.Name = "NyKundeToolStripMenuItem"
-        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
-        Me.NyKundeToolStripMenuItem.Text = "Registrering av ny kunde"
+        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
+        Me.NyKundeToolStripMenuItem.Text = "Registrering/endring ny kunde"
         '
         'EnkeltKundeToolStripMenuItem
         '
         Me.EnkeltKundeToolStripMenuItem.Name = "EnkeltKundeToolStripMenuItem"
-        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.EnkeltKundeToolStripMenuItem.Text = "Enkelt kunde"
+        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.EnkeltKundeToolStripMenuItem.Text = "Endre kunde"
         '
         'GruppefamilieBedrifterOsvToolStripMenuItem
         '
         Me.GruppefamilieBedrifterOsvToolStripMenuItem.Name = "GruppefamilieBedrifterOsvToolStripMenuItem"
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Gruppe (familie, bedrifter osv.)"
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Registrere ny kunde"
         '
         'SøkIKundebaseToolStripMenuItem
         '
         Me.SøkIKundebaseToolStripMenuItem.Name = "SøkIKundebaseToolStripMenuItem"
-        Me.SøkIKundebaseToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.SøkIKundebaseToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
         Me.SøkIKundebaseToolStripMenuItem.Text = "Søk i kundebase"
         '
         'SlettKundeToolStripMenuItem
         '
         Me.SlettKundeToolStripMenuItem.Name = "SlettKundeToolStripMenuItem"
-        Me.SlettKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.SlettKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
         Me.SlettKundeToolStripMenuItem.Text = "Slett kunde"
         '
         'SykkelToolStripMenuItem
@@ -303,12 +305,30 @@ Partial Class Registrering_av_ny_sykkel
         Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(145, 20)
         Me.AVSLUTTToolStripMenuItem.Text = "TILBAKE til oversikt"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(81, 251)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(43, 13)
+        Me.Label6.TabIndex = 53
+        Me.Label6.Text = "Leiepris"
+        '
+        'TextBox7
+        '
+        Me.TextBox7.Location = New System.Drawing.Point(135, 248)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(193, 20)
+        Me.TextBox7.TabIndex = 54
+        '
         'Registrering_av_ny_sykkel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(592, 373)
         Me.ControlBox = False
+        Me.Controls.Add(Me.TextBox7)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox6)
@@ -330,10 +350,10 @@ Partial Class Registrering_av_ny_sykkel
         Me.Text = "Registrering av ny sykkel"
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
@@ -367,4 +387,6 @@ End Sub
     Friend WithEvents SlettUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BestillingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AVSLUTTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
 End Class

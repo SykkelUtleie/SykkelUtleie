@@ -1,5 +1,6 @@
 ﻿Public Class Brukere
     Private b As New Sporring
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Administrering_av_database.Show()
         Close()
@@ -8,7 +9,7 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         'legger til bruker
         b.leggtilBruker()
-        TextBox1.Clear() : TextBox2.Clear() : TextBox3.Clear() : TextBox4.Clear() : TextBox5.Clear() : TextBox6.Clear()
+        TextBox1.Clear() : TextBox2.Clear() : ComboBox2.SelectedIndex = -1 : TextBox4.Clear() : TextBox5.Clear() : TextBox6.Clear()
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
@@ -65,5 +66,11 @@
         'søker etter brukere og legger informasjonen til brukeren inn i textbokser
         b.sokBruker()
         b.hentBruker()
+    End Sub
+
+    Private Sub Brukere_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ComboBox2.DisplayMember = "Text"
+        ComboBox2.Items.Add(New With {.Text = "Bruker", .Value = 2})
+        ComboBox2.Items.Add(New With {.Text = "Admin", .Value = 1})
     End Sub
 End Class

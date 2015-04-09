@@ -25,7 +25,6 @@ Partial Class Brukere
         Me.Button1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
@@ -37,6 +36,7 @@ Partial Class Brukere
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
@@ -59,7 +59,7 @@ Partial Class Brukere
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -90,13 +90,6 @@ Partial Class Brukere
         Me.TextBox2.Size = New System.Drawing.Size(121, 20)
         Me.TextBox2.TabIndex = 2
         '
-        'TextBox3
-        '
-        Me.TextBox3.Location = New System.Drawing.Point(148, 81)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(121, 20)
-        Me.TextBox3.TabIndex = 3
-        '
         'TextBox4
         '
         Me.TextBox4.Location = New System.Drawing.Point(148, 107)
@@ -123,7 +116,7 @@ Partial Class Brukere
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(54, 32)
+        Me.Label1.Location = New System.Drawing.Point(102, 32)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(36, 13)
         Me.Label1.TabIndex = 7
@@ -132,7 +125,7 @@ Partial Class Brukere
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(54, 58)
+        Me.Label2.Location = New System.Drawing.Point(101, 58)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(37, 13)
         Me.Label2.TabIndex = 8
@@ -141,7 +134,7 @@ Partial Class Brukere
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(54, 84)
+        Me.Label3.Location = New System.Drawing.Point(97, 84)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(41, 13)
         Me.Label3.TabIndex = 9
@@ -150,7 +143,7 @@ Partial Class Brukere
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(54, 110)
+        Me.Label4.Location = New System.Drawing.Point(73, 110)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(65, 13)
         Me.Label4.TabIndex = 10
@@ -159,7 +152,7 @@ Partial Class Brukere
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(54, 136)
+        Me.Label5.Location = New System.Drawing.Point(90, 136)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(48, 13)
         Me.Label5.TabIndex = 11
@@ -196,6 +189,15 @@ Partial Class Brukere
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Slett bruker"
         Me.GroupBox1.Visible = False
+        '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(7, 20)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.ReadOnly = True
+        Me.RichTextBox1.Size = New System.Drawing.Size(144, 75)
+        Me.RichTextBox1.TabIndex = 18
+        Me.RichTextBox1.Text = "Dobbeltklikk til venstre for brukeren du ønsker å slette!"
         '
         'DataGridView1
         '
@@ -244,7 +246,7 @@ Partial Class Brukere
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(54, 22)
+        Me.Label13.Location = New System.Drawing.Point(60, 22)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(64, 13)
         Me.Label13.TabIndex = 18
@@ -253,7 +255,7 @@ Partial Class Brukere
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(54, 153)
+        Me.Label12.Location = New System.Drawing.Point(55, 153)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(69, 13)
         Me.Label12.TabIndex = 17
@@ -279,7 +281,7 @@ Partial Class Brukere
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(54, 179)
+        Me.Label11.Location = New System.Drawing.Point(83, 179)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(41, 13)
         Me.Label11.TabIndex = 11
@@ -288,7 +290,7 @@ Partial Class Brukere
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(54, 127)
+        Me.Label10.Location = New System.Drawing.Point(76, 127)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(48, 13)
         Me.Label10.TabIndex = 10
@@ -297,7 +299,7 @@ Partial Class Brukere
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(54, 101)
+        Me.Label9.Location = New System.Drawing.Point(59, 101)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(65, 13)
         Me.Label9.TabIndex = 9
@@ -306,7 +308,7 @@ Partial Class Brukere
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(54, 75)
+        Me.Label8.Location = New System.Drawing.Point(87, 75)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(37, 13)
         Me.Label8.TabIndex = 8
@@ -315,7 +317,7 @@ Partial Class Brukere
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(54, 49)
+        Me.Label7.Location = New System.Drawing.Point(88, 49)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(36, 13)
         Me.Label7.TabIndex = 7
@@ -370,6 +372,7 @@ Partial Class Brukere
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.ComboBox2)
         Me.GroupBox5.Controls.Add(Me.TextBox1)
         Me.GroupBox5.Controls.Add(Me.Label1)
         Me.GroupBox5.Controls.Add(Me.Label2)
@@ -379,7 +382,6 @@ Partial Class Brukere
         Me.GroupBox5.Controls.Add(Me.Label3)
         Me.GroupBox5.Controls.Add(Me.Label6)
         Me.GroupBox5.Controls.Add(Me.TextBox5)
-        Me.GroupBox5.Controls.Add(Me.TextBox3)
         Me.GroupBox5.Controls.Add(Me.Label4)
         Me.GroupBox5.Controls.Add(Me.Label5)
         Me.GroupBox5.Controls.Add(Me.TextBox4)
@@ -421,20 +423,19 @@ Partial Class Brukere
         Me.Button6.Text = "Endre bruker"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'RichTextBox1
+        'ComboBox2
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(7, 20)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(144, 75)
-        Me.RichTextBox1.TabIndex = 18
-        Me.RichTextBox1.Text = "Dobbeltklikk til venstre for brukeren du ønsker å slette!"
+        Me.ComboBox2.FormattingEnabled = True
+        Me.ComboBox2.Location = New System.Drawing.Point(148, 80)
+        Me.ComboBox2.Name = "ComboBox2"
+        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox2.TabIndex = 15
         '
         'Brukere
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(459, 422)
+        Me.ClientSize = New System.Drawing.Size(461, 442)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button2)
@@ -456,7 +457,6 @@ Partial Class Brukere
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
@@ -491,4 +491,5 @@ Partial Class Brukere
     Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
 End Class

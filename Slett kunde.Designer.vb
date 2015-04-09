@@ -209,7 +209,7 @@ Partial Class Slett_kunde
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(592, 24)
-        Me.MenuStrip1.TabIndex = 42
+        Me.MenuStrip1.TabIndex = 62
         Me.MenuStrip1.Text = "MenuStrip1"
         '
         'KundeToolStripMenuItem
@@ -224,31 +224,31 @@ Partial Class Slett_kunde
         '
         Me.NyKundeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnkeltKundeToolStripMenuItem, Me.GruppefamilieBedrifterOsvToolStripMenuItem})
         Me.NyKundeToolStripMenuItem.Name = "NyKundeToolStripMenuItem"
-        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
-        Me.NyKundeToolStripMenuItem.Text = "Registrering av ny kunde"
+        Me.NyKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
+        Me.NyKundeToolStripMenuItem.Text = "Registrering/endring ny kunde"
         '
         'EnkeltKundeToolStripMenuItem
         '
         Me.EnkeltKundeToolStripMenuItem.Name = "EnkeltKundeToolStripMenuItem"
-        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.EnkeltKundeToolStripMenuItem.Text = "Enkelt kunde"
+        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.EnkeltKundeToolStripMenuItem.Text = "Endre kunde"
         '
         'GruppefamilieBedrifterOsvToolStripMenuItem
         '
         Me.GruppefamilieBedrifterOsvToolStripMenuItem.Name = "GruppefamilieBedrifterOsvToolStripMenuItem"
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
-        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Gruppe (familie, bedrifter osv.)"
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.GruppefamilieBedrifterOsvToolStripMenuItem.Text = "Registrere ny kunde"
         '
         'SøkIKundebaseToolStripMenuItem
         '
         Me.SøkIKundebaseToolStripMenuItem.Name = "SøkIKundebaseToolStripMenuItem"
-        Me.SøkIKundebaseToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.SøkIKundebaseToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
         Me.SøkIKundebaseToolStripMenuItem.Text = "Søk i kundebase"
         '
         'SlettKundeToolStripMenuItem
         '
         Me.SlettKundeToolStripMenuItem.Name = "SlettKundeToolStripMenuItem"
-        Me.SlettKundeToolStripMenuItem.Size = New System.Drawing.Size(239, 22)
+        Me.SlettKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
         Me.SlettKundeToolStripMenuItem.Text = "Slett kunde"
         '
         'SykkelToolStripMenuItem
