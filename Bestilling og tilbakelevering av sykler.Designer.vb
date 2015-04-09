@@ -89,6 +89,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -264,6 +265,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Button5)
         Me.GroupBox5.Controls.Add(Me.RichTextBox1)
         Me.GroupBox5.Controls.Add(Me.Label22)
         Me.GroupBox5.Controls.Add(Me.Label16)
@@ -314,7 +316,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.Button6.Location = New System.Drawing.Point(14, 238)
+        Me.Button6.Location = New System.Drawing.Point(167, 238)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(100, 27)
         Me.Button6.TabIndex = 29
@@ -721,6 +723,17 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Button1.Text = "Vis kunde"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Button5
+        '
+        Me.Button5.Enabled = False
+        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Button5.Location = New System.Drawing.Point(24, 238)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(104, 27)
+        Me.Button5.TabIndex = 41
+        Me.Button5.Text = "Bestilling"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Bestilling_og_tilbakelevering_av_sykler
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -818,4 +831,5 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
     Friend WithEvents BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button5 As System.Windows.Forms.Button
 End Class

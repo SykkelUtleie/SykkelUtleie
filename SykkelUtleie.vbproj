@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DDE802A2-BFFE-4657-A5A5-CFB455D39E28}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SykkelUtleie.Tilgang</StartupObject>
+    <StartupObject>SykkelUtleie.Form1</StartupObject>
     <RootNamespace>SykkelUtleie</RootNamespace>
     <AssemblyName>SykkelUtleie</AssemblyName>
     <FileAlignment>512</FileAlignment>

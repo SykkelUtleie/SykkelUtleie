@@ -71,11 +71,6 @@ Public Class Sporring
             "`Utstyrmerke` varchar(50) default NULL, " &
             "`Status` varchar(20) NOT NULL, " &
             "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;"
-        'sporring += "CREATE TABLE `Reparasjon` (`SykkelID` int UNSIGNED NOT NULL, " &
-        '    "`Trenger_reparasjon` varchar(3) default NULL, " &
-        '    "PRIMARY KEY (`SykkelID`)) ENGINE=MyISAM;" &
-        '    "ALTER TABLE `Reparasjon` " &
-        '    "ADD FOREIGN KEY(SykkelID) REFERENCES Sykkel(SykkelID);"
         sporring += "CREATE TABLE `Bestilling_tilbakelevering` (`ID` int(10) NOT NULL AUTO_INCREMENT, " &
             "`BestillingID` int(10) unsigned NOT NULL, " &
             "`Utleied_av` int(10) unsigned NOT NULL, " &
@@ -97,12 +92,14 @@ Public Class Sporring
             "ADD FOREIGN KEY(BestillingID) REFERENCES Bestilling_tilbakelevering(BestillingID);" &
             "ALTER TABLE `Sykkel_bestilling` " &
             "ADD FOREIGN KEY(ID) REFERENCES Bestilling_tilbakelevering(ID);"
-        sporring += "CREATE TABLE `Utstyr_bestilling` (`BestillingID` int(10) unsigned NOT NULL, " &
+        sporring += "CREATE TABLE `Utstyr_bestilling` (`ID` int(10) unsigned NOT NULL, " &
+            "`BestillingID` int(10) unsigned NOT NULL, " &
+            "`SykkelID` int(10) unsigned NOT NULL, " &
             "`UtstyrID` int(10) unsigned NOT NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1; " &
             "ALTER TABLE `Utstyr_bestilling` " &
             "ADD FOREIGN KEY(UtstyrID) REFERENCES Utstyr(UtstyrID);" &
             "ALTER TABLE `Sykkel_bestilling` " &
-            "ADD FOREIGN KEY(BestillingID) REFERENCES Bestilling_tilbakelevering(BestillingID);"
+            "ADD FOREIGN KEY(ID) REFERENCES Bestilling_tilbakelevering(ID);"
         sporring += "CREATE TABLE `auth` (`id` int(11) NOT NULL AUTO_INCREMENT, " &
             "`klasse` int(11) NOT NULL, " &
             "`navn` varchar(50) DEFAULT NULL, " &
@@ -112,8 +109,10 @@ Public Class Sporring
             "PRIMARY KEY (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;"
         sporring += "CREATE TABLE `Mellomlagring` (`SykkelID` int(10) default NULL, " &
             "`Sykkeltype` varchar(50) default NULL, " &
-            "`Sykkelmerke` varchar(50) default NULL) " &
-            "ENGINE=MyISAM DEFAULT CHARSET=latin1;"
+            "`Sykkelmerke` varchar(50) default NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
+        sporring += "CREATE TABLE `MellomlagringUtstyr` (`UtstyrID` int(10) default NULL, " &
+            "`Utstyrtype` varchar(50) default NULL, " &
+            "`Utstyrmerke` varchar(50) default NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
         data = query(sporring)
         MsgBox("Databasen er opprettet!", MsgBoxStyle.Information)
     End Sub
@@ -153,18 +152,16 @@ Public Class Sporring
                 sporBox1.Items.Add(sykkeltype)
             Next rad
         ElseIf soke = "tSoke" Then
-            Dim data1 As New DataTable
-            Dim sporring1 As String = "SELECT Sykkeltype, COUNT( DISTINCT SykkelID ) AS Antall FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) GROUP BY Sykkeltype"
-            data1 = query(sporring1)
+            Dim data As New DataTable
+            sporring = "SELECT Sykkeltype, COUNT( DISTINCT SykkelID ) AS Antall FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) GROUP BY Sykkeltype"
+            data = query(sporring)
             Dim rad As DataRow
             Dim sykkeltype, antallType As String
-            For Each rad In data1.Rows
+            For Each rad In data.Rows
                 sykkeltype = rad("Sykkeltype")
                 antallType = rad("Antall")
                 sporBox1.Items.Add(sykkeltype)
             Next rad
-            'soke1 = "tTypeSoke"
-            'tilbSykkel()
         Else
             Dim data As New DataTable
             sporring = "SELECT Sykkeltype, COUNT( DISTINCT SykkelID ) AS Antall FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Sykkeltype"
@@ -222,20 +219,56 @@ Public Class Sporring
         End If
     End Sub
     Public Sub hentUtstyrType()
-        sporBox9.Items.Clear()
-        Dim data As New DataTable
-        sporring = "SELECT Utstyrtype, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Utstyrtype"
-        data = query(sporring)
-        Dim rad As DataRow
-        Dim utstyrtype, antallType As String
-        For Each rad In data.Rows
-            utstyrtype = rad("Utstyrtype")
-            antallType = rad("Antall")
-            sporBox9.Items.Add(utstyrtype)
-        Next rad
+        sporBox8.Items.Clear()
+        'Dim data As New DataTable
+        'sporring = "SELECT Utstyrtype, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Utstyrtype"
+        'data = query(sporring)
+        'Dim rad As DataRow
+        'Dim utstyrtype, antallType As String
+        'For Each rad In data.Rows
+        '    utstyrtype = rad("Utstyrtype")
+        '    antallType = rad("Antall")
+        '    sporBox9.Items.Add(utstyrtype)
+        'Next rad
+        If soke = "sSoke" Then
+            Dim data As New DataTable
+            sporring = "SELECT Utstyrtype, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr GROUP BY Utstyrtype"
+            data = query(sporring)
+            Dim rad As DataRow
+            Dim utstyrtype, antallType As String
+            For Each rad In data.Rows
+                utstyrtype = rad("Utstyrtype")
+                antallType = rad("Antall")
+                sporBox9.Items.Add(utstyrtype)
+            Next rad
+        ElseIf soke = "tSoke" Then
+            Dim data As New DataTable
+            sporring = "SELECT Utstyrtype, COUNT( DISTINCT UtstyrID ) AS Antall FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) GROUP BY Utstyrtype"
+            data = query(sporring)
+            Dim rad As DataRow
+            Dim utstyrtype, antallType As String
+            For Each rad In data.Rows
+                utstyrtype = rad("Utstyrtype")
+                antallType = rad("Antall")
+                sporBox9.Items.Add(utstyrtype)
+            Next rad
+        Else
+            Dim data As New DataTable
+            sporring = "SELECT Utstyrtype, COUNT( DISTINCT UtstyrID ) AS Antall FROM Utstyr WHERE UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Utstyrtype"
+            data = query(sporring)
+            Dim rad As DataRow
+            Dim utstyrtype, antallType As String
+            For Each rad In data.Rows
+                utstyrtype = rad("Utstyrtype")
+                antallType = rad("Antall")
+                sporBox9.Items.Add(utstyrtype)
+            Next rad
+        End If
+
+
     End Sub
     Public Sub hentUtstyrMerke()
-        sporBox8.Items.Clear()
+        sporBox9.Items.Clear()
         Dim hjelp As String = sporBox9.Text
         Dim a() As String = hjelp.Split(" ")
         Dim data As New DataTable
@@ -449,22 +482,6 @@ Public Class Sporring
         End Select
         oversikt()
     End Sub
-    'Public Sub tilbSykkel()
-    '    Select Case soke1
-    '        Case "tTypeSoke"
-    '            Dim data As New DataTable
-    '            sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND Sykkeltype ='" & sporType & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
-    '            data = query(sporring)
-    '            Bestilling_og_tilbakelevering_av_sykler.DataGridView2.DataSource = data
-    '        Case "tMerkeSoke"
-    '            Dim hjelp As String = sporBox1.Text
-    '            Dim a() As String = hjelp.Split(" ")
-    '            Dim data As New DataTable
-    '            sporring = "SELECT * FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
-    '            data = query(sporring)
-    '            Bestilling_og_tilbakelevering_av_sykler.DataGridView2.DataSource = data
-    '    End Select
-    'End Sub
     Public Sub tilbSykkelUpdate()
         Dim data As New DataTable
         sporring = "SELECT SykkelID FROM Mellomlagring"
@@ -525,7 +542,7 @@ Public Class Sporring
                     sykkelId = rad1("SykkelID")
                 Next
                 Dim data3 As New DataTable
-                Dim sporring3 As String = "INSERT INTO Mellomlagring VALUES(" & sykkelId & ", '" & type & "', '" & merke & "');"
+                Dim sporring3 As String = "INSERT INTO Mellomlagring(SykkelID, Sykkeltype, Sykkelmerke) VALUES(" & sykkelId & ", '" & type & "', '" & merke & "');"
                 data3 = query(sporring3)
             Case "Tilbakelevering"
                 mellomlagringsRad += 1
@@ -538,7 +555,7 @@ Public Class Sporring
                     sykkelId = rad1("SykkelID")
                 Next
                 Dim data3 As New DataTable
-                Dim sporring3 As String = "INSERT INTO Mellomlagring VALUES(" & sykkelId & ", '" & type & "', '" & merke & "');"
+                Dim sporring3 As String = "INSERT INTO Mellomlagring(SykkelID, Sykkeltype, Sykkelmerke) VALUES(" & sykkelId & ", '" & type & "', '" & merke & "');"
                 data3 = query(sporring3)
         End Select
 
@@ -575,6 +592,8 @@ Public Class Sporring
         Else
             If data.Rows.Count = 1 Then
                 Form1.Show()
+                Tilgang.Hide()
+
             Else
                 forsok -= 1
                 If forsok > 1 Then

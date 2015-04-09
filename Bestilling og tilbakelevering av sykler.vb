@@ -194,17 +194,11 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 ComboBox1.Text = "" : ComboBox2.Text = "" : ComboBox3.Text = "" : ComboBox9.Text = "" : ComboBox8.Text = ""
                 b.slettInfoFraMellomlagring()
                 teller = 0
-
-                DataGridView3.Rows.Clear()
-                DataGridView3.Columns.Clear()
-                DataGridView4.Rows.Clear()
-                DataGridView4.Columns.Clear()
+                'DataGridView4.Rows.Clear()
+                'DataGridView4.Columns.Clear()
                 Dim resp = MsgBox("Vil du registrere BESTILLING av utstyr til disse sykler?", MsgBoxStyle.YesNo)
                 If resp = vbYes Then
-                    Button3.Text = "Bestilling"
-                    hjelp = "Bestilling"
-                    ComboBox1.Enabled = False : ComboBox2.Enabled = False : ComboBox3.Enabled = False : ComboBox5.Enabled = False
-                    Button3.Enabled = False : Button4.Enabled = False : ComboBox8.Enabled = True : ComboBox9.Enabled = True : Button6.Enabled = True
+                    MsgBox("Velg sykkel fra tabell ved klikk EN GANG på trekant fra venstre.")
                 Else
                     Dim resp1 = MsgBox("Vil du registrere BESTILLING av sykler til annen bruker?", MsgBoxStyle.YesNo)
                     If resp1 = vbYes Then
@@ -220,15 +214,6 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 b.sporBox1 = ComboBox5
                 b.tilbSykkelUpdate()
                 b.slettInfoFraMellomlagring()
-                'b.hjelpDataGrid = DataGridView3
-                'If ComboBox1.Text <> "" Then
-                '    rowNum2 = DataGridView2.CurrentCell.RowIndex
-                '    b.sporBox1 = ComboBox5
-                '    Dim cellNum As String = DataGridView2.Rows(rowNum2).Cells(0).Value
-                '    b.sykID = cellNum
-                '    b.tilbSykkelUpdate()
-                'End If
-                'a.cBox1 = ComboBox1 : a.cBox2 = ComboBox2 : a.cBox3 = ComboBox3 : a.lab1 = Label14 : a.but1 = Button2
                 b.oversikt()
                 ComboBox1.Text = "" : ComboBox2.Text = "" : ComboBox3.Text = ""
         End Select
@@ -266,6 +251,13 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Label5.Text = tall2 - 1
         Label14.Text = tall2
         ComboBox9.Text = "" : ComboBox8.Text = ""
+    End Sub
+
+    Private Sub DataGridView3_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView3.RowHeaderMouseClick
+        Button5.Text = "Bestilling"
+        hjelp = "Bestilling"
+        ComboBox1.Enabled = False : ComboBox2.Enabled = False : ComboBox3.Enabled = False : ComboBox5.Enabled = False
+        Button3.Enabled = False : Button4.Enabled = False : ComboBox8.Enabled = True : ComboBox9.Enabled = True : Button6.Enabled = True
     End Sub
 
     Private Sub DataGridView3_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView3.RowHeaderMouseDoubleClick
