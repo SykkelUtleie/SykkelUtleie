@@ -184,7 +184,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Button3.Visible = True : Button4.Visible = True : Button6.Visible = True
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-<<<<<<< HEAD
+
         Select Case hjelp
             Case "Bestilling"
                 rowNum1 = DataGridView1.CurrentCell.RowIndex
@@ -219,7 +219,6 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 ComboBox1.Text = "" : ComboBox2.Text = "" : ComboBox3.Text = ""
         End Select
 
-=======
         Label23.Text = DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(2).Value.ToString() & "" & DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(1).Value.ToString()
         Label29.Text = DataGridView3.RowCount.ToString()
         Label24.Text = DataGridView4.RowCount.ToString()
@@ -227,7 +226,6 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Button3.Visible = False
         Button4.Visible = False
         Button6.Visible = False
->>>>>>> 57dba916667ce50e755852ce31da2c285bc9ffd6
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click

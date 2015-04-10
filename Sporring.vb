@@ -457,8 +457,8 @@ Public Class Sporring
     End Sub
     Public Sub hentePris()
         Dim data As New DataTable
-        Dim sql As String
-        Dim rad As DataRow
+        'Dim sql As String
+        'Dim rad As DataRow
         For Each row As DataGridViewRow In Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows
             sykkelnavn = row.Cells().ToString
         Next
@@ -655,14 +655,14 @@ Public Class Sporring
     End Sub
     Public Sub bruker()
         Dim data As New DataTable
-        Dim sql As String = "Select login From auth Where login = '" & Tilgang.TextBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
+        Dim sql As String = "Select login From auth Where login = '" & Tilgang.ComboBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
         data = query(sql)
         If forsok = 1 Then
             MsgBox("Du har brukt for mange innloggingsforsøk!")
             Form1.Close()
         Else
             If data.Rows.Count = 1 Then
-                b_navn = Tilgang.TextBox1.Text
+                b_navn = Tilgang.ComboBox1.Text
                 b_pass = Tilgang.TextBox2.Text
                 Form1.Show()
                 Tilgang.Hide()
@@ -677,7 +677,7 @@ Public Class Sporring
 
             End If
         End If
-        Tilgang.TextBox1.Clear()
+        Tilgang.ComboBox1.SelectedIndex = -1
         Tilgang.TextBox2.Clear()
     End Sub
     Public Sub auth()
@@ -723,6 +723,7 @@ Public Class Sporring
     Public Sub sokBruker()
         'søker opp brukere og legger de inn i en comboboks
         Brukere.ComboBox1.Items.Clear()
+        Tilgang.ComboBox1.Items.Clear()
         Dim data As New DataTable
         Dim rad As DataRow
         Dim login As String
@@ -732,6 +733,7 @@ Public Class Sporring
         For Each rad In data.Rows
             login = rad("login")
             Brukere.ComboBox1.Items.Add(login)
+            Tilgang.ComboBox1.Items.Add(login)
         Next
     End Sub
     Public Sub slettBruker()
