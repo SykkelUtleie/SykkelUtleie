@@ -861,4 +861,50 @@ Public Class Sporring
             End If
         End If
     End Sub
+    Public Sub hentSted()
+        Dim data As New DataTable
+        Dim sql, utleie As String
+        Dim rad As DataRow
+        sql = "Select Stednavn From Sted"
+        data = query(sql)
+        For Each rad In data.Rows
+            utleie = rad("Stednavn")
+            Bestilling_og_tilbakelevering_av_sykler.ComboBox3.Items.Add(utleie)
+            Bestilling_og_tilbakelevering_av_sykler.ComboBox5.Items.Add(utleie)
+        Next
+        LeggTilUteleiested.DataGridView1.DataSource = data     
+    End Sub
+    Public Sub leggtilSted()
+        Dim data As New DataTable
+        Dim utleie As String
+        Dim sjekk As Integer = 0
+        Dim sql As String
+        Dim rad As DataRow
+        sql = "Select Stednavn from Sted"
+        data = query(sql)
+        For Each rad In data.Rows
+            utleie = rad("Stednavn")
+            If utleie = LeggTilUteleiested.TextBox1.Text Then
+                sjekk = 1
+            End If
+        Next
+        If sjekk = 1 Then
+            MsgBox("Dette stedet er allerede i databasen")
+            LeggTilUteleiested.TextBox1.Clear()
+        Else
+            sql = "INSERT INTO Sted(Stednavn) VALUES('" & LeggTilUteleiested.TextBox1.Text & "')"
+            data = query(sql)
+        End If
+        LeggTilUteleiested.TextBox1.Clear()
+    End Sub
+    Public Sub fjernSted()
+        Dim sted As String
+        Dim data As New DataTable
+        Dim sql As String
+
+        sted = LeggTilUteleiested.DataGridView1.Rows(LeggTilUteleiested.DataGridView1.CurrentRow.Index).Cells(0).Value.ToString()
+        sql = "DELETE FROM Sted WHERE Stednavn = '" & sted & "'"
+        data = query(sql)
+       
+    End Sub
 End Class

@@ -356,5 +356,4 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         GroupBox6.Visible = False
     End Sub
 
-
 End Class
