@@ -63,7 +63,7 @@ Private a As New GUI
 
     Dim utstyr As New Utstyr
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        utstyr.reg(ComboBox1.Text, TextBox1.Text)
+        utstyr.reg(ComboBox1.Text, TextBox1.Text, TextBox2.Text)
     End Sub
 
 

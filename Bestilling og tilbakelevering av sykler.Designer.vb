@@ -469,7 +469,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'Button6
         '
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.Button6.Location = New System.Drawing.Point(14, 238)
+        Me.Button6.Location = New System.Drawing.Point(168, 238)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(100, 27)
         Me.Button6.TabIndex = 29
