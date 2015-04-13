@@ -23,4 +23,8 @@ Public Class Administrering_av_database
     End Sub
 
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        LeggTilUteleiested.Show()
+        Close()
+    End Sub
 End Class
