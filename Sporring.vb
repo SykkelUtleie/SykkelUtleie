@@ -74,7 +74,77 @@ Public Class Sporring
             "`Utstyrmerke` varchar(50) default NULL, " &
             "`Status` varchar(20) NOT NULL, " &
             "`Pris` varchar(20) NOT NULL, " &
-            "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;"
+            "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)"
         'sporring += "CREATE TABLE `Reparasjon` (`SykkelID` int UNSIGNED NOT NULL, " &
         '    "`Trenger_reparasjon` varchar(3) default NULL, " &
         '    "PRIMARY KEY (`SykkelID`)) ENGINE=MyISAM;" &
@@ -382,14 +452,14 @@ Public Class Sporring
         Dim type As String = Bestilling_og_tilbakelevering_av_sykler.ComboBox1.Text
         Dim merke As String = Bestilling_og_tilbakelevering_av_sykler.ComboBox2.Text
         Dim data As New DataTable
-            Dim sporring1 As String = "SELECT SykkelID FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
-            data = query(sporring1)
-            Dim rad As DataRow
-            Dim sykkelId As Integer
-            For Each rad In data.Rows
-                sykkelId = rad("SykkelID")
-                sykIdForUtstyr = sykkelId
-            Next
+        Dim sporring1 As String = "SELECT SykkelID FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
+        data = query(sporring1)
+        Dim rad As DataRow
+        Dim sykkelId As Integer
+        For Each rad In data.Rows
+            sykkelId = rad("SykkelID")
+            sykIdForUtstyr = sykkelId
+        Next
     End Sub
     Public Sub bestillingUtstyr()
         Dim data1 As New DataTable
