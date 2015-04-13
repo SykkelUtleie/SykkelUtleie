@@ -322,14 +322,14 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 DataGridView4.Rows.Clear()
                 DataGridView4.Columns.Clear()
                 Dim resp1 = MsgBox("Vil du registrere BESTILLING av sykler til annen bruker?", MsgBoxStyle.YesNo)
-                    If resp1 = vbYes Then
-                        Dim hjelpForm As New Bestilling_og_tilbakelevering_av_sykler
-                        Close()
-                        hjelpForm.Show()
-                    Else
-                        Close()
-                        Form1.Show()
-                    End If
+                If resp1 = vbYes Then
+                    Dim hjelpForm As New Bestilling_og_tilbakelevering_av_sykler
+                    Close()
+                    hjelpForm.Show()
+                Else
+                    Close()
+                    Form1.Show()
+                End If
 
             Case "Tilbakelevering"
                 b.sporBox1 = ComboBox5
