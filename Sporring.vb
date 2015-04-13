@@ -2,14 +2,16 @@
 Imports System.Configuration
 Imports System.Net.Mail
 Imports System.Text
+Imports Excel = Microsoft.Office.Interop.Excel
 Public Class Sporring
     Private sporring As String
     Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, kundeSok, sykkelSok, slette, spor, sykID, kundID, overK, overS, overTU, overU, prisbox As String
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
-    Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke As String
+    Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke, tilbSykID As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
     Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse, b_navn, b_pass, K_fnavn, K_enavn, KID, k_ad, k_epost, k_tlf As String
     Private sykkelnavn, ustyrnavn As String
+    Protected Friend pris As String = 0
     Protected Friend hjelpDataGrid, hjelpDataGrid1, hjelpDataGrid2 As DataGridView
     Private mellomlagringsRad As Integer = 0
     Private mellomlagringsRad1 As Integer = 0
@@ -249,7 +251,8 @@ Public Class Sporring
             Next rad
         ElseIf soke = "tSoke" Then
             Dim data As New DataTable
-            sporring = "SELECT Utstyrtype, COUNT( DISTINCT UtstyrID ) AS Antall FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) GROUP BY Utstyrtype"
+            tilbSykID = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(Bestilling_og_tilbakelevering_av_sykler.DataGridView3.CurrentRow.Index).Cells(3).Value.ToString()
+            sporring = "SELECT Utstyrtype, COUNT( DISTINCT UtstyrID ) AS Antall FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) AND UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE SykkelID = '" & tilbSykID & "') GROUP BY Utstyrtype"
             data = query(sporring)
             Dim rad As DataRow
             Dim utstyrtype, antallType As String
@@ -290,8 +293,9 @@ Public Class Sporring
         ElseIf soke = "tSoke" Then
             Dim hjelp As String = sporBox8.Text
             Dim a() As String = hjelp.Split(" ")
+            tilbSykID = Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows(Bestilling_og_tilbakelevering_av_sykler.DataGridView3.CurrentRow.Index).Cells(3).Value.ToString()
             Dim data As New DataTable
-            sporring = "SELECT Utstyrmerke, Pris, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE Utstyrtype LIKE '" & a(0) & "' AND UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) GROUP BY Utstyrmerke"
+            sporring = "SELECT Utstyrmerke, Pris, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE Utstyrtype LIKE '" & a(0) & "' AND UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ")) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) AND UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE SykkelID = '" & tilbSykID & "') GROUP BY Utstyrmerke"
             data = query(sporring)
             Dim rad As DataRow
             Dim utstyrmerke, antallMerke, pris As String
@@ -320,7 +324,6 @@ Public Class Sporring
 
 
     End Sub
-
     Public Sub bestillingSykkel()
         Dim data1 As New DataTable
         Dim sporring2 As String = "SELECT KundeID FROM Kunde WHERE Etternavn_org_navn = '" & sporEtternavn & "' AND Adresse = '" & sporAdresse & "' AND Telefon = " & sporTel & " AND Epost = '" & sporEpost & "'"
@@ -344,8 +347,9 @@ Public Class Sporring
             Dim type As String = hjelpDataGrid.Rows(rad6).Cells(1).Value.ToString
             Dim merke As String = hjelpDataGrid.Rows(rad6).Cells(2).Value.ToString
             rad6 += 1
+            Dim totalPris As String = Bestilling_og_tilbakelevering_av_sykler.Label26.Text
             Dim data2 As New DataTable
-            Dim sporring3 As String = "INSERT INTO Bestilling_tilbakelevering(BestillingID, Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted) VALUES(" & bestillID & ", '" & KundeID & "', '" & sporDatoFra & "', '" & sporDatoTil & "', '" & sporBox3.Text & "',NULL)"
+            Dim sporring3 As String = "INSERT INTO Bestilling_tilbakelevering(BestillingID, Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted, Totalpris) VALUES(" & bestillID & ", '" & KundeID & "', '" & sporDatoFra & "', '" & sporDatoTil & "', '" & sporBox3.Text & "',NULL, '" & totalPris & "')"
             data2 = query(sporring3)
 
             Dim data0 As New DataTable
@@ -382,14 +386,21 @@ Public Class Sporring
         Dim type As String = Bestilling_og_tilbakelevering_av_sykler.ComboBox1.Text
         Dim merke As String = Bestilling_og_tilbakelevering_av_sykler.ComboBox2.Text
         Dim data As New DataTable
-            Dim sporring1 As String = "SELECT SykkelID FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
-            data = query(sporring1)
-            Dim rad As DataRow
-            Dim sykkelId As Integer
-            For Each rad In data.Rows
-                sykkelId = rad("SykkelID")
-                sykIdForUtstyr = sykkelId
-            Next
+        Select Case mellom
+            Case "Bestilling"
+                Dim sporring1 As String = "SELECT SykkelID FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring);"
+                data = query(sporring1)
+            Case "Tilbakelevering"
+                Dim sporring1 As String = "SELECT SykkelID FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring);"
+                data = query(sporring1)
+        End Select
+        Dim rad As DataRow
+        Dim sykkelId As Integer
+        For Each rad In data.Rows
+            sykkelId = rad("SykkelID")
+            sykIdForUtstyr = sykkelId
+        Next
+
     End Sub
     Public Sub bestillingUtstyr()
         Dim data1 As New DataTable
@@ -413,10 +424,12 @@ Public Class Sporring
         For Each row As DataGridViewRow In hjelpDataGrid1.Rows
             Dim type As String = hjelpDataGrid1.Rows(rad6).Cells(1).Value.ToString
             Dim merke As String = hjelpDataGrid1.Rows(rad6).Cells(2).Value.ToString
-            Dim sId As String = hjelpDataGrid2.Rows(rad6).Cells(3).Value.ToString
+            Dim sId As String = hjelpDataGrid1.Rows(rad6).Cells(3).Value.ToString
+            MsgBox(sId)
             rad6 += 1
+            Dim totalPris As String = Bestilling_og_tilbakelevering_av_sykler.Label26.Text
             Dim data2 As New DataTable
-            Dim sporring3 As String = "INSERT INTO Bestilling_tilbakelevering(BestillingID, Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted) VALUES(" & bestillID & ", '" & KundeID & "', '" & sporDatoFra & "', '" & sporDatoTil & "', '" & sporBox3.Text & "',NULL)"
+            Dim sporring3 As String = "INSERT INTO Bestilling_tilbakelevering(BestillingID, Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted, Totalpris) VALUES(" & bestillID & ", '" & KundeID & "', '" & sporDatoFra & "', '" & sporDatoTil & "', '" & sporBox3.Text & "',NULL, '" & totalPris & "')"
             data2 = query(sporring3)
 
             Dim data0 As New DataTable
@@ -567,14 +580,6 @@ Public Class Sporring
         End Select
         oversikt()
     End Sub
-    Public Sub hentePris()
-        Dim data As New DataTable
-        'Dim sql As String
-        'Dim rad As DataRow
-        For Each row As DataGridViewRow In Bestilling_og_tilbakelevering_av_sykler.DataGridView3.Rows
-            sykkelnavn = row.Cells().ToString
-        Next
-    End Sub
     Public Sub kSok()
         ' Henter kundene fra databasen og legger de i en datagridview hvor brukeren kan velge kunde
         Dim data As New DataTable
@@ -649,22 +654,6 @@ Public Class Sporring
             End If
         End If
     End Sub
-    'Public Sub tilbSykkel()
-    '    Select Case soke1
-    '        Case "tTypeSoke"
-    '            Dim data As New DataTable
-    '            sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND Sykkeltype ='" & sporType & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
-    '            data = query(sporring)
-    '            Bestilling_og_tilbakelevering_av_sykler.DataGridView2.DataSource = data
-    '        Case "tMerkeSoke"
-    '            Dim hjelp As String = sporBox1.Text
-    '            Dim a() As String = hjelp.Split(" ")
-    '            Dim data As New DataTable
-    '            sporring = "SELECT * FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Utleied_av = " & kundID & ") AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
-    '            data = query(sporring)
-    '            Bestilling_og_tilbakelevering_av_sykler.DataGridView2.DataSource = data
-    '    End Select
-    'End Sub
     Public Sub tilbSykkelUpdate()
         Dim data As New DataTable
         sporring = "SELECT SykkelID FROM Mellomlagring"
@@ -760,14 +749,15 @@ Public Class Sporring
                 Dim sporring3 As String = "INSERT INTO MellomlagringUtstyr VALUES(" & utstyrId & ", '" & type & "', '" & merke & "', '" & sykIdForUtstyr & "');"
                 data3 = query(sporring3)
             Case "Tilbakelevering"
+
                 mellomlagringsRad1 += 1
                 Dim data1 As New DataTable
-                Dim sporring1 As String = "SELECT UtstyrlID FROM Utstyr WHERE Utstyrtype = '" & type & "' AND Utstyrmerke = '" & merke & "' AND (UtstyrlID IN (SELECT UtstyrlID FROM Utstyr_bestilling) OR UtstyrlID IN (SELECT UtstyrlID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL))) AND UtstyrlID NOT IN (SELECT UtstyrlID FROM MellomlagringUtstyr);"
+                Dim sporring1 As String = "SELECT UtstyrID FROM Utstyr WHERE Utstyrtype = '" & type & "' AND Utstyrmerke = '" & merke & "' AND (UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL))) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr);"
                 data1 = query(sporring1)
                 Dim rad1 As DataRow
                 Dim utstyrId As Integer
                 For Each rad1 In data1.Rows
-                    utstyrId = rad1("UtstyrlID")
+                    utstyrId = rad1("UtstyrID")
                 Next
                 Dim data3 As New DataTable
                 Dim sporring3 As String = "INSERT INTO MellomlagringUtstyr VALUES(" & utstyrId & ", '" & type & "', '" & merke & "', '" & sykIdForUtstyr & "');"
@@ -818,6 +808,28 @@ Public Class Sporring
         data = query(sporring)
         mellomlagringsRad = 0
     End Sub
+    Dim sykkelPris, utstyrPris As Integer
+    Public Sub hentSykkelPris()
+        Dim data As New DataTable
+        sporring = "SELECT SUM(pris) AS Summen FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Mellomlagring)"
+        data = query(sporring)
+        Dim rad As DataRow
+        For Each rad In data.Rows
+            sykkelPris = rad("Summen")
+        Next
+        pris = Val(sykkelPris)
+    End Sub
+    Public Sub hentUtstyrPris()
+        Dim data1 As New DataTable
+        sporring = "SELECT SUM(pris) AS Summen FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM MellomlagringUtstyr)"
+        data1 = query(sporring)
+        Dim rad1 As DataRow
+        For Each rad1 In data1.Rows
+            utstyrPris = rad1("Summen")
+        Next
+        pris = Val(sykkelPris) + Val(utstyrPris)
+    End Sub
+
     Public Sub bruker()
         Dim data As New DataTable
         Dim sql As String = "Select login From auth Where login = '" & Tilgang.ComboBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
@@ -986,7 +998,9 @@ Public Class Sporring
             End If
         End If
     End Sub
+    Protected Friend stedbox As ComboBox
     Public Sub hentSted()
+        stedbox.Items.Clear()
         Dim data As New DataTable
         Dim sql, utleie As String
         Dim rad As DataRow
@@ -997,7 +1011,7 @@ Public Class Sporring
             Bestilling_og_tilbakelevering_av_sykler.ComboBox3.Items.Add(utleie)
             Bestilling_og_tilbakelevering_av_sykler.ComboBox5.Items.Add(utleie)
         Next
-        LeggTilUteleiested.DataGridView1.DataSource = data     
+        LeggTilUteleiested.DataGridView1.DataSource = data
     End Sub
     Public Sub leggtilSted()
         Dim data As New DataTable
@@ -1030,6 +1044,6 @@ Public Class Sporring
         sted = LeggTilUteleiested.DataGridView1.Rows(LeggTilUteleiested.DataGridView1.CurrentRow.Index).Cells(0).Value.ToString()
         sql = "DELETE FROM Sted WHERE Stednavn = '" & sted & "'"
         data = query(sql)
-       
+
     End Sub
 End Class
