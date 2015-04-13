@@ -57,6 +57,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
@@ -68,7 +69,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label20 = New System.Windows.Forms.Label()
         Me.Label21 = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
@@ -109,7 +109,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -242,7 +241,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.GroupBox1.Controls.Add(Me.DataGridView4)
         Me.GroupBox1.Controls.Add(Me.GroupBox5)
         Me.GroupBox1.Controls.Add(Me.DataGridView1)
-        Me.GroupBox1.Controls.Add(Me.DataGridView2)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.GroupBox3)
@@ -420,6 +418,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.Button8)
         Me.GroupBox5.Controls.Add(Me.RichTextBox1)
         Me.GroupBox5.Controls.Add(Me.Label22)
         Me.GroupBox5.Controls.Add(Me.Label16)
@@ -437,6 +436,17 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Utstyr som skal leies"
         '
+        'Button8
+        '
+        Me.Button8.Enabled = False
+        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Button8.Location = New System.Drawing.Point(14, 238)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(104, 27)
+        Me.Button8.TabIndex = 41
+        Me.Button8.Text = "Gå videre"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
         'RichTextBox1
         '
         Me.RichTextBox1.Location = New System.Drawing.Point(125, 134)
@@ -451,7 +461,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         Me.Label22.AutoSize = True
         Me.Label22.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label22.Location = New System.Drawing.Point(229, 27)
+        Me.Label22.Location = New System.Drawing.Point(262, 27)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(0, 13)
         Me.Label22.TabIndex = 39
@@ -491,7 +501,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
         Me.Label18.Location = New System.Drawing.Point(143, 23)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(96, 20)
+        Me.Label18.Size = New System.Drawing.Size(94, 20)
         Me.Label18.TabIndex = 26
         Me.Label18.Text = "Antall utstyr"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -535,21 +545,11 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(6, 289)
+        Me.DataGridView1.Location = New System.Drawing.Point(7, 289)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridView1.Size = New System.Drawing.Size(555, 115)
         Me.DataGridView1.TabIndex = 36
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(6, 289)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(555, 115)
-        Me.DataGridView2.TabIndex = 37
-        Me.DataGridView2.Visible = False
         '
         'Button2
         '
@@ -705,7 +705,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(228, 28)
+        Me.Label5.Location = New System.Drawing.Point(259, 34)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(0, 13)
         Me.Label5.TabIndex = 37
@@ -806,9 +806,9 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'Label7
         '
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label7.Location = New System.Drawing.Point(143, 23)
+        Me.Label7.Location = New System.Drawing.Point(134, 30)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(96, 20)
+        Me.Label7.Size = New System.Drawing.Size(105, 20)
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Antall sykler"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -897,7 +897,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -958,7 +957,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Button4 As System.Windows.Forms.Button
@@ -988,4 +986,5 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents Label28 As System.Windows.Forms.Label
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents Button8 As System.Windows.Forms.Button
 End Class
