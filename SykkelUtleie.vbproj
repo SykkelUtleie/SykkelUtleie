@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{DDE802A2-BFFE-4657-A5A5-CFB455D39E28}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>SykkelUtleie.Form1</StartupObject>
+    <StartupObject>SykkelUtleie.Statistikk</StartupObject>
     <RootNamespace>SykkelUtleie</RootNamespace>
     <AssemblyName>SykkelUtleie</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -217,7 +217,6 @@
     <Compile Include="Statistikk.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Statistikker.vb" />
     <Compile Include="Sykkel.vb" />
     <Compile Include="Sykkel_Utstyr.Designer.vb">
       <DependentUpon>Sykkel_Utstyr.vb</DependentUpon>
@@ -329,6 +328,35 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
