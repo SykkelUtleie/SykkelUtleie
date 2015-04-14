@@ -5,7 +5,7 @@ Imports System.Text
 Imports Excel = Microsoft.Office.Interop.Excel
 Public Class Sporring
     Private sporring As String
-    Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, repSoke, kundeSok, sykkelSok, slette, spor, sykID, utstID, kundID, overK, overS, overTU, overU, prisbox As String
+    Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, repSoke, kundeSok, sykkelSok, utstyrSok, slette, spor, sykID, utstID, kundID, overK, overS, overTU, overU, prisbox As String
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke, tilbSykID As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox4, sporBox8, sporBox9 As ComboBox
@@ -601,7 +601,6 @@ Public Class Sporring
                         Dim data As New DataTable
                         sporring = "SELECT * FROM Kunde"
                         data = query(sporring)
-                        Sok_i_kundebase.DataGridView1.DataSource = data
                         hjelpDataGrid.DataSource = data
                 End Select
             Case "sSoke"
@@ -625,12 +624,35 @@ Public Class Sporring
                         data = query(sporring)
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                     Case "stjaletsykler"
-
                         sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Dato_til >= '" & dt.ToString("yyyy-MM-dd") & "') and Status = 'Stjålet'"
                         data = query(sporring)
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                 End Select
             Case "uSoke"
+                Dim data As New DataTable
+                Dim dt As Date = Date.Now
+                Select Case utstyrSok
+                    Case "bestemtUtstyr"
+                        sporring = "SELECT * FROM Utstyr WHERE Utstyrtype = '" & sporType & "' AND Utstyrmerke = '" & sporMerke & "'"
+                        data = query(sporring)
+                        Sok_i_utstyrbase.DataGridView1.DataSource = data
+                    Case "altUtstyr"
+                        sporring = "SELECT * FROM Utstyr"
+                        data = query(sporring)
+                        Sok_i_utstyrbase.DataGridView1.DataSource = data
+                    Case "tilgjengeligeUtstyr"
+                        sporring = "SELECT * FROM Utstyr WHERE UtstyrID NOT IN (SELECT sb.UtstyrID FROM Bestilling_tilbakelevering bt, Utstyr_bestilling sb WHERE bt.Dato_fra >= '" & dt.ToString("yyyy-MM-dd") & "' and bt.Dato_til <= '" & dt.ToString("yyyy-MM-dd") & "' and bt.BestillingID = sb.BestillingID) AND UtstyrID IN (SELECT UtstyrId FROM Utstyr WHERE Status ='Tilgjengelig')"
+                        data = query(sporring)
+                        Sok_i_utstyrbase.DataGridView1.DataSource = data
+                    Case "utleiedUtstyr"
+                        sporring = "SELECT * FROM Utstyr WHERE UtstyrID IN (SELECT sb.UtstyrID FROM Bestilling_tilbakelevering bt, Utstyr_bestilling sb WHERE bt.Dato_fra <= '" & dt.ToString("yyyy-MM-dd") & "' and bt.Dato_til >= '" & dt.ToString("yyyy-MM-dd") & "' and bt.BestillingID = sb.BestillingID)"
+                        data = query(sporring)
+                        Sok_i_utstyrbase.DataGridView1.DataSource = data
+                    Case "stjaletUtstyr"
+                        sporring = "SELECT * FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Dato_til >= '" & dt.ToString("yyyy-MM-dd") & "') and Status = 'Stjålet'"
+                        data = query(sporring)
+                        Sok_i_utstyrbase.DataGridView1.DataSource = data
+                End Select
         End Select
 
     End Sub
@@ -665,12 +687,12 @@ Public Class Sporring
                 Select Case spor
                     Case "sType"
                         Dim data As New DataTable
-                        sporring = "SELECT * FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) AND Sykkeltype = '" & sporType & "'"
+                        sporring = "SELECT * FROM Sykkel WHERE Status = 'Tilgjengelig' AND SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) AND Sykkeltype = '" & sporType & "'"
                         data = query(sporring)
                         Slett_sykkel.DataGridView1.DataSource = data
                     Case "sMerke"
                         Dim data As New DataTable
-                        sporring = "SELECT * FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) AND Sykkeltype = '" & sporType & "' AND Sykkelmerke = '" & sporMerke & "'"
+                        sporring = "SELECT * FROM Sykkel WHERE Status = 'Tilgjengelig' AND SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) AND Sykkeltype = '" & sporType & "' AND Sykkelmerke = '" & sporMerke & "'"
                         data = query(sporring)
                         Slett_sykkel.DataGridView1.DataSource = data
                     Case "slett"
@@ -679,10 +701,30 @@ Public Class Sporring
                             Dim data As New DataTable
                             sporring = "DELETE FROM Sykkel WHERE SykkelID = " & sykID
                             data = query(sporring)
+                            MsgBox("Sykkel er slettet!")
                         End If
                 End Select
             Case "utstyrSlett"
-
+                Select Case spor
+                    Case "uType"
+                        Dim data As New DataTable
+                        sporring = "SELECT * FROM Utstyr WHERE Status = 'Tilgjengelig' AND UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) AND Utstyrtype = '" & sporType & "'"
+                        data = query(sporring)
+                        Slett_utstyr.DataGridView1.DataSource = data
+                    Case "uMerke"
+                        Dim data As New DataTable
+                        sporring = "SELECT * FROM Utstyr WHERE Status = 'Tilgjengelig' AND UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) AND Utstyrtype = '" & sporType & "' AND Utstyrmerke = '" & sporMerke & "'"
+                        data = query(sporring)
+                        Slett_utstyr.DataGridView1.DataSource = data
+                    Case "slett"
+                        Dim resp As String = MsgBox("Vil du slette dette utstyr?", MsgBoxStyle.YesNo)
+                        If resp = vbYes Then
+                            Dim data As New DataTable
+                            sporring = "DELETE FROM Utstyr WHERE UtstyrID = " & utstID
+                            data = query(sporring)
+                            MsgBox("Utstyr er slettet!")
+                        End If
+                End Select
 
         End Select
         oversikt()

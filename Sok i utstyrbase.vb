@@ -2,6 +2,7 @@
 Imports System.Configuration
 Public Class Sok_i_utstyrbase
     Private b As New Sporring
+    Private utstyr As New Utstyr
 #Region "GUI"
 
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
@@ -55,4 +56,36 @@ Public Class Sok_i_utstyrbase
     End Sub
 
 #End Region
+
+    Private Sub ComboBox1_Click(sender As Object, e As EventArgs) Handles ComboBox1.Click
+        b.soke = "uSoke"
+        b.sporBox8 = ComboBox1
+        b.hentUtstyrType()
+    End Sub
+    Private Sub ComboBox2_Click(sender As Object, e As EventArgs) Handles ComboBox2.Click
+        b.soke = "uSoke"
+        b.sporBox9 = ComboBox2
+        b.hentUtstyrMerke()
+    End Sub
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        utstyr.uHjelp = "bestemt"
+        utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        utstyr.uHjelp = "alle"
+        utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
+    End Sub
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        utstyr.uHjelp = "tilgjengelige"
+        utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
+    End Sub
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        utstyr.uHjelp = "utleied"
+        utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
+    End Sub
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        utstyr.uHjelp = "stjalet"
+        utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
+    End Sub
 End Class

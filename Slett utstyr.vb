@@ -1,11 +1,9 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
 Public Class Slett_utstyr
-    Private a As New GUI
-    Private kunde As New Kunde
-    Private sykkel As New Sykkel
     Private b As New Sporring
-    Private hjelp As String
+    Private utstyr As New Utstyr
+
 #Region "GUI"
 
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
@@ -60,4 +58,33 @@ Public Class Slett_utstyr
     End Sub
 
 #End Region
+    Private Sub ComboBox1_Click(sender As Object, e As EventArgs) Handles ComboBox1.Click
+        b.sporBox8 = ComboBox1
+        b.hentUtstyrType()
+    End Sub
+    Private Sub ComboBox2_Click(sender As Object, e As EventArgs) Handles ComboBox2.Click
+        b.sporBox9 = ComboBox2
+        b.hentUtstyrMerke()
+    End Sub
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        utstyr.uHjelp = "type"
+        utstyr.utstyrSlett(ComboBox1.Text, ComboBox2.Text)
+    End Sub
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        utstyr.uHjelp = "typeOgMerke"
+        utstyr.utstyrSlett(ComboBox1.Text, ComboBox2.Text)
+    End Sub
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim rowNum As Integer = DataGridView1.CurrentCell.RowIndex
+        Dim cellNum As String = DataGridView1.Rows(rowNum).Cells(0).Value
+        b.utstID = cellNum
+        b.slette = "utstyrSlett"
+        b.spor = "slett"
+        b.slett()
+        ComboBox1.Text = "" : ComboBox2.Text = ""
+    End Sub
+    Private Sub Slett_sykkel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DataGridView1.SelectAll()
+        DataGridView1.ClearSelection()
+    End Sub
 End Class

@@ -3,6 +3,7 @@ Imports System.Configuration
 Public Class Sykkel
     Private b As New Sporring
     Protected Friend sHjelp As String
+    Protected Friend hjelpSykkelDataGrid As DataGridView
     Public Sub reg(nyType As String, nyMerke As String, nyHjul As String, nyRamme As String, nyGir As String, nyGaffel As String, nyBremser As String)
         b.registr = "Sykkel"
         b.sporType = nyType
@@ -14,7 +15,7 @@ Public Class Sykkel
         b.sporBremser = nyBremser
         b.registrering()
     End Sub
-    Protected Friend hjelpSykkelDataGrid As DataGridView
+
     Public Sub bestillSykkel(nyEtternavn As String, nyAdresse As String, nyTel As String, nyEpost As String, nySykkelType As String, nySykkelMerke As String, nyDatoFra As DateTimePicker, nyDatoTil As DateTimePicker, nyUtleiested As ComboBox)
         Dim df As Date = nyDatoFra.Text
         Dim s1 As String

@@ -81,6 +81,7 @@ Public Class Sok_i_kundebase
         End If
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        kunde.hjelpKundeDataGrid = DataGridView1
         kunde.alleKunderSok()
     End Sub
     Private Sub Sok_i_kundebase_Load(sender As Object, e As EventArgs) Handles MyBase.Load

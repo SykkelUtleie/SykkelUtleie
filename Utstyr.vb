@@ -3,6 +3,7 @@ Imports System.Configuration
 Public Class Utstyr
     Private b As New Sporring
     Protected Friend hjelpUtstyrDataGrid, hjelpUtstyrDataGrid1 As DataGridView
+    Protected Friend uHjelp As String
     Public Sub reg(nyType As String, nyMerke As String, nyPris As String)
         b.registr = "Utstyr"
         b.sporType = nyType
@@ -29,5 +30,36 @@ Public Class Utstyr
         b.hjelpDataGrid2 = hjelpUtstyrDataGrid1
         b.hjelpDataGrid1 = hjelpUtstyrDataGrid
         b.bestillingUtstyr()
+    End Sub
+    Public Sub utstyrSok(nyType As String, nyMerke As String)
+        Select Case uHjelp
+            Case "bestemt"
+                b.utstyrSok = "bestemtUtstyr"
+                b.sporType = nyType
+                b.sporMerke = nyMerke
+            Case "alle"
+                b.utstyrSok = "altUtstyr"
+            Case "tilgjengelige"
+                b.utstyrSok = "tilgjengeligeUtstyr"
+            Case "utleied"
+                b.utstyrSok = "utleiedUtstyr"
+            Case "stjalet"
+                b.utstyrSok = "stjaletUtstyr"
+        End Select
+        b.soke = "uSoke"
+        b.sok()
+    End Sub
+    Public Sub utstyrSlett(nyType As String, nyMerke As String)
+        Select Case uHjelp
+            Case "type"
+                b.slette = "utstyrSlett"
+                b.spor = "uType"
+            Case "typeOgMerke"
+                b.slette = "utstyrSlett"
+                b.spor = "uMerke"
+        End Select
+        b.sporType = nyType
+        b.sporMerke = nyMerke
+        b.slett()
     End Sub
 End Class

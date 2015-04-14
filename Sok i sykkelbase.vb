@@ -2,10 +2,8 @@
 Imports System.Configuration
 Public Class Sok_i_sykkelbase
     Private a As New GUI
-    Private kunde As New Kunde
     Private sykkel As New Sykkel
     Private b As New Sporring
-    Private hjelp As String
 #Region "GUI"
 
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
