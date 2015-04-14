@@ -299,9 +299,9 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label27.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.Location = New System.Drawing.Point(19, 138)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(69, 13)
+        Me.Label27.Size = New System.Drawing.Size(90, 13)
         Me.Label27.TabIndex = 9
-        Me.Label27.Text = "Velg rabatt"
+        Me.Label27.Text = "Velg rabatt (%)"
         '
         'Label26
         '
@@ -366,7 +366,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'ComboBox4
         '
         Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"5", "10", "15", "20"})
+        Me.ComboBox4.Items.AddRange(New Object() {"0", "5", "10", "15", "20"})
         Me.ComboBox4.Location = New System.Drawing.Point(171, 131)
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(121, 21)
@@ -724,7 +724,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'ComboBox5
         '
         Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Items.AddRange(New Object() {"finse"})
         Me.ComboBox5.Location = New System.Drawing.Point(124, 149)
         Me.ComboBox5.Name = "ComboBox5"
         Me.ComboBox5.Size = New System.Drawing.Size(143, 21)
@@ -816,7 +815,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'ComboBox3
         '
         Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"finse"})
         Me.ComboBox3.Location = New System.Drawing.Point(124, 122)
         Me.ComboBox3.Name = "ComboBox3"
         Me.ComboBox3.Size = New System.Drawing.Size(143, 21)
