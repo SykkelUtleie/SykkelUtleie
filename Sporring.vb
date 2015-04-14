@@ -1126,83 +1126,88 @@ Public Class Sporring
         Dim wbXl As Excel.Workbook
         Dim shXL As Excel.Worksheet
         Dim raXL As Excel.Range
-        ' Start Excel and get Application object.
-        appXL = CreateObject("Excel.Application")
-        appXL.Visible = True
-        ' Add a new workbook.
-        wbXl = appXL.Workbooks.Add
-        shXL = wbXl.ActiveSheet
-        If Statistikk.ComboBox1.Text = "Totalpris pr salg" Then
-            sql = "SELECT BestillingID, Totalpris FROM `Bestilling_tilbakelevering` WHERE BestillingID NOT LIKE 0 GROUP BY BestillingID"
-            data = query(sql)
-            ' Lager oversktift til vær enklet celle.
-            shXL.Cells(1, 1).Value = "Salgs ID"
-            shXL.Cells(1, 2).Value = "Pris"
-            For i = 0 To data.Rows.Count - 1
-                'Column
-                For j = 0 To data.Columns.Count - 1
-                    shXL.Cells(i + 3, j + 1) = _
-                    data.Rows(i).Item(j)
+        If Statistikk.ComboBox1.Text = "" Then
+            MsgBox("Du må velge hva som skal vises i Excel")
+        Else
+            ' Start Excel and get Application object.
+            appXL = CreateObject("Excel.Application")
+            appXL.Visible = True
+            ' Add a new workbook.
+            wbXl = appXL.Workbooks.Add
+            shXL = wbXl.ActiveSheet
+
+            If Statistikk.ComboBox1.Text = "Totalpris pr salg" Then
+                sql = "SELECT BestillingID, Totalpris FROM `Bestilling_tilbakelevering` WHERE BestillingID NOT LIKE 0 GROUP BY BestillingID"
+                data = query(sql)
+                ' Lager oversktift til vær enklet celle.
+                shXL.Cells(1, 1).Value = "Salgs ID"
+                shXL.Cells(1, 2).Value = "Pris"
+                For i = 0 To data.Rows.Count - 1
+                    'Column
+                    For j = 0 To data.Columns.Count - 1
+                        shXL.Cells(i + 3, j + 1) = _
+                        data.Rows(i).Item(j)
+                    Next
                 Next
-            Next
-        End If
-        If Statistikk.ComboBox1.Text = "Antall salg per måned" Then
-            sql = "SELECT BestillingID, month(dato_B), year(dato_B) FROM `Bestilling_tilbakelevering` WHERE BestillingID NOT LIKE 0 GROUP BY BestillingID"
-            data = query(sql)
-            ' Lager oversktift til vær enklet celle.
-            shXL.Cells(1, 1).Value = "Salgs ID"
-            shXL.Cells(1, 2).Value = "Måned"
-            shXL.Cells(1, 3).Value = "År"
-            For i = 0 To data.Rows.Count - 1
-                'Column
-                For j = 0 To data.Columns.Count - 1
-                    shXL.Cells(i + 3, j + 1) = _
-                    data.Rows(i).Item(j)
+            End If
+            If Statistikk.ComboBox1.Text = "Antall salg per måned" Then
+                sql = "SELECT BestillingID, month(dato_B), year(dato_B) FROM `Bestilling_tilbakelevering` WHERE BestillingID NOT LIKE 0 GROUP BY BestillingID"
+                data = query(sql)
+                ' Lager oversktift til vær enklet celle.
+                shXL.Cells(1, 1).Value = "Salgs ID"
+                shXL.Cells(1, 2).Value = "Måned"
+                shXL.Cells(1, 3).Value = "År"
+                For i = 0 To data.Rows.Count - 1
+                    'Column
+                    For j = 0 To data.Columns.Count - 1
+                        shXL.Cells(i + 3, j + 1) = _
+                        data.Rows(i).Item(j)
+                    Next
                 Next
-            Next
-        End If
-        If Statistikk.ComboBox1.Text = "Antall sykler og utstyr pr måned" Then
-            sql = "SELECT BestillingID, COUNT(BestillingID) as Antall FROM `Bestilling_tilbakelevering`  WHERE BestillingID NOT LIKE 0 GROUP BY BestillingID"
-            data = query(sql)
-            ' Lager oversktift til vær enklet celle.
-            shXL.Cells(1, 1).Value = "Salgs ID"
-            shXL.Cells(1, 2).Value = "Antall sykler og utstyr"
-            For i = 0 To data.Rows.Count - 1
-                'Column
-                For j = 0 To data.Columns.Count - 1
-                    shXL.Cells(i + 3, j + 1) = _
-                    data.Rows(i).Item(j)
+            End If
+            If Statistikk.ComboBox1.Text = "Antall sykler og utstyr pr måned" Then
+                sql = "SELECT BestillingID, COUNT(BestillingID) as Antall FROM `Bestilling_tilbakelevering`  WHERE BestillingID NOT LIKE 0 GROUP BY BestillingID"
+                data = query(sql)
+                ' Lager oversktift til vær enklet celle.
+                shXL.Cells(1, 1).Value = "Salgs ID"
+                shXL.Cells(1, 2).Value = "Antall sykler og utstyr"
+                For i = 0 To data.Rows.Count - 1
+                    'Column
+                    For j = 0 To data.Columns.Count - 1
+                        shXL.Cells(i + 3, j + 1) = _
+                        data.Rows(i).Item(j)
+                    Next
                 Next
-            Next
-        End If
-        If Statistikk.ComboBox1.Text = "Antall aktive kunder" Then
-            sql = "SELECT Utleied_av, BestillingID, DATE_FORMAT(dato_B, '%Y %m %d') FROM `Bestilling_tilbakelevering` WHERE dato_B >= last_day(now()) + interval 1 day - interval 3 month and BestillingID NOT LIKE 0 GROUP BY BestillingID"
-            data = query(sql)
-            ' Lager oversktift til vær enklet celle.
-            shXL.Cells(1, 1).Value = "Kunde"
-            shXL.Cells(1, 2).Value = "Salgs ID"
-            shXL.Cells(1, 3).Value = "År"
-            For i = 0 To data.Rows.Count - 1
-                'Column
-                For j = 0 To data.Columns.Count - 1
-                    shXL.Cells(i + 3, j + 1) = _
-                    data.Rows(i).Item(j)
+            End If
+            If Statistikk.ComboBox1.Text = "Antall aktive kunder" Then
+                sql = "SELECT Utleied_av, BestillingID, DATE_FORMAT(dato_B, '%Y %m %d') FROM `Bestilling_tilbakelevering` WHERE dato_B >= last_day(now()) + interval 1 day - interval 3 month and BestillingID NOT LIKE 0 GROUP BY BestillingID"
+                data = query(sql)
+                ' Lager oversktift til vær enklet celle.
+                shXL.Cells(1, 1).Value = "Kunde"
+                shXL.Cells(1, 2).Value = "Salgs ID"
+                shXL.Cells(1, 3).Value = "År"
+                For i = 0 To data.Rows.Count - 1
+                    'Column
+                    For j = 0 To data.Columns.Count - 1
+                        shXL.Cells(i + 3, j + 1) = _
+                        data.Rows(i).Item(j)
+                    Next
                 Next
-            Next
-        End If
-        ' Make sure Excel is visible and give the user control
-        ' of Excel's lifetime.
-        appXL.Visible = True
-        appXL.UserControl = True
-        ' Release object references.
-        raXL = Nothing
-        shXL = Nothing
-        wbXl = Nothing
-        'appXL.Quit()
-        appXL = Nothing
-        Exit Sub
+            End If
+            ' Make sure Excel is visible and give the user control
+            ' of Excel's lifetime.
+            appXL.Visible = True
+            appXL.UserControl = True
+            ' Release object references.
+            raXL = Nothing
+            shXL = Nothing
+            wbXl = Nothing
+            'appXL.Quit()
+            appXL = Nothing
+            Exit Sub
 Err_Handler:
-        MsgBox(Err.Description, vbCritical, "Error: " & Err.Number)
+            MsgBox(Err.Description, vbCritical, "Error: " & Err.Number)
+        End If
     End Sub
 
 End Class
