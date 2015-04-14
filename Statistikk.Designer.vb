@@ -51,7 +51,7 @@ Partial Class Statistikk
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Totalpris pr salg", "Antall salg per måned", "Antall sykkel pr måned", "Antall aktive kunder"})
+        Me.ComboBox1.Items.AddRange(New Object() {"Totalpris pr salg", "Antall salg per måned", "Antall sykler og utstyr pr måned", "Antall aktive kunder"})
         Me.ComboBox1.Location = New System.Drawing.Point(267, 107)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(199, 21)

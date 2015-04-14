@@ -4,8 +4,7 @@ Imports System.Configuration
 Public Class Administrering_av_database
     Private b As New Sporring
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Database.Show()
-        Close()
+         b.opprett()
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Form1.Show()
@@ -26,5 +25,9 @@ Public Class Administrering_av_database
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         LeggTilUteleiested.Show()
         Close()
+    End Sub
+
+    Private Sub Administrering_av_database_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        b.auth()
     End Sub
 End Class
