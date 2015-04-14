@@ -617,11 +617,11 @@ Public Class Sporring
                         data = query(sporring)
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                     Case "tilgjengeligeSykler"
-                        sporring = "SELECT * FROM Sykkel WHERE SykkelID NOT IN (SELECT sb.SykkelID FROM Bestilling_tilbakelevering bt, Sykkel_bestilling sb WHERE bt.Dato_fra >= '2015-04-14' and bt.Dato_til <= '2015-04-14' and bt.BestillingID = sb.BestillingID) AND SykkelID IN (SELECT SykkelId FROM Sykkel WHERE Status ='Tilgjengelig')"
+                        sporring = "SELECT * FROM Sykkel WHERE SykkelID NOT IN (SELECT sb.SykkelID FROM Bestilling_tilbakelevering bt, Sykkel_bestilling sb WHERE bt.Dato_fra >= '" & dt.ToString("yyyy-MM-dd") & "' and bt.Dato_til <= '" & dt.ToString("yyyy-MM-dd") & "' and bt.BestillingID = sb.BestillingID) AND SykkelID IN (SELECT SykkelId FROM Sykkel WHERE Status ='Tilgjengelig')"
                         data = query(sporring)
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                     Case "utleiedSykler"
-                        sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling)"
+                        sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT sb.SykkelID FROM Bestilling_tilbakelevering bt, Sykkel_bestilling sb WHERE bt.Dato_fra <= '" & dt.ToString("yyyy-MM-dd") & "' and bt.Dato_til >= '" & dt.ToString("yyyy-MM-dd") & "' and bt.BestillingID = sb.BestillingID)"
                         data = query(sporring)
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                     Case "stjaletsykler"
