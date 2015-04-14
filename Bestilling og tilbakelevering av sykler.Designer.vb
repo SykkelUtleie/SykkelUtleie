@@ -46,7 +46,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label28 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.Label25 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
@@ -257,7 +256,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.GroupBox6.Controls.Add(Me.Label28)
         Me.GroupBox6.Controls.Add(Me.Label27)
         Me.GroupBox6.Controls.Add(Me.Label26)
-        Me.GroupBox6.Controls.Add(Me.Button7)
         Me.GroupBox6.Controls.Add(Me.Label25)
         Me.GroupBox6.Controls.Add(Me.Label24)
         Me.GroupBox6.Controls.Add(Me.Label23)
@@ -313,16 +311,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.Label26.TabIndex = 8
         Me.Label26.Text = "Label26"
         '
-        'Button7
-        '
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(22, 211)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(143, 47)
-        Me.Button7.TabIndex = 7
-        Me.Button7.Text = "Tilbake"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
         'Label25
         '
         Me.Label25.AutoSize = True
@@ -375,7 +363,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         'Button5
         '
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(171, 211)
+        Me.Button5.Location = New System.Drawing.Point(107, 211)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(169, 47)
         Me.Button5.TabIndex = 1
@@ -979,7 +967,6 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
     Friend WithEvents Label24 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label
-    Friend WithEvents Button7 As System.Windows.Forms.Button
     Friend WithEvents Label29 As System.Windows.Forms.Label
     Friend WithEvents Label28 As System.Windows.Forms.Label
     Friend WithEvents Label27 As System.Windows.Forms.Label

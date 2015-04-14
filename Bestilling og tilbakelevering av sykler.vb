@@ -141,6 +141,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
     Private Sub Bestilling_og_tilbakelevering_av_sykler_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.Enabled = False : ComboBox2.Enabled = False : ComboBox3.Enabled = False : ComboBox5.Enabled = False : ComboBox8.Enabled = False : ComboBox9.Enabled = False : Button3.Visible = False : DateTimePicker1.Enabled = False : DateTimePicker2.Enabled = False : Button6.Enabled = False : Button8.Enabled = False
+        b.slettInfoFraMellomlagring()
+        b.slettInfoFraMellomlagringUtstyr()
         DataGridView1.DataSource = Nothing
         DataGridView3.DataSource = Nothing
         DataGridView4.DataSource = Nothing
@@ -188,6 +190,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                     Button8.Enabled = True
                     GroupBox3.Enabled = False
                 Else
+                    DataGridView3.Enabled = False
                     GroupBox6.Visible = True
                     Label23.Text = DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(2).Value.ToString() & " " & DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(1).Value.ToString()
                     Label29.Text = DataGridView3.RowCount.ToString()
@@ -203,6 +206,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                     Button8.Enabled = True
                     GroupBox3.Enabled = False
                 Else
+                    DataGridView3.Enabled = False
                     GroupBox6.Visible = True
                     Label23.Text = DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(2).Value.ToString() & " " & DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(1).Value.ToString()
                     Label29.Text = DataGridView3.RowCount.ToString()
@@ -213,6 +217,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         Select Case hjelp
             Case "Bestilling"
+                DataGridView3.Enabled = False
+                DataGridView4.Enabled = False
                 GroupBox5.Enabled = False
                 GroupBox6.Visible = True
                 Label23.Text = DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(2).Value.ToString() & " " & DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(1).Value.ToString()
@@ -223,6 +229,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 Label26.Text = b.pris
 
             Case "Tilbakelevering"
+                DataGridView3.Enabled = False
+                DataGridView4.Enabled = False
                 GroupBox5.Enabled = False
                 GroupBox6.Visible = True
                 Label23.Text = DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(2).Value.ToString() & " " & DataGridView1.Rows(DataGridView1.CurrentRow.Index).Cells(1).Value.ToString()
@@ -335,15 +343,9 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 DataGridView3.Columns.Clear()
                 DataGridView4.Rows.Clear()
                 DataGridView4.Columns.Clear()
-                Dim resp1 = MsgBox("Vil du registrere BESTILLING eller TILBAKELEVERING til annen bruker?", MsgBoxStyle.YesNo)
-                If resp1 = vbYes Then
-                    Dim hjelpForm As New Bestilling_og_tilbakelevering_av_sykler
-                    Close()
-                    hjelpForm.Show()
-                Else
-                    Close()
-                    Form1.Show()
-                End If
+                b.oversikt()
+                Form1.Show()
+                Close()
             Case "Tilbakelevering"
                 b.sporBox1 = ComboBox5
                 b.tilbSykkelUpdate()
@@ -359,18 +361,12 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 DataGridView3.Columns.Clear()
                 DataGridView4.Rows.Clear()
                 DataGridView4.Columns.Clear()
-                Dim resp1 = MsgBox("Vil du registrere TILBAKELEVERING eller BESTILLING til annen bruker?", MsgBoxStyle.YesNo)
-                If resp1 = vbYes Then
-                    Dim hjelpForm As New Bestilling_og_tilbakelevering_av_sykler
-                    Close()
-                    hjelpForm.Show()
-                Else
-                    Close()
-                    Form1.Show()
-                End If
+                b.oversikt()
+                Form1.Show()
+                Close()
         End Select
     End Sub
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs)
         Button3.Visible = True
         Button4.Visible = True
         Button6.Visible = True
