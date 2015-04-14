@@ -941,7 +941,7 @@ Public Class Sporring
 
         If klasse = 2 Then
             Administrering_av_database.Button3.Visible = False
-            Database.Button1.Visible = False
+            Administrering_av_database.Button1.Visible = False
         End If
     End Sub
     Public Sub glemt()

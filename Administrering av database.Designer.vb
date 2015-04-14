@@ -36,7 +36,7 @@ Partial Class Administrering_av_database
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(131, 89)
         Me.Button1.TabIndex = 0
-        Me.Button1.Text = "Administrere databasen"
+        Me.Button1.Text = "Opprett database"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'Button7
@@ -62,7 +62,7 @@ Partial Class Administrering_av_database
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Button3.Location = New System.Drawing.Point(362, 22)
+        Me.Button3.Location = New System.Drawing.Point(12, 127)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(131, 89)
         Me.Button3.TabIndex = 8
@@ -72,7 +72,7 @@ Partial Class Administrering_av_database
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(362, 127)
+        Me.Button4.Location = New System.Drawing.Point(372, 22)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(131, 89)
         Me.Button4.TabIndex = 9
