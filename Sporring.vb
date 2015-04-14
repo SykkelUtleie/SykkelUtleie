@@ -5,7 +5,7 @@ Imports System.Text
 Imports Excel = Microsoft.Office.Interop.Excel
 Public Class Sporring
     Private sporring As String
-    Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, kundeSok, sykkelSok, slette, spor, sykID, kundID, overK, overS, overTU, overU, prisbox As String
+    Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, kundeSok, sykkelSok, slette, spor, sykID, utstID, kundID, overK, overS, overTU, overU, prisbox As String
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke, tilbSykID As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox8, sporBox9 As ComboBox
@@ -76,7 +76,77 @@ Public Class Sporring
             "`Utstyrmerke` varchar(50) default NULL, " &
             "`Status` varchar(20) NOT NULL, " &
             "`Pris` varchar(20) NOT NULL, " &
-            "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;"
+            "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)"
         'sporring += "CREATE TABLE `Reparasjon` (`SykkelID` int UNSIGNED NOT NULL, " &
         '    "`Trenger_reparasjon` varchar(3) default NULL, " &
         '    "PRIMARY KEY (`SykkelID`)) ENGINE=MyISAM;" &
@@ -178,11 +248,9 @@ Public Class Sporring
                 antallType = rad("Antall")
                 sporBox1.Items.Add(sykkeltype)
             Next rad
-            'soke1 = "tTypeSoke"
-            'tilbSykkel()
         Else
             Dim data As New DataTable
-            sporring = "SELECT Sykkeltype, COUNT( DISTINCT SykkelID ) AS Antall FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Sykkeltype"
+            sporring = "SELECT Sykkeltype, COUNT( DISTINCT SykkelID ) AS Antall FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) AND (SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) GROUP BY Sykkeltype"
             data = query(sporring)
             Dim rad As DataRow
             Dim sykkeltype, antallType As String
@@ -225,7 +293,7 @@ Public Class Sporring
             Dim hjelp As String = sporBox1.Text
             Dim a() As String = hjelp.Split(" ")
             Dim data As New DataTable
-            sporring = "SELECT Sykkelmerke, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring) GROUP BY Sykkelmerke"
+            sporring = "SELECT Sykkelmerke, COUNT(DISTINCT SykkelID) AS Antall FROM Sykkel WHERE Sykkeltype LIKE '" & a(0) & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) AND SykkelID NOT IN (SELECT SykkelID FROM Mellomlagring)) GROUP BY Sykkelmerke"
             data = query(sporring)
             Dim rad As DataRow
             Dim sykkelmerke, antallMerke As String
@@ -263,7 +331,7 @@ Public Class Sporring
             Next rad
         Else
             Dim data As New DataTable
-            sporring = "SELECT Utstyrtype, COUNT( DISTINCT UtstyrID ) AS Antall FROM Utstyr WHERE UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL) GROUP BY Utstyrtype"
+            sporring = "SELECT Utstyrtype, COUNT( DISTINCT UtstyrID ) AS Antall FROM Utstyr WHERE UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) GROUP BY Utstyrtype"
             data = query(sporring)
             Dim rad As DataRow
             Dim utstyrtype, antallType As String
@@ -309,7 +377,7 @@ Public Class Sporring
             Dim hjelp As String = sporBox8.Text
             Dim a() As String = hjelp.Split(" ")
             Dim data As New DataTable
-            sporring = "SELECT Utstyrmerke, Pris, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE Utstyrtype LIKE '" & a(0) & "' AND (UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr) GROUP BY Utstyrmerke"
+            sporring = "SELECT Utstyrmerke, Pris, COUNT(DISTINCT UtstyrID) AS Antall FROM Utstyr WHERE Utstyrtype LIKE '" & a(0) & "' AND (UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)) AND UtstyrID NOT IN (SELECT UtstyrID FROM MellomlagringUtstyr)) GROUP BY Utstyrmerke"
             data = query(sporring)
             Dim rad As DataRow
             Dim utstyrmerke, antallMerke, pris As String
@@ -320,9 +388,6 @@ Public Class Sporring
                 sporBox9.Items.Add(utstyrmerke)
             Next rad
         End If
-
-
-
     End Sub
     Public Sub bestillingSykkel()
         Dim data1 As New DataTable
@@ -378,8 +443,7 @@ Public Class Sporring
             data00 = query(sporring00)
         Next
         bestillID += 1
-        MsgBox("Bestilling OK!", MsgBoxStyle.Information)
-
+        MsgBox("Bestilling av sykler er registrert!", MsgBoxStyle.Information)
         oversikt()
     End Sub
     Public Sub sykkkelIdForUtstyr()
@@ -400,7 +464,6 @@ Public Class Sporring
             sykkelId = rad("SykkelID")
             sykIdForUtstyr = sykkelId
         Next
-
     End Sub
     Public Sub bestillingUtstyr()
         Dim data1 As New DataTable
@@ -419,19 +482,16 @@ Public Class Sporring
         For Each rad2 In data3.Rows
             bestillID = rad2("MAX(BestillingID)")
         Next
-        'bestillID += 1
         Dim rad6 As Integer = 0
         For Each row As DataGridViewRow In hjelpDataGrid1.Rows
             Dim type As String = hjelpDataGrid1.Rows(rad6).Cells(1).Value.ToString
             Dim merke As String = hjelpDataGrid1.Rows(rad6).Cells(2).Value.ToString
             Dim sId As String = hjelpDataGrid1.Rows(rad6).Cells(3).Value.ToString
-            MsgBox(sId)
             rad6 += 1
             Dim totalPris As String = Bestilling_og_tilbakelevering_av_sykler.Label26.Text
             Dim data2 As New DataTable
             Dim sporring3 As String = "INSERT INTO Bestilling_tilbakelevering(BestillingID, Utleied_av, Dato_fra, Dato_til, Utleiested, Tilbakeleveringssted, Totalpris) VALUES(" & bestillID & ", '" & KundeID & "', '" & sporDatoFra & "', '" & sporDatoTil & "', '" & sporBox3.Text & "',NULL, '" & totalPris & "')"
             data2 = query(sporring3)
-
             Dim data0 As New DataTable
             Dim sporring0 As String = "SELECT ID FROM Bestilling_tilbakelevering WHERE ID=(SELECT MAX(ID) FROM Bestilling_tilbakelevering)"
             data0 = query(sporring0)
@@ -440,7 +500,6 @@ Public Class Sporring
             For Each rad0 In data0.Rows
                 id = rad0("ID")
             Next
-
             Dim data As New DataTable
             Dim sporring1 As String = "SELECT UtstyrID FROM Utstyr WHERE Utstyrtype = '" & type & "' AND Utstyrmerke = '" & merke & "' AND (UtstyrID NOT IN (SELECT UtstyrID FROM Utstyr_bestilling) OR UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
             data = query(sporring1)
@@ -456,9 +515,7 @@ Public Class Sporring
             Dim sporring00 As String = "UPDATE Utstyr SET Status = 'Utleied' WHERE UtstyrID ='" & utstyrId & "'"
             data00 = query(sporring00)
         Next
-        'bestillID += 1
-        MsgBox("Bestilling OK!", MsgBoxStyle.Information)
-
+        MsgBox("Bestilling av utstyr er registrert!", MsgBoxStyle.Information)
         oversikt()
     End Sub
     Public Sub sok()
@@ -668,6 +725,22 @@ Public Class Sporring
             data1 = query(sporring1)
         Next
         MsgBox("Tilbakelevering av sykkel er registrert!")
+        oversikt()
+    End Sub
+    Public Sub tilbUtstyrUpdate()
+        Dim data As New DataTable
+        sporring = "SELECT UtstyrID FROM MellomlagringUtstyr"
+        data = query(sporring)
+        Dim rad As DataRow
+        For Each rad In data.Rows
+            utstID = rad("UtstyrID")
+            Dim data1 As New DataTable
+            Dim sporring1 As String = "UPDATE Bestilling_tilbakelevering SET Tilbakeleveringssted ='" & sporBox1.Text & "' WHERE ID IN (SELECT ID FROM Utstyr_bestilling WHERE UtstyrID = '" & utstID & "');"
+            sporring1 += "UPDATE Utstyr SET Status = 'Tilgjengelig' WHERE UtstyrID = '" & utstID & "';"
+            sporring1 += "DELETE FROM Utstyr_bestilling WHERE UtstyrID = '" & utstID & "'"
+            data1 = query(sporring1)
+        Next
+        MsgBox("Tilbakelevering av utstyr er registrert!")
         oversikt()
     End Sub
     Public Sub oversikt()
@@ -1046,4 +1119,84 @@ Public Class Sporring
         data = query(sql)
 
     End Sub
+    Public Sub eksport()
+        'Dim sql As String
+        Dim data As New DataTable
+        'Dim rad As DataRow
+        Dim appXL As Excel.Application
+        Dim wbXl As Excel.Workbook
+        Dim shXL As Excel.Worksheet
+        Dim raXL As Excel.Range
+        ' Start Excel and get Application object.
+        appXL = CreateObject("Excel.Application")
+        appXL.Visible = True
+        ' Add a new workbook.
+        wbXl = appXL.Workbooks.Add
+        shXL = wbXl.ActiveSheet
+        If Statistikk.ComboBox1.Text = "Totalpris pr salg" Then
+
+        End If
+        If Statistikk.ComboBox1.Text = "Antall salg per måned" Then
+
+        End If
+        If Statistikk.ComboBox1.Text = "Antall sykkel pr måned" Then
+
+        End If
+        If Statistikk.ComboBox1.Text = "Antall aktive kunder" Then
+
+        End If
+        ' Add table headers going cell by cell.
+        shXL.Cells(1, 1).Value = "First Name"
+        shXL.Cells(1, 2).Value = "Last Name"
+        shXL.Cells(1, 3).Value = "Full Name"
+        shXL.Cells(1, 4).Value = "Specialization"
+        ' Format A1:D1 as bold, vertical alignment = center.
+        With shXL.Range("A1", "D1")
+            .Font.Bold = True
+            .VerticalAlignment = Excel.XlVAlign.xlVAlignCenter
+        End With
+        ' Create an array to set multiple values at once.
+        Dim students(5, 2) As String
+        students(0, 0) = "Zara"
+        students(0, 1) = "Ali"
+        students(1, 0) = "Nuha"
+        students(1, 1) = "Ali"
+        students(2, 0) = "Arilia"
+        students(2, 1) = "RamKumar"
+        students(3, 0) = "Rita"
+        students(3, 1) = "Jones"
+        students(4, 0) = "Umme"
+        students(4, 1) = "Ayman"
+        ' Fill A2:B6 with an array of values (First and Last Names).
+        shXL.Range("A2", "B6").Value = students
+        ' Fill C2:C6 with a relative formula (=A2 & " " & B2).
+        raXL = shXL.Range("C2", "C6")
+        raXL.Formula = "=A2 & "" "" & B2"
+        ' Fill D2:D6 values.
+        With shXL
+            .Cells(2, 4).Value = "Biology"
+            .Cells(3, 4).Value = "Mathmematics"
+            .Cells(4, 4).Value = "Physics"
+            .Cells(5, 4).Value = "Mathmematics"
+            .Cells(6, 4).Value = "Arabic"
+        End With
+        ' AutoFit columns A:D.
+        raXL = shXL.Range("A1", "D1")
+        raXL.EntireColumn.AutoFit()
+
+        ' Make sure Excel is visible and give the user control
+        ' of Excel's lifetime.
+        appXL.Visible = True
+        appXL.UserControl = True
+        ' Release object references.
+        raXL = Nothing
+        shXL = Nothing
+        wbXl = Nothing
+        'appXL.Quit()
+        appXL = Nothing
+        Exit Sub
+Err_Handler:
+        MsgBox(Err.Description, vbCritical, "Error: " & Err.Number)
+    End Sub
+
 End Class
