@@ -229,8 +229,8 @@ Partial Class Reparasjon
         '
         Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
         Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
-        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
-        Me.BestillingToolStripMenuItem.Text = "Bestilling"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(213, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling og tilbakelevering"
         '
         'AVSLUTTToolStripMenuItem
         '

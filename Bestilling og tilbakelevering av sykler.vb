@@ -237,46 +237,56 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        DateTimePicker1.Enabled = False
-        DateTimePicker2.Enabled = False
-        DataGridView3.Visible = True
-        Button3.Enabled = True
-        ComboBox3.Enabled = False
-        ComboBox5.Enabled = False
+        b.sjekkHjelp = "sykCombobox"
         If hjelp = "Bestilling" Then
             b.mellom = "Bestilling"
+            b.sjekk(ComboBox1.Text, ComboBox2.Text, ComboBox3.Text, ComboBox3.Text, ComboBox3.Text)
         ElseIf hjelp = "Tilbakelevering" Then
             b.mellom = "Tilbakelevering"
+            b.sjekk(ComboBox1.Text, ComboBox2.Text, ComboBox5.Text, ComboBox5.Text, ComboBox5.Text)
         End If
-        b.sykkkelIdForUtstyr()
-        DataGridView3.Rows.Insert(teller, New String() {teller, ComboBox1.Text, ComboBox2.Text, b.sykIdForUtstyr})
-        teller += 1
-        tall = DataGridView3.Rows.Count()
-        Label5.Text = tall
-        Label14.Text = tall + 1
-        ComboBox1.Text = "" : ComboBox2.Text = ""
-        b.hjelpDataGrid = DataGridView3
-        b.mellomlagring()
+        If b.res = True Then
+            DateTimePicker1.Enabled = False
+            DateTimePicker2.Enabled = False
+            DataGridView3.Visible = True
+            Button3.Enabled = True
+            ComboBox3.Enabled = False
+            ComboBox5.Enabled = False
+            b.sykkkelIdForUtstyr()
+            DataGridView3.Rows.Insert(teller, New String() {teller, ComboBox1.Text, ComboBox2.Text, b.sykIdForUtstyr})
+            teller += 1
+            tall = DataGridView3.Rows.Count()
+            Label5.Text = tall
+            Label14.Text = tall + 1
+            ComboBox1.Text = "" : ComboBox2.Text = ""
+            b.hjelpDataGrid = DataGridView3
+            b.mellomlagring()
+        End If
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
-        DataGridView4.Visible = True
-        Button8.Enabled = True
-        Dim sykID As String = DataGridView3.Rows(DataGridView3.CurrentRow.Index).Cells(3).Value.ToString()
-        DataGridView4.Rows.Insert(teller2, New String() {teller2, ComboBox8.Text, ComboBox9.Text, sykID})
-        teller2 += 1
-        tall2 = DataGridView4.Rows.Count()
-        Label22.Text = tall2
-        Label16.Text = tall2 + 1
-        ComboBox9.Text = "" : ComboBox8.Text = ""
-        b.hjelpDataGrid1 = DataGridView4
-        b.sykIdForUtstyr = DataGridView3.Rows(DataGridView3.CurrentRow.Index).Cells(3).Value.ToString()
+        b.res = False
+        b.sjekk(ComboBox8.Text, ComboBox9.Text, ComboBox9.Text, ComboBox9.Text, ComboBox9.Text)
+        b.sjekkHjelp = "utstyrCombobox"
         If hjelp = "Bestilling" Then
             b.mellom1 = "Bestilling"
         ElseIf hjelp = "Tilbakelevering" Then
             b.mellom1 = "Tilbakelevering"
         End If
-        b.mellomlagringUtstyr()
+        If b.res = True Then
+            DataGridView4.Visible = True
+            Button8.Enabled = True
+            Dim sykID As String = DataGridView3.Rows(DataGridView3.CurrentRow.Index).Cells(3).Value.ToString()
+            DataGridView4.Rows.Insert(teller2, New String() {teller2, ComboBox8.Text, ComboBox9.Text, sykID})
+            teller2 += 1
+            tall2 = DataGridView4.Rows.Count()
+            Label22.Text = tall2
+            Label16.Text = tall2 + 1
+            ComboBox9.Text = "" : ComboBox8.Text = ""
+            b.hjelpDataGrid1 = DataGridView4
+            b.sykIdForUtstyr = DataGridView3.Rows(DataGridView3.CurrentRow.Index).Cells(3).Value.ToString()
+            b.mellomlagringUtstyr()
+        End If
     End Sub
     Private Sub DataGridView3_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView3.RowHeaderMouseClick
         If hjelp = "Bestilling" Then

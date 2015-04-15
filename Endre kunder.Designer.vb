@@ -393,8 +393,8 @@ Partial Class Endre_kunder
         '
         Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
         Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
-        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
-        Me.BestillingToolStripMenuItem.Text = "Bestilling"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(213, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling og tilbakelevering"
         '
         'AVSLUTTToolStripMenuItem
         '
@@ -433,6 +433,7 @@ Partial Class Endre_kunder
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Name = "Endre_kunder"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Endre_kunder"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MenuStrip1.ResumeLayout(False)

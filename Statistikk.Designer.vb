@@ -31,7 +31,7 @@ Partial Class Statistikk
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(351, 196)
+        Me.Button1.Location = New System.Drawing.Point(328, 79)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(127, 41)
         Me.Button1.TabIndex = 0
@@ -41,7 +41,7 @@ Partial Class Statistikk
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.Button2.Location = New System.Drawing.Point(158, 196)
+        Me.Button2.Location = New System.Drawing.Point(135, 79)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(127, 41)
         Me.Button2.TabIndex = 1
@@ -52,7 +52,7 @@ Partial Class Statistikk
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Totalpris pr salg", "Antall salg per måned", "Antall sykler og utstyr pr måned", "Antall aktive kunder"})
-        Me.ComboBox1.Location = New System.Drawing.Point(267, 107)
+        Me.ComboBox1.Location = New System.Drawing.Point(296, 22)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(199, 21)
         Me.ComboBox1.TabIndex = 3
@@ -61,7 +61,7 @@ Partial Class Statistikk
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(70, 110)
+        Me.Label1.Location = New System.Drawing.Point(99, 25)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(184, 13)
         Me.Label1.TabIndex = 4
@@ -71,12 +71,13 @@ Partial Class Statistikk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(638, 382)
+        Me.ClientSize = New System.Drawing.Size(559, 159)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Statistikk"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Statistikk"
         Me.ResumeLayout(False)
         Me.PerformLayout()

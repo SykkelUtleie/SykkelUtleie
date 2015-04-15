@@ -71,35 +71,51 @@ Public Class Registrering_av_gruppe
         a.organisasjon()
         hjelp = "Organisasjon"
     End Sub
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If hjelp = "KundePrivat" Then
-            kunde.regPrivat(TextBox2.Text, TextBox1.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, DateTimePicker3.Text)
+            b.sjekkHjelp = "Privat"
+            b.sjekk(TextBox1.Text, TextBox2.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
+            If b.res = True Then
+                kunde.regPrivat(TextBox2.Text, TextBox1.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, DateTimePicker3.Text)
+                Dim resp = MsgBox("Vil du bestille sykler til bruker?", MsgBoxStyle.YesNo)
+                If resp = vbYes Then
+                    TextBox1.Enabled = False : TextBox2.Enabled = False : TextBox4.Enabled = False : TextBox5.Enabled = False : TextBox6.Enabled = False : DateTimePicker3.Enabled = False
+
+                Else
+                    Dim resp1 = MsgBox("Vil du registrere ny bruker?", MsgBoxStyle.YesNo)
+                    If resp1 = vbYes Then
+                        Dim hjelpForm As New Registrering_av_gruppe
+                        Close()
+                        hjelpForm.Show()
+                    Else
+                        Close()
+                        Form1.Show()
+                    End If
+                End If
+            End If
         ElseIf hjelp = "Organisasjon" Then
-            kunde.regOrg(TextBox2.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
+            b.sjekkHjelp = "Organisasjon"
+            b.sjekk(TextBox2.Text, TextBox2.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
+            If b.res = True Then
+                kunde.regOrg(TextBox2.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
+                Dim resp = MsgBox("Vil du bestille sykler til bruker?", MsgBoxStyle.YesNo)
+                If resp = vbYes Then
+                    TextBox1.Enabled = False : TextBox2.Enabled = False : TextBox4.Enabled = False : TextBox5.Enabled = False : TextBox6.Enabled = False : DateTimePicker3.Enabled = False
+
+                Else
+                    Dim resp1 = MsgBox("Vil du registrere ny bruker?", MsgBoxStyle.YesNo)
+                    If resp1 = vbYes Then
+                        Dim hjelpForm As New Registrering_av_gruppe
+                        Close()
+                        hjelpForm.Show()
+                    Else
+                        Close()
+                        Form1.Show()
+                    End If
+                End If
+            End If
         Else
             MsgBox("Du må velge kundetype!")
         End If
-        ReDim a.posisjon(30, 4)
-        Dim resp = MsgBox("Vil du bestille sykler til bruker?", MsgBoxStyle.YesNo)
-        If resp = vbYes Then
-            TextBox1.Enabled = False : TextBox2.Enabled = False : TextBox4.Enabled = False : TextBox5.Enabled = False : TextBox6.Enabled = False : DateTimePicker3.Enabled = False
-
-        Else
-            Dim resp1 = MsgBox("Vil du registrere ny bruker?", MsgBoxStyle.YesNo)
-            If resp1 = vbYes Then
-                Dim hjelpForm As New Registrering_av_gruppe
-                Close()
-                hjelpForm.Show()
-            Else
-                Close()
-                Form1.Show()
-            End If
-        End If
     End Sub
-    Private Sub Button3_Click(sender As Object, e As EventArgs)
-        a.visLagredePosisjoner()
-    End Sub
-
 End Class

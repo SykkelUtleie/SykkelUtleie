@@ -12,6 +12,7 @@ Public Class Sporring
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox4, sporBox8, sporBox9 As ComboBox
     Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse, b_navn, b_pass, K_fnavn, K_enavn, KID, k_ad, k_epost, k_tlf As String
     Private sykkelnavn, ustyrnavn As String
+    Dim sykkelPris, utstyrPris As Integer
     Protected Friend pris As String = 0
     Protected Friend hjelpDataGrid, hjelpDataGrid1, hjelpDataGrid2, hjelpDataGrid3 As DataGridView
     Private mellomlagringsRad As Integer = 0
@@ -197,6 +198,7 @@ Public Class Sporring
             "`SykkelID` int(10) default NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
         data = query(sporring)
         MsgBox("Databasen er opprettet!", MsgBoxStyle.Information)
+        oversikt()
     End Sub
     Public Sub registrering()
         Dim data As New DataTable
@@ -655,7 +657,6 @@ Public Class Sporring
                         Sok_i_utstyrbase.DataGridView1.DataSource = data
                 End Select
         End Select
-
     End Sub
     Public Sub slett()
         Select Case slette
@@ -726,7 +727,6 @@ Public Class Sporring
                             MsgBox("Utstyr er slettet!")
                         End If
                 End Select
-
         End Select
         oversikt()
     End Sub
@@ -752,7 +752,6 @@ Public Class Sporring
         Dim data As New DataTable
         Dim sql As String
         Dim rad As DataRow
-
         If Endre_kunder.RadioButton1.Checked = True Then
             sql = "Select Fornavn, Etternavn_org_navn, Adresse, Telefon, Epost From Kunde Where KundeID like '" & kundeid & "'"
             data = query(sql)
@@ -848,6 +847,7 @@ Public Class Sporring
                 data = query(sporring)
                 MsgBox("Sykkel er repaert og tilgjengelig til utleie!")
         End Select
+        oversikt()
     End Sub
     Public Sub visReparasjon()
         Dim data As New DataTable
@@ -871,13 +871,13 @@ Public Class Sporring
             antallSykler = rad("AntallSykler")
             overS = antallSykler
         Next
-        Dim sporring3 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL)"
+        Dim sporring3 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel WHERE Status ='Tilgjengelig')"
         data = query(sporring3)
         For Each rad In data.Rows
             antallTilUtleie = rad("AntallSykler")
             overTU = antallTilUtleie
         Next rad
-        Dim sporring4 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NULL)"
+        Dim sporring4 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel WHERE Status ='Utleied')"
         data = query(sporring4)
         For Each rad In data.Rows
             antallUtleied = rad("AntallSykler")
@@ -993,7 +993,6 @@ Public Class Sporring
         data = query(sporring)
         mellomlagringsRad = 0
     End Sub
-    Dim sykkelPris, utstyrPris As Integer
     Public Sub hentSykkelPris()
         Dim data As New DataTable
         sporring = "SELECT SUM(pris) AS Summen FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Mellomlagring)"
@@ -1020,6 +1019,7 @@ Public Class Sporring
         sporring = "UPDATE Sykkel SET Status ='Stjålet' WHERE Status = 'Utleied' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "'));"
         sporring += "UPDATE Utstyr SET Status ='Stjålet' WHERE Status = 'Utleied' AND UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "'));"
         data = query(sporring)
+        oversikt()
     End Sub
 
     Public Sub bruker()
@@ -1059,7 +1059,6 @@ Public Class Sporring
         For Each rad In data.Rows
             klasse = rad("klasse")
         Next
-
         If klasse = 2 Then
             Administrering_av_database.Button3.Visible = False
             Administrering_av_database.Button1.Visible = False
@@ -1127,7 +1126,6 @@ Public Class Sporring
         sporring = "SELECT navn, login, password, epost, klasse FROM auth WHERE login LIKE '" & a(0) & "'"
         data = query(sporring)
         Dim rad As DataRow
-
         For Each rad In data.Rows
             hbnavn = rad("navn")
             hblogin = rad("login")
@@ -1219,7 +1217,6 @@ Public Class Sporring
             Return False
         End If
     End Function
-
     Public Sub hentSted()
         Dim data As New DataTable
         Dim sql, utleie As String
@@ -1262,11 +1259,9 @@ Public Class Sporring
         Dim sted As String
         Dim data As New DataTable
         Dim sql As String
-
         sted = LeggTilUteleiested.DataGridView1.Rows(LeggTilUteleiested.DataGridView1.CurrentRow.Index).Cells(0).Value.ToString()
         sql = "DELETE FROM Sted WHERE Stednavn = '" & sted & "'"
         data = query(sql)
-
     End Sub
     Public Sub eksport()
         'eksporterer data fra databsen til excel for statistikker
@@ -1359,5 +1354,60 @@ Err_Handler:
             MsgBox(Err.Description, vbCritical, "Error: " & Err.Number)
         End If
     End Sub
+    Protected Friend sjekkHjelp As String
+    Protected Friend res As Boolean = False
 
+    Public Function sjekk(ByVal tBox1 As String, tBox2 As String, tBox3 As String, tBox4 As String, tBox5 As String)
+        Select Case sjekkHjelp
+            Case "Privat"
+                If tBox1 = "" Then
+                    MsgBox("FEIL navn!")
+                ElseIf tBox2 = "" Then
+                    MsgBox("FEIL etternavn!")
+                ElseIf tBox3 = "" Then
+                    MsgBox("FEIL Postadresse!")
+                ElseIf tBox4 = "" Then
+                    MsgBox("Telefonnummer kan ikke være tomt!")
+                ElseIf tBox4 <> "" And Not (IsNumeric(tBox4)) Or tBox4.Length <> 8 Then
+                    MsgBox("Telefonnummer må bestå av åtte tegn og må ikke inneholde bokstaver!")
+                ElseIf tBox5 = "" Then
+                    MsgBox("Feil E-post!")
+                    validateEmail(tBox5)
+                ElseIf tBox5 <> "" And validateEmail(tBox5) = False Then
+                    MsgBox("Feil E-post!")
+                Else
+                    res = True
+                End If
+            Case "Organisasjon"
+                If tBox2 = "" Then
+                    MsgBox("FEIL Organisasjonsnavn!")
+                ElseIf tBox3 = "" Then
+                    MsgBox("FEIL Postadresse!")
+                ElseIf tBox4 = "" Then
+                    MsgBox("Telefonnummer kan ikke være tomt!")
+                ElseIf tBox4 <> "" And Not (IsNumeric(tBox4)) Or tBox4.Length <> 8 Then
+                    MsgBox("Telefonnummer må bestå av åtte tegn og må ikke inneholde bokstaver!")
+                ElseIf tBox5 = "" Then
+                    MsgBox("Feil E-post!")
+                    validateEmail(tBox5)
+                ElseIf tBox5 <> "" And validateEmail(tBox5) = False Then
+                    MsgBox("Feil E-post!")
+                Else
+                    res = True
+                End If
+            Case "sykCombobox"
+                If tBox1 = "" Or tBox2 = "" Or tBox3 = "" Or tBox4 = "" Then
+                    MsgBox("Du må fylle ut alle feltene!!!")
+                Else
+                    res = True
+                End If
+            Case "utstyrCombobox"
+                If tBox1 = "" Or tBox2 = "" Then
+                    MsgBox("Du må fylle ut alle feltene!!!")
+                Else
+                    res = True
+                End If
+        End Select
+        Return res
+    End Function
 End Class

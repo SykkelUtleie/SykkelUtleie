@@ -32,7 +32,7 @@ Partial Class Tilgang
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(186, 195)
+        Me.Button2.Location = New System.Drawing.Point(73, 132)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(115, 44)
         Me.Button2.TabIndex = 11
@@ -41,7 +41,7 @@ Partial Class Tilgang
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(186, 166)
+        Me.Button1.Location = New System.Drawing.Point(73, 103)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(115, 23)
         Me.Button1.TabIndex = 10
@@ -51,7 +51,7 @@ Partial Class Tilgang
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(112, 143)
+        Me.Label2.Location = New System.Drawing.Point(24, 59)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 9
@@ -61,7 +61,7 @@ Partial Class Tilgang
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(112, 92)
+        Me.Label1.Location = New System.Drawing.Point(24, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(29, 13)
         Me.Label1.TabIndex = 8
@@ -70,7 +70,7 @@ Partial Class Tilgang
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(186, 140)
+        Me.TextBox2.Location = New System.Drawing.Point(98, 56)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox2.Size = New System.Drawing.Size(115, 20)
@@ -79,7 +79,7 @@ Partial Class Tilgang
         'ComboBox1
         '
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(186, 89)
+        Me.ComboBox1.Location = New System.Drawing.Point(98, 20)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(115, 21)
         Me.ComboBox1.TabIndex = 12
@@ -88,7 +88,7 @@ Partial Class Tilgang
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(476, 357)
+        Me.ClientSize = New System.Drawing.Size(267, 210)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -96,6 +96,7 @@ Partial Class Tilgang
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox2)
         Me.Name = "Tilgang"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Tilgang"
         Me.ResumeLayout(False)
         Me.PerformLayout()

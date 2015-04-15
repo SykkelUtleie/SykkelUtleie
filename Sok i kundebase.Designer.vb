@@ -110,7 +110,7 @@ Partial Class Sok_i_kundebase
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 25)
+        Me.GroupBox1.Location = New System.Drawing.Point(143, 25)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(305, 198)
         Me.GroupBox1.TabIndex = 20
@@ -177,7 +177,7 @@ Partial Class Sok_i_kundebase
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(359, 89)
+        Me.Button1.Location = New System.Drawing.Point(508, 93)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(88, 40)
         Me.Button1.TabIndex = 21
@@ -186,7 +186,7 @@ Partial Class Sok_i_kundebase
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(471, 86)
+        Me.Button2.Location = New System.Drawing.Point(620, 90)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(88, 47)
         Me.Button2.TabIndex = 22
@@ -312,8 +312,8 @@ Partial Class Sok_i_kundebase
         '
         Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
         Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
-        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
-        Me.BestillingToolStripMenuItem.Text = "Bestilling"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(213, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling og tilbakelevering"
         '
         'AVSLUTTToolStripMenuItem
         '

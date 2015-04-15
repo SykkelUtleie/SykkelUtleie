@@ -134,6 +134,7 @@ Partial Class LeggTilUteleiested
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "LeggTilUteleiested"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "LeggTilUteleiested"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

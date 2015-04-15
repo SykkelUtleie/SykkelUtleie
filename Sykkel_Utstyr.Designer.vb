@@ -68,7 +68,7 @@ Partial Class Sykkel_Utstyr
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(37, 53)
+        Me.GroupBox1.Location = New System.Drawing.Point(52, 43)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(510, 316)
         Me.GroupBox1.TabIndex = 2
@@ -281,8 +281,8 @@ Partial Class Sykkel_Utstyr
         '
         Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
         Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
-        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
-        Me.BestillingToolStripMenuItem.Text = "Bestilling"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(213, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling og tilbakelevering"
         '
         'AVSLUTTToolStripMenuItem
         '
@@ -299,6 +299,7 @@ Partial Class Sykkel_Utstyr
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Sykkel_Utstyr"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sykkel_Utstyr"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

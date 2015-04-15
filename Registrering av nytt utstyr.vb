@@ -63,8 +63,10 @@ Private a As New GUI
 
     Dim utstyr As New Utstyr
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        utstyr.reg(ComboBox1.Text, TextBox1.Text, TextBox2.Text)
+        If ComboBox1.Text <> "" And TextBox1.Text <> "" And TextBox2.Text <> "" Then
+            utstyr.reg(ComboBox1.Text, TextBox1.Text, TextBox2.Text)
+        Else
+            MsgBox("Du må fylle ut alle feltene!!!")
+        End If
     End Sub
-
-
 End Class

@@ -64,7 +64,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 41)
+        Me.GroupBox1.Location = New System.Drawing.Point(47, 41)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(552, 314)
         Me.GroupBox1.TabIndex = 1
@@ -173,7 +173,7 @@ Partial Class Form1
         Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(592, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(642, 24)
         Me.MenuStrip1.TabIndex = 4
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -226,8 +226,8 @@ Partial Class Form1
         'BestillingToolStripMenuItem
         '
         Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
-        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
-        Me.BestillingToolStripMenuItem.Text = "Bestilling"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(196, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling og tilbakelevering"
         '
         'AdministreringAvDatabaseToolStripMenuItem
         '
@@ -258,7 +258,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(592, 373)
+        Me.ClientSize = New System.Drawing.Size(642, 373)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "Form1"

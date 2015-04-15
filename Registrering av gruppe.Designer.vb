@@ -80,7 +80,7 @@ Partial Class Registrering_av_gruppe
         '
         Me.GroupBox5.Controls.Add(Me.RadioButton2)
         Me.GroupBox5.Controls.Add(Me.RadioButton1)
-        Me.GroupBox5.Location = New System.Drawing.Point(7, 19)
+        Me.GroupBox5.Location = New System.Drawing.Point(194, 19)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(174, 59)
         Me.GroupBox5.TabIndex = 33
@@ -123,7 +123,7 @@ Partial Class Registrering_av_gruppe
         Me.GroupBox2.Controls.Add(Me.TextBox4)
         Me.GroupBox2.Controls.Add(Me.TextBox2)
         Me.GroupBox2.Controls.Add(Me.TextBox1)
-        Me.GroupBox2.Location = New System.Drawing.Point(7, 84)
+        Me.GroupBox2.Location = New System.Drawing.Point(144, 84)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(262, 210)
         Me.GroupBox2.TabIndex = 17
@@ -167,6 +167,7 @@ Partial Class Registrering_av_gruppe
         'TextBox5
         '
         Me.TextBox5.Location = New System.Drawing.Point(102, 114)
+        Me.TextBox5.MaxLength = 8
         Me.TextBox5.Name = "TextBox5"
         Me.TextBox5.Size = New System.Drawing.Size(144, 20)
         Me.TextBox5.TabIndex = 11
@@ -353,8 +354,8 @@ Partial Class Registrering_av_gruppe
         '
         Me.BestillingToolStripMenuItem.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold)
         Me.BestillingToolStripMenuItem.Name = "BestillingToolStripMenuItem"
-        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(84, 20)
-        Me.BestillingToolStripMenuItem.Text = "Bestilling"
+        Me.BestillingToolStripMenuItem.Size = New System.Drawing.Size(213, 20)
+        Me.BestillingToolStripMenuItem.Text = "Bestilling og tilbakelevering"
         '
         'AVSLUTTToolStripMenuItem
         '

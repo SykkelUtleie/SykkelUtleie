@@ -58,10 +58,10 @@ Public Class Registrering_av_ny_sykkel
     Private sykkel As New Sykkel
     Private b As New Sporring
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        sykkel.reg(ComboBox1.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
-        b.oversikt()
+        If ComboBox1.Text <> "" And TextBox1.Text <> "" And TextBox2.Text <> "" And TextBox3.Text <> "" And TextBox4.Text <> "" And TextBox5.Text <> "" And TextBox6.Text <> "" And TextBox7.Text <> "" Then
+            sykkel.reg(ComboBox1.Text, TextBox1.Text, TextBox2.Text, TextBox3.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
+        Else
+            MsgBox("Du må fylle ut alle feltene!!!")
+        End If
     End Sub
-
-
-
 End Class

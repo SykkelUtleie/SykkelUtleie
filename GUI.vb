@@ -9,15 +9,8 @@ Public Class GUI
     Protected Friend lab1, lab2, lab3, lab4 As Label
     Protected Friend tBox1 As TextBox
     Protected Friend dPicker1 As DateTimePicker
-    Protected Friend posisjon(30, 4) As String
     Protected Friend fNavn, eNavn, tlf, epst As String
-    Public Sub visLagredePosisjoner()
-        For i = 0 To Val(cBox4.Text) - 1
-            Utskrift.ListBox1.Items.Add("Posisjon " & posisjon(i, 0) & ": Type: " & posisjon(i, 1) &
-                   ", merke: " & posisjon(i, 2) & ", utleiested: " & posisjon(i, 3) & "." & vbNewLine)
-        Next
-        Utskrift.Show()
-    End Sub
+   
     Public Sub enkelt()
         lab2.Text = "Etternavn"
         lab3.Visible = True
@@ -38,8 +31,6 @@ Public Class GUI
         Bestilling_og_tilbakelevering_av_sykler.TextBox3.Text = tlf
         Bestilling_og_tilbakelevering_av_sykler.TextBox4.Text = epst
         Bestilling_og_tilbakelevering_av_sykler.RadioButton1.Checked = True
-
-
         Bestilling_og_tilbakelevering_av_sykler.TextBox1.Enabled = False
         Bestilling_og_tilbakelevering_av_sykler.TextBox2.Enabled = False
         Bestilling_og_tilbakelevering_av_sykler.TextBox3.Enabled = False
