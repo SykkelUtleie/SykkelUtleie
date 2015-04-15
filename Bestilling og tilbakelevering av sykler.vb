@@ -374,12 +374,10 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
     Private Sub ComboBox3_MouseClick(sender As Object, e As MouseEventArgs) Handles ComboBox3.MouseClick
         ComboBox3.Items.Clear()
-        b.stedbox = ComboBox3
         b.hentSted()
     End Sub
     Private Sub ComboBox5_MouseClick(sender As Object, e As EventArgs) Handles ComboBox5.MouseClick
         ComboBox5.Items.Clear()
-        b.stedbox = ComboBox5
         b.hentSted()
     End Sub
 End Class
