@@ -86,12 +86,6 @@
     <Compile Include="Bestilling og tilbakelevering av sykler.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Bestilling og tilbakelevering av utstyr.Designer.vb">
-      <DependentUpon>Bestilling og tilbakelevering av utstyr.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Bestilling og tilbakelevering av utstyr.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Brukere.Designer.vb">
       <DependentUpon>Brukere.vb</DependentUpon>
     </Compile>
@@ -238,9 +232,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bestilling og tilbakelevering av sykler.resx">
       <DependentUpon>Bestilling og tilbakelevering av sykler.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bestilling og tilbakelevering av utstyr.resx">
-      <DependentUpon>Bestilling og tilbakelevering av utstyr.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Brukere.resx">
       <DependentUpon>Brukere.vb</DependentUpon>
