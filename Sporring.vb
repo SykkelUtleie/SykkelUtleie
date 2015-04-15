@@ -1020,12 +1020,6 @@ Public Class Sporring
         sporring = "UPDATE Sykkel SET Status ='Stjålet' WHERE Status = 'Utleied' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "'));"
         sporring += "UPDATE Utstyr SET Status ='Stjålet' WHERE Status = 'Utleied' AND UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "'));"
         data = query(sporring)
-        'Dim midler As Integer
-        'Dim rad As DataRow
-        'For Each rad In data.Rows
-        '    midler = rad("SykkelID")
-        '    MsgBox(midler)
-        'Next
     End Sub
 
     Public Sub bruker()
