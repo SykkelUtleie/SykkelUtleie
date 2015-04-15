@@ -79,8 +79,8 @@ Public Class Registrering_av_gruppe
                 kunde.regPrivat(TextBox2.Text, TextBox1.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text, DateTimePicker3.Text)
                 Dim resp = MsgBox("Vil du bestille sykler til bruker?", MsgBoxStyle.YesNo)
                 If resp = vbYes Then
-                    TextBox1.Enabled = False : TextBox2.Enabled = False : TextBox4.Enabled = False : TextBox5.Enabled = False : TextBox6.Enabled = False : DateTimePicker3.Enabled = False
-
+                    Bestilling_og_tilbakelevering_av_sykler.Show()
+                    Close()
                 Else
                     Dim resp1 = MsgBox("Vil du registrere ny bruker?", MsgBoxStyle.YesNo)
                     If resp1 = vbYes Then
@@ -88,8 +88,8 @@ Public Class Registrering_av_gruppe
                         Close()
                         hjelpForm.Show()
                     Else
-                        Close()
                         Form1.Show()
+                        Close()
                     End If
                 End If
             End If
@@ -100,8 +100,8 @@ Public Class Registrering_av_gruppe
                 kunde.regOrg(TextBox2.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
                 Dim resp = MsgBox("Vil du bestille sykler til bruker?", MsgBoxStyle.YesNo)
                 If resp = vbYes Then
-                    TextBox1.Enabled = False : TextBox2.Enabled = False : TextBox4.Enabled = False : TextBox5.Enabled = False : TextBox6.Enabled = False : DateTimePicker3.Enabled = False
-
+                    Bestilling_og_tilbakelevering_av_sykler.Show()
+                    Close()
                 Else
                     Dim resp1 = MsgBox("Vil du registrere ny bruker?", MsgBoxStyle.YesNo)
                     If resp1 = vbYes Then
@@ -109,8 +109,8 @@ Public Class Registrering_av_gruppe
                         Close()
                         hjelpForm.Show()
                     Else
-                        Close()
                         Form1.Show()
+                        Close()
                     End If
                 End If
             End If

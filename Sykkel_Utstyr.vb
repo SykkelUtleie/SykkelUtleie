@@ -52,7 +52,6 @@
         Close()
     End Sub
     Private Sub AVSLUTTToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles AVSLUTTToolStripMenuItem.Click
-        b.oversikt()
         Close()
         Form1.Show()
     End Sub
@@ -66,6 +65,7 @@
         Label8.Text = b.overS
         Label9.Text = b.overTU
         Label10.Text = b.overU
+        b.oversikt()
     End Sub
   
 End Class

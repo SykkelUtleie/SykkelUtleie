@@ -4,6 +4,7 @@ Public Class Registrering_av_nytt_utstyr
 Private a As New GUI
     Private kunde As New Kunde
     Private sykkel As New Sykkel
+    Private utstyr As New Utstyr
     Private b As New Sporring
     Private hjelp As String
 #Region "GUI"
@@ -60,8 +61,6 @@ Private a As New GUI
     End Sub
 
 #End Region
-
-    Dim utstyr As New Utstyr
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If ComboBox1.Text <> "" And TextBox1.Text <> "" And TextBox2.Text <> "" Then
             utstyr.reg(ComboBox1.Text, TextBox1.Text, TextBox2.Text)

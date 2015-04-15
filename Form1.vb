@@ -16,31 +16,31 @@ Public Class Form1
 #Region "GUI"
     Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
         Endre_kunder.Show()
-        Hide()
+        close()
     End Sub
     Private Sub GruppefamilieBedrifterOsvToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GruppefamilieBedrifterOsvToolStripMenuItem.Click
         Registrering_av_gruppe.Show()
-        Hide()
+        close()
     End Sub
     Private Sub BestillingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingToolStripMenuItem.Click
         Bestilling_og_tilbakelevering_av_sykler.Show()
-        Hide()
+        close()
     End Sub
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
-        Hide()
+        close()
     End Sub
     Private Sub SlettKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettKundeToolStripMenuItem.Click
         Slett_kunde.Show()
-        Hide()
+        close()
     End Sub
     Private Sub SykkelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SykkelToolStripMenuItem.Click
         Sykkel_Utstyr.Show()
-        Hide()
+        close()
     End Sub
     Private Sub AdministreringAvDatabaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AdministreringAvDatabaseToolStripMenuItem.Click
         Administrering_av_database.Show()
-        Hide()
+        close()
     End Sub
     Private Sub AVSLUTTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AVSLUTTToolStripMenuItem.Click
         Application.Exit()
@@ -50,8 +50,5 @@ Public Class Form1
         Me.Close()
     End Sub
 #End Region
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        b.stjalet()
-    End Sub
 End Class
 

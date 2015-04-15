@@ -79,76 +79,76 @@ Public Class Sporring
             "`Status` varchar(20) NOT NULL, " &
             "`Pris` varchar(20) NOT NULL, " &
             "PRIMARY KEY (`UtstyrID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150)" &
-            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
-            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
-            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
-            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50)" &
-            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)" &
-            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20)"
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellås', 'TRELOCK', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelhjelm', 'Solar', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Cargo trailer', 'Tilgjengelig', 200);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelvogn', 'Thule Cougar 2', 'Tilgjengelig', 150);" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50);" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50);" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50);" &
+            "INSERT INTO Utstyr Values(Null, 'Barnesete', 'Zenith Relax', 'Tilgjengelig', 50);" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Bagasjebrett', 'Carrier', 'Tilgjengelig', 10);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelveske', 'Spokes', 'Tilgjengelig', 25);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkelstativ til bil', 'Hang On 972', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);" &
+            "INSERT INTO Utstyr Values(Null, 'Sykkellykt', 'LS 330/312', 'Tilgjengelig', 20);"
         sporring += "CREATE TABLE `Bestilling_tilbakelevering` (`ID` int(10) NOT NULL AUTO_INCREMENT, " &
             "`BestillingID` int(10) unsigned NOT NULL, " &
             "`Utleied_av` int(10) unsigned NOT NULL, " &
@@ -187,7 +187,8 @@ Public Class Sporring
             "`login` varchar(50) DEFAULT NULL, " &
             "`password` varchar(50) DEFAULT NULL, " &
             "`epost` varchar(50) DEFAULT NULL, " &
-            "PRIMARY KEY (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;"
+            "PRIMARY KEY (`id`)) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;" &
+            "INSERT INTO auth VALUES(NULL, '1', 'admin', 'admin', 'admin', 'ksergan@mail.ru');"
         sporring += "CREATE TABLE `Mellomlagring` (`SykkelID` int(10) default NULL, " &
             "`Sykkeltype` varchar(50) default NULL, " &
             "`Sykkelmerke` varchar(50) default NULL) " &
@@ -196,6 +197,11 @@ Public Class Sporring
             "`Utstyrtype` varchar(50) default NULL, " &
             "`Utstyrmerke` varchar(50) default NULL, " &
             "`SykkelID` int(10) default NULL) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
+        sporring += "CREATE TABLE `Sted` (`ID` int(10) NOT NULL AUTO_INCREMENT, " &
+            "`Stednavn` varchar(50) default NULL, PRIMARY KEY (`ID`)) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;" &
+            "INSERT INTO Sted VALUES(NULL, 'Finse');" &
+            "INSERT INTO Sted VALUES(NULL, 'Trondheim');" &
+            "INSERT INTO Sted VALUES(NULL, 'Oslo');"
         data = query(sporring)
         MsgBox("Databasen er opprettet!", MsgBoxStyle.Information)
         oversikt()

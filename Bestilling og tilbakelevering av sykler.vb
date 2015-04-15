@@ -371,6 +371,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 Form1.Show()
                 Close()
         End Select
+        Form1.Refresh()
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs)
         Button3.Visible = True
