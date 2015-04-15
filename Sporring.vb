@@ -1040,9 +1040,9 @@ Public Class Sporring
             Else
                 forsok -= 1
                 If forsok > 1 Then
-                    MsgBox("Login eller Passord er feil, du har " & forsok & " forsøk igjen!")
+                    MsgBox("Brukernavn eller Passord er feil, du har " & forsok & " forsøk igjen!")
                 Else
-                    MsgBox("Login eller Passord er feil, du har ETT forsøk igjen!")
+                    MsgBox("Brukernavn eller Passord er feil, du har ETT forsøk igjen!")
                 End If
 
             End If
