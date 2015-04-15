@@ -91,6 +91,7 @@ Partial Class Slett_utstyr
         '
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(218, 47)
+        Me.ComboBox1.MaxDropDownItems = 15
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(193, 21)
         Me.ComboBox1.TabIndex = 66

@@ -745,6 +745,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.DateTimePicker2.Name = "DateTimePicker2"
         Me.DateTimePicker2.Size = New System.Drawing.Size(145, 20)
         Me.DateTimePicker2.TabIndex = 19
+        Me.DateTimePicker2.Value = New Date(2015, 4, 15, 11, 32, 10, 0)
         '
         'Label13
         '
@@ -761,6 +762,7 @@ Partial Class Bestilling_og_tilbakelevering_av_sykler
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(145, 20)
         Me.DateTimePicker1.TabIndex = 17
+        Me.DateTimePicker1.Value = New Date(2015, 4, 15, 11, 32, 4, 0)
         '
         'Label12
         '

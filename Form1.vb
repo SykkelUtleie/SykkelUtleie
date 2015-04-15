@@ -11,6 +11,7 @@ Public Class Form1
         Label8.Text = b.overS
         Label9.Text = b.overTU
         Label10.Text = b.overU
+        b.stjalet()
     End Sub
 #Region "GUI"
     Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
@@ -49,6 +50,8 @@ Public Class Form1
         Me.Close()
     End Sub
 #End Region
-
-   
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        b.stjalet()
+    End Sub
 End Class
+

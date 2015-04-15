@@ -16,4 +16,7 @@
         b.sokBruker()
     End Sub
     
+    Private Sub Tilgang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        b.stjalet()
+    End Sub
 End Class

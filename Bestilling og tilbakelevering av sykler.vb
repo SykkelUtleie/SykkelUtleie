@@ -141,6 +141,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
     Private Sub Bestilling_og_tilbakelevering_av_sykler_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.Enabled = False : ComboBox2.Enabled = False : ComboBox3.Enabled = False : ComboBox5.Enabled = False : ComboBox8.Enabled = False : ComboBox9.Enabled = False : Button3.Visible = False : DateTimePicker1.Enabled = False : DateTimePicker2.Enabled = False : Button6.Enabled = False : Button8.Enabled = False
+        'DateTimePicker1.Text = "" : DateTimePicker2.Text = ""
         b.slettInfoFraMellomlagring()
         b.slettInfoFraMellomlagringUtstyr()
         DataGridView1.DataSource = Nothing
@@ -187,7 +188,6 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 If resp = vbYes Then
                     MsgBox("Velg sykkel fra tabell ved klikk EN GANG på trekant fra venstre.")
                     GroupBox5.Enabled = True
-                    Button8.Enabled = True
                     GroupBox3.Enabled = False
                 Else
                     DataGridView3.Enabled = False
@@ -203,7 +203,6 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
                 If resp = vbYes Then
                     MsgBox("Velg sykkel fra tabell ved klikk EN GANG på trekant fra venstre.")
                     GroupBox5.Enabled = True
-                    Button8.Enabled = True
                     GroupBox3.Enabled = False
                 Else
                     DataGridView3.Enabled = False
@@ -377,10 +376,12 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Label26.Text = Val(b.pris) - rabbat
     End Sub
     Private Sub ComboBox3_MouseClick(sender As Object, e As MouseEventArgs) Handles ComboBox3.MouseClick
+        ComboBox3.Items.Clear()
         b.stedbox = ComboBox3
         b.hentSted()
     End Sub
     Private Sub ComboBox5_MouseClick(sender As Object, e As EventArgs) Handles ComboBox5.MouseClick
+        ComboBox5.Items.Clear()
         b.stedbox = ComboBox5
         b.hentSted()
     End Sub

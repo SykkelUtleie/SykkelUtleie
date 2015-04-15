@@ -18,11 +18,9 @@ Public Class Sykkel
 
     Public Sub bestillSykkel(nyEtternavn As String, nyAdresse As String, nyTel As String, nyEpost As String, nySykkelType As String, nySykkelMerke As String, nyDatoFra As DateTimePicker, nyDatoTil As DateTimePicker, nyUtleiested As ComboBox)
         Dim df As Date = nyDatoFra.Text
-        Dim s1 As String
-        s1 = df.ToString("yyyy-MM-dd")
+        Dim s1 As String = df.ToString("yyyy-MM-dd")
         Dim dt As Date = nyDatoTil.Text
-        Dim s2 As String
-        s2 = dt.ToString("yyyy-MM-dd")
+        Dim s2 As String = dt.ToString("yyyy-MM-dd")
         b.sporEtternavn = nyEtternavn
         b.sporAdresse = nyAdresse
         b.sporTel = nyTel

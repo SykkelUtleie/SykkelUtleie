@@ -624,7 +624,7 @@ Public Class Sporring
                         data = query(sporring)
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                     Case "stjaletsykler"
-                        sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Dato_til >= '" & dt.ToString("yyyy-MM-dd") & "') and Status = 'Stjålet'"
+                        sporring = "SELECT * FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "') and Status = 'Stjålet'"
                         data = query(sporring)
                         Sok_i_sykkelbase.DataGridView1.DataSource = data
                 End Select
@@ -649,7 +649,7 @@ Public Class Sporring
                         data = query(sporring)
                         Sok_i_utstyrbase.DataGridView1.DataSource = data
                     Case "stjaletUtstyr"
-                        sporring = "SELECT * FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Dato_til >= '" & dt.ToString("yyyy-MM-dd") & "') and Status = 'Stjålet'"
+                        sporring = "SELECT * FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling, Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "') and Status = 'Stjålet'"
                         data = query(sporring)
                         Sok_i_utstyrbase.DataGridView1.DataSource = data
                 End Select
@@ -1004,14 +1004,27 @@ Public Class Sporring
         pris = Val(sykkelPris)
     End Sub
     Public Sub hentUtstyrPris()
-        Dim data1 As New DataTable
+        Dim data As New DataTable
         sporring = "SELECT SUM(pris) AS Summen FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM MellomlagringUtstyr)"
-        data1 = query(sporring)
-        Dim rad1 As DataRow
-        For Each rad1 In data1.Rows
-            utstyrPris = rad1("Summen")
+        data = query(sporring)
+        Dim rad As DataRow
+        For Each rad In data.Rows
+            utstyrPris = rad("Summen")
         Next
         pris = Val(sykkelPris) + Val(utstyrPris)
+    End Sub
+    Public Sub stjalet()
+        Dim dt As Date = Date.Now
+        Dim data As New DataTable
+        sporring = "UPDATE Sykkel SET Status ='Stjålet' WHERE Status = 'Utleied' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "'));"
+        sporring += "UPDATE Utstyr SET Status ='Stjålet' WHERE Status = 'Utleied' AND UtstyrID IN (SELECT UtstyrID FROM Utstyr_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "'));"
+        data = query(sporring)
+        'Dim midler As Integer
+        'Dim rad As DataRow
+        'For Each rad In data.Rows
+        '    midler = rad("SykkelID")
+        '    MsgBox(midler)
+        'Next
     End Sub
 
     Public Sub bruker()
@@ -1184,7 +1197,6 @@ Public Class Sporring
     End Sub
     Protected Friend stedbox As ComboBox
     Public Sub hentSted()
-        stedbox.Items.Clear()
         Dim data As New DataTable
         Dim sql, utleie As String
         Dim rad As DataRow

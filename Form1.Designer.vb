@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -45,6 +46,7 @@ Partial Class Form1
         Me.AdministreringAvDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogUtToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AVSLUTTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -193,7 +195,7 @@ Partial Class Form1
         'EnkeltKundeToolStripMenuItem
         '
         Me.EnkeltKundeToolStripMenuItem.Name = "EnkeltKundeToolStripMenuItem"
-        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(276, 22)
+        Me.EnkeltKundeToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.EnkeltKundeToolStripMenuItem.Text = "Endre kunde"
         '
         'GruppefamilieBedrifterOsvToolStripMenuItem
@@ -247,6 +249,11 @@ Partial Class Form1
         Me.AVSLUTTToolStripMenuItem.Size = New System.Drawing.Size(76, 20)
         Me.AVSLUTTToolStripMenuItem.Text = "AVSLUTT"
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 43200000
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -288,5 +295,6 @@ Partial Class Form1
     Friend WithEvents AdministreringAvDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BestillingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LogUtToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
 End Class
