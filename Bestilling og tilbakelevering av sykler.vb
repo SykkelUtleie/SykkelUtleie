@@ -53,10 +53,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-    Private Sub BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BestillingOgTilbakeleveringAvUtstyrToolStripMenuItem.Click
-        Bestilling_og_tilbakelevering_av_utstyr.Show()
-        Close()
-    End Sub
+   
     Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettUtstyrToolStripMenuItem.Click
         Slett_utstyr.Show()
         Close()

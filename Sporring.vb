@@ -3,6 +3,7 @@ Imports System.Configuration
 Imports System.Net.Mail
 Imports System.Text
 Imports Excel = Microsoft.Office.Interop.Excel
+Imports System.Text.RegularExpressions
 Public Class Sporring
     Private sporring As String
     Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, repSoke, kundeSok, sykkelSok, utstyrSok, slette, spor, sykID, utstID, kundID, overK, overS, overTU, overU, prisbox As String
@@ -1015,6 +1016,7 @@ Public Class Sporring
     End Sub
 
     Public Sub bruker()
+        'innlogging til programmet 
         Dim data As New DataTable
         Dim sql As String = "Select login From auth Where login = '" & Tilgang.ComboBox1.Text & "' and password = '" & Tilgang.TextBox2.Text & "' "
         data = query(sql)
@@ -1042,6 +1044,7 @@ Public Class Sporring
         Tilgang.TextBox2.Clear()
     End Sub
     Public Sub auth()
+        'Sjekker hvilken klasse brukeren er og gir tilgang deretter
         Dim data As New DataTable
         Dim rad As DataRow
         Dim sql As String = "Select klasse From auth Where login= '" & b_navn & "' and password = '" & b_pass & "'"
@@ -1056,30 +1059,35 @@ Public Class Sporring
         End If
     End Sub
     Public Sub glemt()
+        'Sender brukernavn og passord til brukeren via epost
         Dim epostmelding As New MailMessage()
         Dim epost As String = InputBox("Skriv inn din registerte epost")
         Dim data As New DataTable
         Dim rad As DataRow
-        Dim sql As String = "Select login, password From auth Where epost = '" & epost & "' "
-        data = query(sql)
-        For Each rad In data.Rows
-            bruker1 = rad("login")
-            po = rad("password")
-        Next
-        Try
-            epostmelding.From = New MailAddress("babed.epost.test@gmail.com")
-            epostmelding.To.Add(epost)
-            epostmelding.Subject = "Brukernavn og passord"
-            epostmelding.Body = "Ditt brukernavn er: " & bruker1 & " og passordet er: " & po
-            Dim smtp As New SmtpClient("smtp.gmail.com")
-            smtp.Port = 587
-            smtp.EnableSsl = True
-            smtp.Credentials = New System.Net.NetworkCredential("babed.epost.test@gmail.com", "trondheim")
-            smtp.Send(epostmelding)
-            MsgBox("E-post er sendt!")
-        Catch ex As Exception
-            MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
-        End Try
+        If validateEmail(epost) = True Then
+            Dim sql As String = "Select login, password From auth Where epost = '" & epost & "' "
+            data = query(sql)
+            For Each rad In data.Rows
+                bruker1 = rad("login")
+                po = rad("password")
+            Next
+            Try
+                epostmelding.From = New MailAddress("babed.epost.test@gmail.com")
+                epostmelding.To.Add(epost)
+                epostmelding.Subject = "Brukernavn og passord"
+                epostmelding.Body = "Ditt brukernavn er: " & bruker1 & " og passordet er: " & po
+                Dim smtp As New SmtpClient("smtp.gmail.com")
+                smtp.Port = 587
+                smtp.EnableSsl = True
+                smtp.Credentials = New System.Net.NetworkCredential("babed.epost.test@gmail.com", "trondheim")
+                smtp.Send(epostmelding)
+                MsgBox("E-post er sendt!")
+            Catch ex As Exception
+                MsgBox("Noe gikk galt med sending av e-post: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Dette er ikke en epost!")
+        End If
     End Sub
     Public Sub sokBruker()
         'søker opp brukere og legger de inn i en comboboks
@@ -1137,16 +1145,20 @@ Public Class Sporring
                 MsgBox("Du kan ikke bruke det samme passordet som brukeren har nå!")
                 Brukere.TextBox11.Clear()
             Else
-                If Brukere.TextBox11.Text = "" Then
-                    'Oppdaterer alt untatt passordet
-                    Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
-                    data = query(sql)
-                    MsgBox("Endringene har blitt gjennomført")
+                If validateEmail(Brukere.TextBox8.Text) = True Then
+                    If Brukere.TextBox11.Text = "" Then
+                        'Oppdaterer alt untatt passordet
+                        Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
+                        data = query(sql)
+                        MsgBox("Endringene har blitt gjennomført")
+                    Else
+                        'Oppdaterer alt!
+                        Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', password = '" & Brukere.TextBox11.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
+                        data = query(sql)
+                        MsgBox("Endringene har blitt gjennomført")
+                    End If
                 Else
-                    'Oppdaterer alt!
-                    Dim sql As String = "UPDATE auth SET navn = '" & Brukere.TextBox7.Text & "', password = '" & Brukere.TextBox11.Text & "', epost = '" & Brukere.TextBox8.Text & "', klasse = '" & Brukere.TextBox12.Text & "' WHERE login = '" & Brukere.TextBox9.Text & "'"
-                    data = query(sql)
-                    MsgBox("Endringene har blitt gjennomført")
+                    MsgBox("Email er ikke riktig")
                 End If
             End If
         End If
@@ -1170,20 +1182,40 @@ Public Class Sporring
             Brukere.TextBox4.Clear()
             Brukere.TextBox4.Select()
         Else
-            If Brukere.TextBox5.Text = Brukere.TextBox6.Text Then
-                'Sender dataen om nye brukere til databasen
-                Dim data As New DataTable
-                sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.ComboBox2.SelectedItem.value & "')"
-                data = query(sporring)
-                MsgBox("Ny bruker er registrert!", MsgBoxStyle.Information)
+            If Brukere.TextBox1.Text = "" Or Brukere.TextBox2.Text = "" Or Brukere.TextBox4.Text = "" Or Brukere.TextBox5.Text = "" Or Brukere.ComboBox2.Text = "" Then
+                MsgBox("Fyll ut alle feltene!")
             Else
-                MsgBox("Kontroll passordet stemmer ikke med passordet. Prøv på nytt!")
-                Brukere.TextBox5.Clear() : Brukere.TextBox6.Clear() : Brukere.TextBox5.Select()
+                If Brukere.TextBox5.Text = Brukere.TextBox6.Text Then
+                    'Sender dataen om nye brukere til databasen
+                    If validateEmail(Brukere.TextBox2.Text) = True Then
+                        Dim data As New DataTable
+                        sporring = "INSERT INTO auth(navn, login, password, epost, klasse) VALUES('" & Brukere.TextBox1.Text & "', '" & Brukere.TextBox4.Text & "', '" & Brukere.TextBox5.Text & "', '" & Brukere.TextBox2.Text & "', '" & Brukere.ComboBox2.SelectedItem.value & "')"
+                        data = query(sporring)
+                        MsgBox("Ny bruker er registrert!", MsgBoxStyle.Information)
+                    Else
+                        MsgBox("Email er ikke riktig")
+                    End If
+                Else
+                    MsgBox("Kontroll passordet stemmer ikke med passordet. Prøv på nytt!")
+                    Brukere.TextBox5.Clear() : Brukere.TextBox6.Clear() : Brukere.TextBox5.Select()
+                End If
             End If
         End If
+
     End Sub
+    Public Function validateEmail(emailAddress) As Boolean
+        'Validerer eposten som skal inn i databasen
+        Dim email As New Regex("([\w-+]+(?:\.[\w-+]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7})")
+        If email.IsMatch(emailAddress) Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
     Protected Friend stedbox As ComboBox
     Public Sub hentSted()
+        'henter utleie og tilbakeleveringssted fra databasen
         stedbox.Items.Clear()
         Dim data As New DataTable
         Dim sql, utleie As String
@@ -1198,6 +1230,7 @@ Public Class Sporring
         LeggTilUteleiested.DataGridView1.DataSource = data
     End Sub
     Public Sub leggtilSted()
+        'legger til utleiested og tilbakeleveringssted i databasen
         Dim data As New DataTable
         Dim utleie As String
         Dim sjekk As Integer = 0
@@ -1221,6 +1254,7 @@ Public Class Sporring
         LeggTilUteleiested.TextBox1.Clear()
     End Sub
     Public Sub fjernSted()
+        'Fjerne valgt sted fra databasen
         Dim sted As String
         Dim data As New DataTable
         Dim sql As String
@@ -1231,6 +1265,7 @@ Public Class Sporring
 
     End Sub
     Public Sub eksport()
+        'eksporterer data fra databsen til excel for statistikker
         Dim sql As String
         Dim data As New DataTable
         Dim appXL As Excel.Application
