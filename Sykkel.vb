@@ -1,10 +1,12 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
 Public Class Sykkel
+    'deklarerer variabler og objekter
     Private b As New Sporring
     Protected Friend sHjelp As String
     Protected Friend hjelpSykkelDataGrid As DataGridView
     Public Sub reg(nyType As String, nyMerke As String, nyHjul As String, nyRamme As String, nyGir As String, nyGaffel As String, nyBremser As String)
+        'deklarerer innhold til variabler og kaller prosedyre fra klasse Sporring for registrering ny sykkel
         b.registr = "Sykkel"
         b.sporType = nyType
         b.sporMerke = nyMerke
@@ -17,6 +19,7 @@ Public Class Sykkel
     End Sub
 
     Public Sub bestillSykkel(nyEtternavn As String, nyAdresse As String, nyTel As String, nyEpost As String, nySykkelType As String, nySykkelMerke As String, nyDatoFra As DateTimePicker, nyDatoTil As DateTimePicker, nyUtleiested As ComboBox)
+        'deklarerer innhold til variabler og kaller prosedyre fra klasse Sporring for bestilling sykkel
         Dim df As Date = nyDatoFra.Text
         Dim s1 As String = df.ToString("yyyy-MM-dd")
         Dim dt As Date = nyDatoTil.Text
@@ -34,6 +37,7 @@ Public Class Sykkel
         b.bestillingSykkel()
     End Sub
     Public Sub sykkelSok(nyType As String, nyMerke As String)
+        'deklarerer innhold til variabler og kaller prosedyre fra klasse Sporring for å søke sykler
         Select Case sHjelp
             Case "bestemt"
                 b.sykkelSok = "bestemtSykkel"
@@ -52,6 +56,7 @@ Public Class Sykkel
         b.sok()
     End Sub
     Public Sub sykkelSlett(nyType As String, nyMerke As String)
+        'deklarerer innhold til variabler og kaller prosedyre fra klasse Sporring for å slette sykkel
         Select Case sHjelp
             Case "type"
                 b.slette = "sykkelSlett"

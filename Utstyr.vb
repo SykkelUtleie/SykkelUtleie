@@ -5,6 +5,7 @@ Public Class Utstyr
     Protected Friend hjelpUtstyrDataGrid, hjelpUtstyrDataGrid1 As DataGridView
     Protected Friend uHjelp As String
     Public Sub reg(nyType As String, nyMerke As String, nyPris As String)
+        'deklarerer innhold til variabler og kaller prosedyre fra klasse Sporring for å registrere nytt utstyr
         b.registr = "Utstyr"
         b.sporType = nyType
         b.sporMerke = nyMerke
@@ -12,6 +13,7 @@ Public Class Utstyr
         b.registrering()
     End Sub
     Public Sub bestillUtstyr(nyEtternavn As String, nyAdresse As String, nyTel As String, nyEpost As String, nyUtstyrType As String, nyUtstyrMerke As String, nyDatoFra As DateTimePicker, nyDatoTil As DateTimePicker, nyUtleiested As ComboBox)
+        'deklarerer innhold til variabler og kaller prosedyre fra klasse Sporring for å bestille utstyr
         Dim df As Date = nyDatoFra.Text
         Dim s1 As String
         s1 = df.ToString("yyyy-MM-dd")
@@ -32,6 +34,7 @@ Public Class Utstyr
         b.bestillingUtstyr()
     End Sub
     Public Sub utstyrSok(nyType As String, nyMerke As String)
+        'deklarerer innhold til variabler og kaller prosedyre fra klasse Sporring for å søke utstyr
         Select Case uHjelp
             Case "bestemt"
                 b.utstyrSok = "bestemtUtstyr"
@@ -50,6 +53,7 @@ Public Class Utstyr
         b.sok()
     End Sub
     Public Sub utstyrSlett(nyType As String, nyMerke As String)
+        'deklarerer innhold til variabler og kaller prosedyre fra klasse Sporring for å slette utstyr
         Select Case uHjelp
             Case "type"
                 b.slette = "utstyrSlett"

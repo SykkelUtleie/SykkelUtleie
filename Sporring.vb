@@ -5,6 +5,7 @@ Imports System.Text
 Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Text.RegularExpressions
 Public Class Sporring
+    'deklarerer variabler
     Private sporring As String
     Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, repSoke, kundeSok, sykkelSok, utstyrSok, slette, spor, sykID, utstID, kundID, overK, overS, overTU, overU, overSt, prisbox As String
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
@@ -12,14 +13,17 @@ Public Class Sporring
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox4, sporBox8, sporBox9 As ComboBox
     Private B_id, bruker1, po, hbnavn, hblogin, hbpassord, hbepost, hbklasse, b_navn, b_pass, K_fnavn, K_enavn, KID, k_ad, k_epost, k_tlf As String
     Private sykkelnavn, ustyrnavn As String
-    Dim sykkelPris, utstyrPris As Integer
+    Private sykkelPris, utstyrPris As Integer
     Protected Friend pris As String = 0
     Protected Friend hjelpDataGrid, hjelpDataGrid1, hjelpDataGrid2, hjelpDataGrid3 As DataGridView
     Private mellomlagringsRad As Integer = 0
     Private mellomlagringsRad1 As Integer = 0
     Shared forsok As Integer = 3
     Public Shared klasse As String
+    Protected Friend sjekkHjelp As String
+    Protected Friend res As Boolean = False
     Private Function query(sql As String) As DataTable
+        'funksjonalitet til å koble til databasen
         Dim data As New DataTable
         Dim conn As MySqlConnection = New MySqlConnection()
         conn.ConnectionString = ConfigurationManager.ConnectionStrings("mySql").ConnectionString
@@ -37,6 +41,7 @@ Public Class Sporring
         Return data
     End Function
     Public Sub opprett()
+        'oppretter nye tabeller i databasen med innhold
         Dim data As New DataTable
         sporring = "CREATE TABLE `Kunde` (`KundeID` int(10) NOT NULL AUTO_INCREMENT, " &
             "`Etternavn_org_navn` varchar(50) default NULL, " &
@@ -207,6 +212,7 @@ Public Class Sporring
         oversikt()
     End Sub
     Public Sub registrering()
+        'registrerer nye kunder, sykler og utstyr
         Dim data As New DataTable
         Select Case registr
             Case "PrivatKunde"
@@ -229,6 +235,7 @@ Public Class Sporring
         oversikt()
     End Sub
     Public Sub hentSykkelType()
+        'henter sykkeltype avhengig av hva som trenger
         sporBox1.Items.Clear()
         If soke = "sSoke" Then
             Dim data As New DataTable
@@ -264,7 +271,7 @@ Public Class Sporring
             End Select
             Dim rad As DataRow
             Dim sykkeltype, antallType As String
-            For Each rad In Data.Rows
+            For Each rad In data.Rows
                 sykkeltype = rad("Sykkeltype")
                 antallType = rad("Antall")
                 sporBox1.Items.Add(sykkeltype)
@@ -283,6 +290,7 @@ Public Class Sporring
         End If
     End Sub
     Public Sub hentSykkelMerke()
+        'henter sykkelmerke avhengig av hva som trenger
         sporBox2.Items.Clear()
         If soke = "sSoke" Then
             Dim hjelp As String = sporBox1.Text
@@ -345,6 +353,7 @@ Public Class Sporring
         End If
     End Sub
     Public Sub hentUtstyrType()
+        'henter utstyrtype avhengig av hva som trenger
         sporBox8.Items.Clear()
         If soke = "sSoke" Then
             Dim data As New DataTable
@@ -383,6 +392,7 @@ Public Class Sporring
         End If
     End Sub
     Public Sub hentUtstyrMerke()
+        'henter utstyrmerke avhengig av hva som trenger
         sporBox9.Items.Clear()
         If soke = "sSoke" Then
             Dim hjelp As String = sporBox8.Text
@@ -430,6 +440,7 @@ Public Class Sporring
         End If
     End Sub
     Public Sub bestillingSykkel()
+        'registrerer bestilling av sykler i databasen
         Dim data1 As New DataTable
         Dim sporring2 As String = "SELECT KundeID FROM Kunde WHERE Etternavn_org_navn = '" & sporEtternavn & "' AND Adresse = '" & sporAdresse & "' AND Telefon = " & sporTel & " AND Epost = '" & sporEpost & "'"
         data1 = query(sporring2)
@@ -486,6 +497,7 @@ Public Class Sporring
         oversikt()
     End Sub
     Public Sub sykkkelIdForUtstyr()
+        'henter sykkelID for å tilknytte utstyr til den
         Dim type As String = Bestilling_og_tilbakelevering_av_sykler.ComboBox1.Text
         Dim merke As String = Bestilling_og_tilbakelevering_av_sykler.ComboBox2.Text
         Dim data As New DataTable
@@ -505,6 +517,7 @@ Public Class Sporring
         Next
     End Sub
     Public Sub sykkkelIdForRep()
+        'henter sykkelID for å bruke den i reparasjon-formen
         sporBox4.Items.Clear()
         Dim data As New DataTable
         Select Case repSoke
@@ -523,6 +536,7 @@ Public Class Sporring
         Next
     End Sub
     Public Sub bestillingUtstyr()
+        'registrerer bestilling av utstyr i databasen
         Dim data1 As New DataTable
         Dim sporring2 As String = "SELECT KundeID FROM Kunde WHERE Etternavn_org_navn = '" & sporEtternavn & "' AND Adresse = '" & sporAdresse & "' AND Telefon = " & sporTel & " AND Epost = '" & sporEpost & "'"
         data1 = query(sporring2)
@@ -576,6 +590,7 @@ Public Class Sporring
         oversikt()
     End Sub
     Public Sub sok()
+        'søking-prosedyre både for kunder, sykler og utstyr
         Select Case soke
             Case "kSoke"
                 Select Case kundeSok
@@ -664,6 +679,7 @@ Public Class Sporring
         End Select
     End Sub
     Public Sub slett()
+        'slett-prosedyre både for kunder, sykler og utstyr
         Select Case slette
             Case "kundeSlett"
                 Dim data As New DataTable
@@ -809,6 +825,7 @@ Public Class Sporring
         End If
     End Sub
     Public Sub tilbSykkelUpdate()
+        'registrerer tilbakelevering av sykler i databasen
         Dim data As New DataTable
         sporring = "SELECT SykkelID FROM Mellomlagring"
         data = query(sporring)
@@ -825,6 +842,7 @@ Public Class Sporring
         oversikt()
     End Sub
     Public Sub tilbUtstyrUpdate()
+        'registrerer tilbakelevering av utstyr i databasen
         Dim data As New DataTable
         sporring = "SELECT UtstyrID FROM MellomlagringUtstyr"
         data = query(sporring)
@@ -841,6 +859,7 @@ Public Class Sporring
         oversikt()
     End Sub
     Public Sub reparasjon()
+        'registrerer reparasjon i databasen
         Dim data As New DataTable
         Select Case repSoke
             Case "rep"
@@ -855,12 +874,14 @@ Public Class Sporring
         oversikt()
     End Sub
     Public Sub visReparasjon()
+        'henter sykler som er på reparasjon og viser dem i Datagridview
         Dim data As New DataTable
         sporring = "SELECT * FROM Sykkel WHERE Status = 'Reparering'"
         data = query(sporring)
         hjelpDataGrid3.DataSource = data
     End Sub
     Public Sub oversikt()
+        'viser info på hovedform
         Dim data As New DataTable
         Dim sporring1 As String = "SELECT COUNT(DISTINCT KundeID) AS AntallKunder FROM Kunde"
         data = query(sporring1)
@@ -890,6 +911,7 @@ Public Class Sporring
         Next rad
     End Sub
     Public Sub mellomlagring()
+        'lagrer i mellomlagringstabell sykler som har valgt men ikke har bestilt eller tilbakelevert
         Dim type As String = hjelpDataGrid.Rows(mellomlagringsRad).Cells(1).Value.ToString
         Dim merke As String = hjelpDataGrid.Rows(mellomlagringsRad).Cells(2).Value.ToString
         Select Case mellom
@@ -922,6 +944,7 @@ Public Class Sporring
         End Select
     End Sub
     Public Sub mellomlagringUtstyr()
+        'lagrer i mellomlagringstabell utstyr som har valgt men ikke har bestilt eller tilbakelevert 
         Dim type As String = hjelpDataGrid1.Rows(mellomlagringsRad1).Cells(1).Value.ToString
         Dim merke As String = hjelpDataGrid1.Rows(mellomlagringsRad1).Cells(2).Value.ToString
         Select Case mellom1
@@ -955,6 +978,7 @@ Public Class Sporring
         End Select
     End Sub
     Public Sub slettEnFraMellomlagring()
+        'slett info om en bestemt sykkel fra mellomlagringstabell ved endre bestilling-, tilbakeleveringliste
         Dim type As String = hjelpDataGrid.CurrentRow.Cells(1).Value.ToString
         Dim merke As String = hjelpDataGrid.CurrentRow.Cells(2).Value.ToString
         Dim data1 As New DataTable
@@ -971,6 +995,7 @@ Public Class Sporring
         mellomlagringsRad -= 1
     End Sub
     Public Sub slettEnFraMellomlagringUtstyr()
+        'slett info om et bestemt utstyr fra mellomlagringstabell ved endre bestilling-, tilbakeleveringliste
         Dim type As String = hjelpDataGrid1.CurrentRow.Cells(1).Value.ToString
         Dim merke As String = hjelpDataGrid1.CurrentRow.Cells(2).Value.ToString
         Dim data1 As New DataTable
@@ -987,18 +1012,21 @@ Public Class Sporring
         mellomlagringsRad -= 1
     End Sub
     Public Sub slettInfoFraMellomlagring()
+        'slett info fra mellomlagringstabell etter registrering av bestilling eller tilbakelevering av sykler
         Dim data As New DataTable
         sporring = "DELETE FROM Mellomlagring"
         data = query(sporring)
         mellomlagringsRad = 0
     End Sub
     Public Sub slettInfoFraMellomlagringUtstyr()
+        'slett info fra mellomlagringstabell etter registrering av bestilling eller tilbakelevering av utstyr
         Dim data As New DataTable
         sporring = "DELETE FROM MellomlagringUtstyr"
         data = query(sporring)
         mellomlagringsRad = 0
     End Sub
     Public Sub hentSykkelPris()
+        'henter info om prisen til bestemt sykkel fra databasen
         Dim data As New DataTable
         sporring = "SELECT SUM(pris) AS Summen FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Mellomlagring)"
         data = query(sporring)
@@ -1009,6 +1037,7 @@ Public Class Sporring
         pris = Val(sykkelPris)
     End Sub
     Public Sub hentUtstyrPris()
+        'henter info om prisen til bestemt utstyr fra databasen
         Dim data As New DataTable
         sporring = "SELECT SUM(pris) AS Summen FROM Utstyr WHERE UtstyrID IN (SELECT UtstyrID FROM MellomlagringUtstyr)"
         data = query(sporring)
@@ -1019,6 +1048,7 @@ Public Class Sporring
         pris = Val(sykkelPris) + Val(utstyrPris)
     End Sub
     Public Sub stjalet()
+        'sjekker datoene og oppdaterer database hvis sykler eller utstyr er ikke tilbakelevert i tid
         Dim dt As Date = Date.Now
         Dim data As New DataTable
         sporring = "UPDATE Sykkel SET Status ='Stjålet' WHERE Status = 'Utleied' AND SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling WHERE BestillingID IN (SELECT BestillingID FROM Bestilling_tilbakelevering WHERE Dato_til < '" & dt.ToString("yyyy-MM-dd") & "'));"
@@ -1223,6 +1253,7 @@ Public Class Sporring
         End If
     End Function
     Public Sub hentSted()
+        'henter stedliste fra databasen
         Dim data As New DataTable
         Dim sql, utleie As String
         Dim rad As DataRow
@@ -1359,10 +1390,8 @@ Err_Handler:
             MsgBox(Err.Description, vbCritical, "Error: " & Err.Number)
         End If
     End Sub
-    Protected Friend sjekkHjelp As String
-    Protected Friend res As Boolean = False
-
     Public Function sjekk(ByVal tBox1 As String, tBox2 As String, tBox3 As String, tBox4 As String, tBox5 As String)
+        'sjekk for at alle feltene i former er utfylt på riktig måte
         Select Case sjekkHjelp
             Case "Privat"
                 If tBox1 = "" Then
