@@ -1,6 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
 Public Class Bestilling_og_tilbakelevering_av_sykler
+    'deklarerer variabler
     Private a As New GUI
     Private hjelp As String
     Private kunde As New Kunde
@@ -13,6 +14,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     Private teller2 As Integer = 0
     Private tall2 As Integer = 0
 #Region "GUI"
+    'oppretter fuksjonalitet til brukergrensesnitt
     Private Sub EnkeltKundeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EnkeltKundeToolStripMenuItem.Click
         Endre_kunder.Show()
         Close()
@@ -53,7 +55,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Sok_i_utstyrbase.Show()
         Close()
     End Sub
-   
+
     Private Sub SlettUtstyrToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SlettUtstyrToolStripMenuItem.Click
         Slett_utstyr.Show()
         Close()
@@ -64,18 +66,21 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
 #End Region
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        'velger kundetype
         Label1.Visible = True
         TextBox1.Visible = True
         Label2.Text = "Etternavn"
         hjelp = "KundePrivat"
     End Sub
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        'velger kundetype
         Label1.Visible = False
         TextBox1.Visible = False
         Label2.Text = "Org.navn"
         hjelp = "Organisasjon"
     End Sub
     Private Sub ComboBox1_Click(sender As Object, e As EventArgs) Handles ComboBox1.Click
+        'velger sykkeltype for bestilling eller tilbakelevering
         b.sporBox1 = ComboBox1
         Select Case hjelp
             Case "Bestilling"
@@ -89,6 +94,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         End Select
     End Sub
     Private Sub ComboBox2_Click(sender As Object, e As EventArgs) Handles ComboBox2.Click
+        'velger sykkelmerke for bestilling eller tilbakelevering
         b.sporBox2 = ComboBox2
         Select Case hjelp
             Case "Bestilling"
@@ -99,6 +105,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         End Select
     End Sub
     Private Sub ComboBox8_Click(sender As Object, e As EventArgs) Handles ComboBox8.Click
+        'velger utstyrtype for bestilling eller tilbakelevering
         b.sporBox8 = ComboBox8
         Select Case hjelp
             Case "Bestilling"
@@ -109,6 +116,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         End Select
     End Sub
     Private Sub ComboBox9_Click(sender As Object, e As EventArgs) Handles ComboBox9.Click
+        'velger utstyrmerke for bestilling eller tilbakelevering
         b.sporBox9 = ComboBox9
         Select Case hjelp
             Case "Bestilling"
@@ -119,6 +127,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         End Select
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'kaller subklasse fra klasse Kunde for å velge en bestemt kunde
         If hjelp = "KundePrivat" Then
             kunde.privatKundeSok(TextBox2.Text, TextBox1.Text, TextBox3.Text, TextBox4.Text)
             MsgBox("Velg kunde fra tabell ved klikk to ganger på trekant fra venstre.")
@@ -130,6 +139,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         End If
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'kaller subklasse fra klasse Kunde for å velge og vise alle kunder
         kunde.hjelpKundeDataGrid = DataGridView1
         DataGridView1.Visible = True
         DataGridView1.DataSource = Nothing
@@ -137,8 +147,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         MsgBox("Velg kunde fra tabell ved klikk to ganger på trekant fra venstre.")
     End Sub
     Private Sub Bestilling_og_tilbakelevering_av_sykler_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'startposisjoner og oppretter innhold til DataGridView-former
         ComboBox1.Enabled = False : ComboBox2.Enabled = False : ComboBox3.Enabled = False : ComboBox5.Enabled = False : ComboBox8.Enabled = False : ComboBox9.Enabled = False : Button3.Visible = False : DateTimePicker1.Enabled = False : DateTimePicker2.Enabled = False : Button6.Enabled = False : Button8.Enabled = False
-        'DateTimePicker1.Text = "" : DateTimePicker2.Text = ""
         b.slettInfoFraMellomlagring()
         b.slettInfoFraMellomlagringUtstyr()
         DataGridView1.DataSource = Nothing
@@ -157,6 +167,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         DataGridView4.Columns(3).Name = "SykkelID"
     End Sub
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
+        'velger en bestemt kunde for bestilling eller tilbakelevering av sykler
         Dim resp = MsgBox("Vil du registrere BESTILLING av sykler?", MsgBoxStyle.YesNo)
         If resp = vbYes Then
             Button3.Text = "Gå videre"
@@ -179,6 +190,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         Button3.Visible = True : Button4.Visible = True : Button6.Visible = True
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'bekreft sykler og overføring til utstyrbestilling eller tilbakelevering
         Select Case hjelp
             Case "Bestilling"
                 Dim resp = MsgBox("Vil du registrere BESTILLING av utstyr til disse sykler?", MsgBoxStyle.YesNo)
@@ -211,6 +223,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         End Select
     End Sub
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        'bekreft utstyr og overføring til pris og valg av rabatt ved bestilling
+        'fullfør bestilling eller tilbakelevering
         Select Case hjelp
             Case "Bestilling"
                 DataGridView3.Enabled = False
@@ -237,6 +251,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        'velger sykkel og plasserer den til mellomlagringstabell
         b.sjekkHjelp = "sykCombobox"
         If hjelp = "Bestilling" Then
             b.mellom = "Bestilling"
@@ -265,6 +280,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        'velger utstyr og plasserer den til mellomlagringstabell
         ComboBox1.Enabled = True : ComboBox2.Enabled = True : ComboBox3.Enabled = True : ComboBox5.Enabled = True
         Button3.Enabled = True : Button4.Enabled = True
         b.res = False
@@ -291,6 +307,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         End If
     End Sub
     Private Sub DataGridView3_RowHeaderMouseClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView3.RowHeaderMouseClick
+        'velger sykkel for tilknutte utstyr til den
         If hjelp = "Bestilling" Then
             Button5.Text = "Fullfør bestillingen"
         ElseIf hjelp = "Tilbakelevering" Then
@@ -334,6 +351,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         teller2 -= 1
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        'fullfør bestilling og tilbakelevering
         Select Case hjelp
             Case "Bestilling"
                 rowNum1 = DataGridView1.CurrentCell.RowIndex
@@ -378,21 +396,18 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         End Select
         Form1.Refresh()
     End Sub
-    Private Sub Button7_Click(sender As Object, e As EventArgs)
-        Button3.Visible = True
-        Button4.Visible = True
-        Button6.Visible = True
-        GroupBox6.Visible = False
-    End Sub
     Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox4.SelectedIndexChanged
+        'regner rabatt og viser total pris
         Dim rabbat = Val(b.pris) * Val(ComboBox4.Text) / 100
         Label26.Text = Val(b.pris) - rabbat
     End Sub
     Private Sub ComboBox3_MouseClick(sender As Object, e As MouseEventArgs) Handles ComboBox3.MouseClick
+        'velger sted for bestilling
         ComboBox3.Items.Clear()
         b.hentSted()
     End Sub
     Private Sub ComboBox5_MouseClick(sender As Object, e As EventArgs) Handles ComboBox5.MouseClick
+        'velger sted for tilbakelevering
         ComboBox5.Items.Clear()
         b.hentSted()
     End Sub

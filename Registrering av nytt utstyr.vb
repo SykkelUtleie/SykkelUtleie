@@ -8,7 +8,7 @@ Private a As New GUI
     Private b As New Sporring
     Private hjelp As String
 #Region "GUI"
-
+    'oppretter fuksjonalitet til brukergrensesnitt
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
         Close()
@@ -62,6 +62,7 @@ Private a As New GUI
 
 #End Region
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'kaller subklasse fra klasse Utstyr for å registrere nytt utstyr
         If ComboBox1.Text <> "" And TextBox1.Text <> "" And TextBox2.Text <> "" Then
             utstyr.reg(ComboBox1.Text, TextBox1.Text, TextBox2.Text)
         Else

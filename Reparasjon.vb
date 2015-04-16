@@ -5,7 +5,7 @@ Public Class Reparasjon
     Private b As New Sporring
     Private hjelp As String
 #Region "GUI"
-
+    'oppretter fuksjonalitet til brukergrensesnitt
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
         Close()
@@ -60,6 +60,7 @@ Public Class Reparasjon
 #End Region
 
     Private Sub ComboBox1_MouseClick(sender As Object, e As MouseEventArgs) Handles ComboBox1.MouseClick
+        'velger sykkeltype for reparasjon eller for sykler som allerede reparert
         b.soke = "repSoke"
         b.sporBox1 = ComboBox1
         If RadioButton1.Checked = True Then
@@ -73,6 +74,7 @@ Public Class Reparasjon
     End Sub
 
     Private Sub ComboBox2_MouseClick(sender As Object, e As MouseEventArgs) Handles ComboBox2.MouseClick
+        'velger sykkelmerke for reparasjon eller for sykler som allerede reparert
         b.soke = "repSoke"
         b.sporBox2 = ComboBox2
         If RadioButton1.Checked = True Then
@@ -86,6 +88,7 @@ Public Class Reparasjon
     End Sub
 
     Private Sub ComboBox3_MouseClick(sender As Object, e As MouseEventArgs) Handles ComboBox3.MouseClick
+        'velger sykkelID for reparasjon eller for sykler som allerede reparert
         b.sporBox1 = ComboBox1
         b.sporBox2 = ComboBox2
         b.sporBox4 = ComboBox3
@@ -100,18 +103,22 @@ Public Class Reparasjon
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        'viser sykkeltype som valgt
         Label5.Text = ComboBox1.Text
     End Sub
 
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        'viser sykkeltype og sykkelmerke som valgt
         Label5.Text = ComboBox1.Text & " " & ComboBox2.Text
     End Sub
 
     Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
+        'viser sykkeltype, sykkelmerke og sykkelID som valgt
         Label5.Text = ComboBox1.Text & " " & ComboBox2.Text & ", ID: " & ComboBox3.Text
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'registrering av sykkel som under reparasjon eller allerede reparert
         b.sporBox1 = ComboBox1
         b.sporBox2 = ComboBox2
         b.sporBox4 = ComboBox3

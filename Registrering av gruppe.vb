@@ -1,13 +1,14 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Configuration
 Public Class Registrering_av_gruppe
+    'deklarerer variabler
     Private a As New GUI
     Private kunde As New Kunde
     Private sykkel As New Sykkel
     Private b As New Sporring
     Private hjelp As String
 #Region "GUI"
-
+    'oppretter fuksjonalitet til brukergrensesnitt
     Private Sub SøkIKundebaseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SøkIKundebaseToolStripMenuItem.Click
         Sok_i_kundebase.Show()
         Close()
@@ -62,16 +63,19 @@ Public Class Registrering_av_gruppe
 #End Region
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        'velger kundetype
         a.lab2 = Label2 : a.lab3 = Label1 : a.lab4 = Label3 : a.tBox1 = TextBox1 : a.dPicker1 = DateTimePicker3
         a.enkelt()
         hjelp = "KundePrivat"
     End Sub
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        'velger kundetype
         a.lab2 = Label2 : a.lab3 = Label1 : a.lab4 = Label3 : a.tBox1 = TextBox1 : a.dPicker1 = DateTimePicker3
         a.organisasjon()
         hjelp = "Organisasjon"
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'registrerer ny kunde
         If hjelp = "KundePrivat" Then
             b.sjekkHjelp = "Privat"
             b.sjekk(TextBox1.Text, TextBox2.Text, TextBox4.Text, TextBox5.Text, TextBox6.Text)
