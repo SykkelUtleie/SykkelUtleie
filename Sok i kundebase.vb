@@ -60,18 +60,21 @@ Public Class Sok_i_kundebase
 
 #End Region
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        'setter opp formen for søk etter privatkunde
         Label1.Visible = True
         TextBox1.Visible = True
         Label2.Text = "Etternavn"
         hjelp = "KundePrivat"
     End Sub
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        'setter opp formen for søk etter bedrifter
         Label1.Visible = False
         TextBox1.Visible = False
         Label2.Text = "Org.navn"
         hjelp = "Organisasjon"
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'søker etter kunder ut i fra oppgitt informasjon 
         If hjelp = "KundePrivat" Then
             kunde.privatKundeSok(TextBox2.Text, TextBox1.Text, TextBox3.Text, TextBox4.Text)
         ElseIf hjelp = "Organisasjon" Then
@@ -81,10 +84,12 @@ Public Class Sok_i_kundebase
         End If
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'søker etter alle kunder
         kunde.hjelpKundeDataGrid = DataGridView1
         kunde.alleKunderSok()
     End Sub
     Private Sub Sok_i_kundebase_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'tømmer datagridview
         DataGridView1.DataSource = Nothing
     End Sub
 End Class

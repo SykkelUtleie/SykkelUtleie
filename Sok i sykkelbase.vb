@@ -58,33 +58,40 @@ Public Class Sok_i_sykkelbase
 
 #End Region
     Private Sub ComboBox1_Click(sender As Object, e As EventArgs) Handles ComboBox1.Click
+        'søker opp sykkeltype
         b.soke = "sSoke"
         b.sporBox1 = ComboBox1
         b.hentSykkelType()
     End Sub
     Private Sub ComboBox2_Click(sender As Object, e As EventArgs) Handles ComboBox2.Click
+        'søker opp sykkelmerke ut i fra type
         b.soke = "sSoke"
         b.sporBox2 = ComboBox2
         b.hentSykkelMerke()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'henter den bestemte sykkelen
         sykkel.sHjelp = "bestemt"
         sykkel.sykkelSok(ComboBox1.Text, ComboBox2.Text)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'henter alle sykler 
         sykkel.sHjelp = "alle"
         sykkel.sykkelSok(ComboBox1.Text, ComboBox2.Text)
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'henter alle sykler som er tilgjengelige foor utleie
         sykkel.sHjelp = "tilgjengelige"
         sykkel.sykkelSok(ComboBox1.Text, ComboBox2.Text)
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        'henter alle sykler som er utleid
         sykkel.sHjelp = "utleied"
         sykkel.sykkelSok(ComboBox1.Text, ComboBox2.Text)
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        'henter alle sykler som er stjålet
         sykkel.sHjelp = "stjalet"
         sykkel.sykkelSok(ComboBox1.Text, ComboBox2.Text)
     End Sub

@@ -61,18 +61,21 @@ Public Class Slett_kunde
 
 #End Region
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.CheckedChanged
+        'setter formen opp for privatkunde
         Label1.Visible = True
         TextBox1.Visible = True
         Label2.Text = "Etternavn"
         hjelp = "KundePrivat"
     End Sub
     Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.CheckedChanged
+        'setter formen opp for bedrifter
         Label1.Visible = False
         TextBox1.Visible = False
         Label2.Text = "Org.navn"
         hjelp = "Organisasjon"
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'søker opp kunde ut fra informasjonen som har blitt gitt av brukeren
         If hjelp = "KundePrivat" Then
             kunde.privatKundeSok(TextBox2.Text, TextBox1.Text, TextBox3.Text, TextBox4.Text)
             MsgBox("Velg kunde fra tabell ved klikk på trekant fra venstre.")
@@ -84,6 +87,7 @@ Public Class Slett_kunde
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'sletter den valgte kunden fra databasen
         If hjelp = "KundePrivat" Then
             kunde.privatKundeSlett(TextBox2.Text, TextBox1.Text, TextBox3.Text, TextBox4.Text)
         ElseIf hjelp = "Organisasjon" Then
@@ -95,6 +99,7 @@ Public Class Slett_kunde
     End Sub
 
     Private Sub Slett_kunde_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-       DataGridView1.DataSource = Nothing
+        'tømmer datagridview
+        DataGridView1.DataSource = Nothing
     End Sub
 End Class

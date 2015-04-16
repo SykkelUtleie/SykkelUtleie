@@ -58,10 +58,12 @@
 
 #End Region
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Tømmer tekstbokser og henter kunder
         TextBox1.Clear() : TextBox2.Clear() : TextBox3.Clear() : TextBox4.Clear() : TextBox5.Clear() : TextBox6.Clear() : TextBox7.Clear() : TextBox8.Clear() : TextBox9.Clear()
         b.kSok()
     End Sub
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
+        'henter informasjonene til en bestemt kunde som blir valgt fra datagridview
         If RadioButton1.Checked = True Then
             hjelp = "KundePrivat"
             TextBox1.Clear() : TextBox2.Clear() : TextBox3.Clear() : TextBox4.Clear() : TextBox5.Clear() : TextBox6.Clear() : TextBox7.Clear() : TextBox8.Clear() : TextBox9.Clear()
@@ -78,6 +80,7 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'registerer endringene som har blitt utført på kundeinformasjonen
         If hjelp = "KundePrivat" Then
             b.sjekkHjelp = "Privat"
             b.sjekk(TextBox1.Text, TextBox2.Text, TextBox4.Text, TextBox6.Text, TextBox5.Text)

@@ -69,6 +69,7 @@
     End Sub
 
     Private Sub Brukere_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'setter inn to valg i comboboksen av oppstart av formen
         ComboBox2.DisplayMember = "Text"
         ComboBox2.Items.Add(New With {.Text = "Bruker", .Value = 2})
         ComboBox2.Items.Add(New With {.Text = "Admin", .Value = 1})
