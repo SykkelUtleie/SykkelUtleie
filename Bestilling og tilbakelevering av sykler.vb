@@ -265,6 +265,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        ComboBox1.Enabled = True : ComboBox2.Enabled = True : ComboBox3.Enabled = True : ComboBox5.Enabled = True
+        Button3.Enabled = True : Button4.Enabled = True
         b.res = False
         b.sjekk(ComboBox8.Text, ComboBox9.Text, ComboBox9.Text, ComboBox9.Text, ComboBox9.Text)
         b.sjekkHjelp = "utstyrCombobox"
@@ -294,8 +296,8 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
         ElseIf hjelp = "Tilbakelevering" Then
             Button5.Text = "Fullfør tilbakeleveringen"
         End If
-        ComboBox1.Enabled = False : ComboBox2.Enabled = False : ComboBox3.Enabled = False : ComboBox5.Enabled = False : Button6.Visible = True
-        Button3.Enabled = False : Button4.Enabled = False : ComboBox8.Enabled = True : ComboBox9.Enabled = True : Button6.Enabled = True
+        Button6.Visible = True
+        ComboBox8.Enabled = True : ComboBox9.Enabled = True : Button6.Enabled = True
     End Sub
 
     Private Sub DataGridView3_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView3.RowHeaderMouseDoubleClick
@@ -312,6 +314,9 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
             rad += 1
         Next
         teller -= 1
+        If teller = 0 Then
+            DateTimePicker1.Enabled = True : DateTimePicker2.Enabled = True : ComboBox3.Enabled = True : ComboBox5.Enabled = True
+        End If
     End Sub
     Private Sub DataGridView4_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView4.RowHeaderMouseDoubleClick
         'viser utstyr som er lagt til bestillingen og mulighet for å slette disse

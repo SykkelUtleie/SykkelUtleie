@@ -32,9 +32,9 @@ Partial Class Administrering_av_database
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Button1.Location = New System.Drawing.Point(12, 22)
+        Me.Button1.Location = New System.Drawing.Point(12, 87)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(131, 89)
+        Me.Button1.Size = New System.Drawing.Size(131, 63)
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Opprett database"
         Me.Button1.UseVisualStyleBackColor = True
@@ -42,7 +42,7 @@ Partial Class Administrering_av_database
         'Button7
         '
         Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Button7.Location = New System.Drawing.Point(189, 261)
+        Me.Button7.Location = New System.Drawing.Point(101, 173)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(131, 37)
         Me.Button7.TabIndex = 6
@@ -52,9 +52,9 @@ Partial Class Administrering_av_database
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Button2.Location = New System.Drawing.Point(189, 22)
+        Me.Button2.Location = New System.Drawing.Point(12, 12)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(131, 89)
+        Me.Button2.Size = New System.Drawing.Size(131, 60)
         Me.Button2.TabIndex = 7
         Me.Button2.Text = "Statistikk"
         Me.Button2.UseVisualStyleBackColor = True
@@ -62,9 +62,9 @@ Partial Class Administrering_av_database
         'Button3
         '
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Button3.Location = New System.Drawing.Point(12, 127)
+        Me.Button3.Location = New System.Drawing.Point(189, 87)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(131, 89)
+        Me.Button3.Size = New System.Drawing.Size(131, 63)
         Me.Button3.TabIndex = 8
         Me.Button3.Text = "Administrere brukere"
         Me.Button3.UseVisualStyleBackColor = True
@@ -72,9 +72,9 @@ Partial Class Administrering_av_database
         'Button4
         '
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(372, 22)
+        Me.Button4.Location = New System.Drawing.Point(189, 12)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(131, 89)
+        Me.Button4.Size = New System.Drawing.Size(131, 60)
         Me.Button4.TabIndex = 9
         Me.Button4.Text = "Utleveringssted og tilbakeleveringssted"
         Me.Button4.UseVisualStyleBackColor = True
@@ -83,7 +83,7 @@ Partial Class Administrering_av_database
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(569, 310)
+        Me.ClientSize = New System.Drawing.Size(340, 228)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)

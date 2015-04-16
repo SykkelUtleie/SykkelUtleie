@@ -23,6 +23,8 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -51,6 +53,8 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label9)
         Me.GroupBox1.Controls.Add(Me.Label8)
@@ -69,10 +73,29 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Global oversikt"
         '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(300, 225)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(83, 24)
+        Me.Label11.TabIndex = 11
+        Me.Label11.Text = "Label11"
+        '
+        'Label12
+        '
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
+        Me.Label12.Location = New System.Drawing.Point(72, 216)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(207, 45)
+        Me.Label12.TabIndex = 10
+        Me.Label12.Text = "Antall sykler som er ikke tilbakelevert eller stjålet:"
+        Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(240, 182)
+        Me.Label10.Location = New System.Drawing.Point(300, 183)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(83, 24)
         Me.Label10.TabIndex = 9
@@ -81,7 +104,7 @@ Partial Class Form1
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(240, 149)
+        Me.Label9.Location = New System.Drawing.Point(300, 150)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(72, 24)
         Me.Label9.TabIndex = 8
@@ -90,7 +113,7 @@ Partial Class Form1
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(240, 117)
+        Me.Label8.Location = New System.Drawing.Point(300, 118)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(72, 24)
         Me.Label8.TabIndex = 7
@@ -99,7 +122,7 @@ Partial Class Form1
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(240, 84)
+        Me.Label7.Location = New System.Drawing.Point(300, 85)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(72, 24)
         Me.Label7.TabIndex = 6
@@ -118,7 +141,7 @@ Partial Class Form1
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label5.Location = New System.Drawing.Point(27, 185)
+        Me.Label5.Location = New System.Drawing.Point(87, 186)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(192, 20)
         Me.Label5.TabIndex = 4
@@ -128,7 +151,7 @@ Partial Class Form1
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label4.Location = New System.Drawing.Point(39, 152)
+        Me.Label4.Location = New System.Drawing.Point(99, 153)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(179, 20)
         Me.Label4.TabIndex = 3
@@ -138,7 +161,7 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label3.Location = New System.Drawing.Point(54, 120)
+        Me.Label3.Location = New System.Drawing.Point(114, 121)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(164, 20)
         Me.Label3.TabIndex = 2
@@ -148,7 +171,7 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(204, Byte))
-        Me.Label2.Location = New System.Drawing.Point(45, 87)
+        Me.Label2.Location = New System.Drawing.Point(105, 88)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(173, 20)
         Me.Label2.TabIndex = 1
@@ -288,5 +311,7 @@ Partial Class Form1
     Friend WithEvents AdministreringAvDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BestillingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LogUtToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 
 End Class

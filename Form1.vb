@@ -11,6 +11,7 @@ Public Class Form1
         Label8.Text = b.overS
         Label9.Text = b.overTU
         Label10.Text = b.overU
+        Label11.Text = b.overSt
         b.stjalet()
     End Sub
 #Region "GUI"
@@ -50,5 +51,6 @@ Public Class Form1
         Me.Close()
     End Sub
 #End Region
+
 End Class
 

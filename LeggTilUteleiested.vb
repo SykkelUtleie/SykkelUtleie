@@ -1,18 +1,16 @@
 ﻿Public Class LeggTilUteleiested
     Private b As New Sporring
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         b.leggtilSted()
+        b.hentSted()
     End Sub
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         DataGridView1.DataSource = Nothing
         b.hentSted()
     End Sub
     Private Sub DataGridView1_RowHeaderMouseDoubleClick(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridView1.RowHeaderMouseDoubleClick
         'Mulighet for å slette steder fra et datagridview
-        Dim resp = MsgBox("Ønsker du å slette denne brukeren ?", MsgBoxStyle.YesNo)
+        Dim resp = MsgBox("Ønsker du å slette dette stedet?", MsgBoxStyle.YesNo)
         If resp = vbYes Then
             b.fjernSted()
             b.hentSted()

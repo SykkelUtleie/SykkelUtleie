@@ -6,7 +6,7 @@ Imports Excel = Microsoft.Office.Interop.Excel
 Imports System.Text.RegularExpressions
 Public Class Sporring
     Private sporring As String
-    Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, repSoke, kundeSok, sykkelSok, utstyrSok, slette, spor, sykID, utstID, kundID, overK, overS, overTU, overU, prisbox As String
+    Protected Friend sykIdForUtstyr, mellom, mellom1, registr, soke, soke1, repSoke, kundeSok, sykkelSok, utstyrSok, slette, spor, sykID, utstID, kundID, overK, overS, overTU, overU, overSt, prisbox As String
     Protected Friend sporEtternavn, sporNavn, sporAdresse, sporTel, sporEpost, sporFdato, sporDatoFra, sporDatoTil As String
     Protected Friend sporType, sporMerke, sporHjul, sporRamme, sporGir, sporGaffel, sporBremser, sporBestType, sporBestMerke, tilbSykID As String
     Protected Friend sporBox1, sporBox2, sporBox3, sporBox4, sporBox8, sporBox9 As ComboBox
@@ -465,7 +465,6 @@ Public Class Sporring
             For Each rad0 In data0.Rows
                 id = rad0("ID")
             Next
-
             Dim data As New DataTable
             Dim sporring1 As String = "SELECT SykkelID FROM Sykkel WHERE Sykkeltype = '" & type & "' AND Sykkelmerke = '" & merke & "' AND (SykkelID NOT IN (SELECT SykkelID FROM Sykkel_bestilling) OR SykkelID IN (SELECT SykkelID FROM Sykkel_bestilling, Bestilling_tilbakelevering WHERE Tilbakeleveringssted IS NOT NULL))"
             data = query(sporring1)
@@ -866,28 +865,28 @@ Public Class Sporring
         Dim sporring1 As String = "SELECT COUNT(DISTINCT KundeID) AS AntallKunder FROM Kunde"
         data = query(sporring1)
         Dim rad As DataRow
-        Dim antallKunder, antallSykler, antallTilUtleie, antallUtleied As String
         For Each rad In data.Rows
-            antallKunder = rad("AntallKunder")
-            overK = antallKunder
+            overK = rad("AntallKunder")
         Next rad
         Dim sporring2 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel"
         data = query(sporring2)
         For Each rad In data.Rows
-            antallSykler = rad("AntallSykler")
-            overS = antallSykler
+            overS = rad("AntallSykler")
         Next
         Dim sporring3 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel WHERE Status ='Tilgjengelig')"
         data = query(sporring3)
         For Each rad In data.Rows
-            antallTilUtleie = rad("AntallSykler")
-            overTU = antallTilUtleie
+            overTU = rad("AntallSykler")
         Next rad
         Dim sporring4 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel WHERE Status ='Utleied')"
         data = query(sporring4)
         For Each rad In data.Rows
-            antallUtleied = rad("AntallSykler")
-            overU = antallUtleied
+            overU = rad("AntallSykler")
+        Next rad
+        Dim sporring5 As String = "SELECT COUNT(DISTINCT SykkelID) AS AntallSykler FROM Sykkel WHERE SykkelID IN (SELECT SykkelID FROM Sykkel WHERE Status ='Stjålet')"
+        data = query(sporring5)
+        For Each rad In data.Rows
+            overSt = rad("AntallSykler")
         Next rad
     End Sub
     Public Sub mellomlagring()
