@@ -58,33 +58,40 @@ Public Class Sok_i_utstyrbase
 #End Region
 
     Private Sub ComboBox1_Click(sender As Object, e As EventArgs) Handles ComboBox1.Click
+        'henter ustyrstype
         b.soke = "uSoke"
         b.sporBox8 = ComboBox1
         b.hentUtstyrType()
     End Sub
     Private Sub ComboBox2_Click(sender As Object, e As EventArgs) Handles ComboBox2.Click
+        'henter utstyrsmerke ut i fra type
         b.soke = "uSoke"
         b.sporBox9 = ComboBox2
         b.hentUtstyrMerke()
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'henter det bestemte utstyret ut i fra comboboksene
         utstyr.uHjelp = "bestemt"
         utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        'henter alt av utstyr
         utstyr.uHjelp = "alle"
         utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        'henter alt utstyr som er tilgjengelig for utleie
         utstyr.uHjelp = "tilgjengelige"
         utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        'henter utstyr som er utleid
         utstyr.uHjelp = "utleied"
         utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
     End Sub
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        'henter utstyr som er stjålet
         utstyr.uHjelp = "stjalet"
         utstyr.utstyrSok(ComboBox1.Text, ComboBox2.Text)
     End Sub

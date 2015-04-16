@@ -59,22 +59,27 @@ Public Class Slett_utstyr
 
 #End Region
     Private Sub ComboBox1_Click(sender As Object, e As EventArgs) Handles ComboBox1.Click
+        'henter utstyrstype
         b.sporBox8 = ComboBox1
         b.hentUtstyrType()
     End Sub
     Private Sub ComboBox2_Click(sender As Object, e As EventArgs) Handles ComboBox2.Click
+        'henter utstyrsmerke ut i fra valgt type
         b.sporBox9 = ComboBox2
         b.hentUtstyrMerke()
     End Sub
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        'oppdaterer comboboksen
         utstyr.uHjelp = "type"
         utstyr.utstyrSlett(ComboBox1.Text, ComboBox2.Text)
     End Sub
     Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        'oppdaterer comboboksen
         utstyr.uHjelp = "typeOgMerke"
         utstyr.utstyrSlett(ComboBox1.Text, ComboBox2.Text)
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'sletter utstyr som er valgt i datagridview
         Dim rowNum As Integer = DataGridView1.CurrentCell.RowIndex
         Dim cellNum As String = DataGridView1.Rows(rowNum).Cells(0).Value
         b.utstID = cellNum
@@ -84,6 +89,7 @@ Public Class Slett_utstyr
         ComboBox1.Text = "" : ComboBox2.Text = ""
     End Sub
     Private Sub Slett_sykkel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'tømmer datagridview
         DataGridView1.SelectAll()
         DataGridView1.ClearSelection()
     End Sub

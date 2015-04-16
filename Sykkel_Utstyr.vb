@@ -58,6 +58,7 @@
 
 #End Region
     Private Sub Sykkel_Utstyr_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'henter oversikt over sykler i databasen
         Dim d As Date = Date.Now
         Label6.Text = d.ToString("dd.MM.yyyy")
         b.oversikt()

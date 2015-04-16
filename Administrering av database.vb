@@ -4,7 +4,8 @@ Imports System.Configuration
 Public Class Administrering_av_database
     Private b As New Sporring
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-         b.opprett()
+        'oppretter database
+        b.opprett()
     End Sub
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Form1.Show()
@@ -28,6 +29,7 @@ Public Class Administrering_av_database
     End Sub
 
     Private Sub Administrering_av_database_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'sjekker av brukeren har tilgang til
         b.auth()
     End Sub
 End Class
