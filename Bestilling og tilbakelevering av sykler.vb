@@ -312,6 +312,7 @@ Public Class Bestilling_og_tilbakelevering_av_sykler
             Button5.Text = "Fullfør bestillingen"
         ElseIf hjelp = "Tilbakelevering" Then
             Button5.Text = "Fullfør tilbakeleveringen"
+            MsgBox("HUSK! Du må registrere ALT UTSTYR som er tilknyttet til utvalgt sykkel!", MsgBoxStyle.Exclamation)
         End If
         Button6.Visible = True
         ComboBox8.Enabled = True : ComboBox9.Enabled = True : Button6.Enabled = True
